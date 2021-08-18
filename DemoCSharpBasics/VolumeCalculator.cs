@@ -8,26 +8,27 @@ namespace DemoCSharpBasics
 {
     public class VolumeCalculator
     {
-        private double PI;
+        private Cube cube;
+        private Cylinder cylinder;
+        private Sphere sphere;
 
-        public VolumeCalculator() 
-        {
-            PI = 3.14;
-        }
 
         public double CalculateSphereVolume(double r) 
         {
-            return 4 * Math.Pow(r, 3) * PI / 3;
+            sphere = new Sphere(r);
+            return sphere.Calculate();
         }
 
         public double CalculateCylinderVolume(double r, double H)
         {
-            return Math.Pow(r, 2) * PI * H;
+            cylinder = new Cylinder(r, H);
+            return cylinder.Calculate();
         }
 
         public double CalculateCubeVolume(double a)
         {
-            return Math.Pow(a, 3);
+            cube = new Cube(a);
+            return cube.Calculate();
         }
     }
 }
