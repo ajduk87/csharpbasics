@@ -18,7 +18,6 @@ namespace DemoCSharpBasics
                 Console.WriteLine("Enter a");
                 double a = Convert.ToDouble(Console.ReadLine());
                 volume = volumeCalculator.CalculateCubeVolume(a);
-                Console.WriteLine("Cube volume is " + Math.Round(volume, 2));
             }
 
             if (figure.Equals("cylinder"))
@@ -28,7 +27,6 @@ namespace DemoCSharpBasics
                 Console.WriteLine("Enter H");
                 double H = Convert.ToDouble(Console.ReadLine());
                 volume = volumeCalculator.CalculateCylinderVolume(r, H);
-                Console.WriteLine("Cylinder volume is " + Math.Round(volume, 2));
             }
 
             if (figure.Equals("sphere"))
@@ -36,9 +34,9 @@ namespace DemoCSharpBasics
                 Console.WriteLine("Enter r");
                 double r = Convert.ToDouble(Console.ReadLine());
                 volume = volumeCalculator.CalculateSphereVolume(r);
-                Console.WriteLine("Sphere volume is " + Math.Round(volume, 2));
             }
 
+            Console.WriteLine("Volume is " + Math.Round(volume, 2));
             Console.ReadKey();
         }
     }
