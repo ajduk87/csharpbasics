@@ -39,18 +39,22 @@ namespace DemoCSharpBasics
 
         public static void Main(string[] args)
         {
-            double volume = 0;
+            double cubeVolume = 0;
+            double cylinderVolume = 0;
+            double sphereVolume = 0;
             VolumeCalculator volumeCalculator = new VolumeCalculator();
 
             Console.WriteLine("Enter figure (cube, cylinder, sphere)");
 
             string figure = Console.ReadLine();
 
-            volume = CubeVolume(figure, volumeCalculator);
-            volume = CylinderVolume(figure, volumeCalculator);
-            volume = SphereVolume(figure, volumeCalculator);
+            cubeVolume = CubeVolume(figure, volumeCalculator);
+            cylinderVolume = CylinderVolume(figure, volumeCalculator);
+            sphereVolume = SphereVolume(figure, volumeCalculator);
 
-            Console.WriteLine("Volume is " + Math.Round(volume, 2));
+            Console.WriteLine("Cube volume is " + Math.Round(cubeVolume, 2));
+            Console.WriteLine("Cylinder volume is " + Math.Round(cylinderVolume, 2));
+            Console.WriteLine("Sphere volume is " + Math.Round(sphereVolume, 2));
 
             Console.ReadKey();
         }
