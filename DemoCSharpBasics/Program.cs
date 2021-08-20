@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace DemoCSharpBasics
 {
@@ -39,22 +40,104 @@ namespace DemoCSharpBasics
 
         public static void Main(string[] args)
         {
-            double cubeVolume = 0;
-            double cylinderVolume = 0;
-            double sphereVolume = 0;
-            VolumeCalculator volumeCalculator = new VolumeCalculator();
 
-            Console.WriteLine("Enter figure (cube, cylinder, sphere)");
+            string greetingEnglish = "Hello";
+            string greetingUs = "Hello";
+            string greetingSerbian = "Zdravo";
 
-            string figure = Console.ReadLine();
+            Console.WriteLine("Second letter in string greeting is " + greetingEnglish[1]);
 
-            cubeVolume = CubeVolume(figure, volumeCalculator);
-            cylinderVolume = CylinderVolume(figure, volumeCalculator);
-            sphereVolume = SphereVolume(figure, volumeCalculator);
+            //Comparing two strings
+            // 1. way
+            if (String.Compare(greetingEnglish, greetingUs) == 0)
+            {
+                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are equal.");
+            }
+            else 
+            {
+                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are not equal.");
+            }
 
-            Console.WriteLine("Cube volume is " + Math.Round(cubeVolume, 2));
-            Console.WriteLine("Cylinder volume is " + Math.Round(cylinderVolume, 2));
-            Console.WriteLine("Sphere volume is " + Math.Round(sphereVolume, 2));
+            if (String.Compare(greetingEnglish, greetingSerbian) == 0)
+            {
+                Console.WriteLine(greetingEnglish + " and " + greetingSerbian + " are equal.");
+            }
+            else
+            {
+                Console.WriteLine(greetingEnglish + " and " + greetingSerbian + " are not equal.");
+            }
+
+            //2.way
+            if (greetingEnglish.Equals(greetingUs))
+            {
+                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are equal.");
+            }
+            else
+            {
+                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are not equal.");
+            }
+
+            if (greetingEnglish.Equals(greetingSerbian))
+            {
+                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are equal.");
+            }
+            else
+            {
+                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are not equal.");
+            }
+
+            //Contains string
+            string partofUsGreeting = "Hell";
+            if (greetingEnglish.Contains(partofUsGreeting))
+            {
+                Console.WriteLine("The sequence "+ partofUsGreeting + " was found "+ greetingEnglish + ".");
+            }
+
+            //Getting substring
+            string partOfSerbianGreeting = greetingSerbian.Substring(1,5);
+            Console.WriteLine("The part of serbian greeting is " + partOfSerbianGreeting);
+
+            //Joining strings
+            //1. way
+            string[] greetings = new string[] { greetingEnglish, greetingUs, greetingSerbian };
+            string allGreetings = String.Join(",", greetings);
+            Console.WriteLine(allGreetings);
+
+            //2. way
+            string allGreetings2 = greetingEnglish + "," + greetingUs + "," + greetingSerbian;
+            Console.WriteLine(allGreetings2);
+
+            //3. way
+            string allGreetings3 = $"{greetingEnglish},{greetingUs},{greetingSerbian}";
+            Console.WriteLine(allGreetings3);
+
+            //Trim string
+            string greetingWithBlanks = "  Hello   ";
+            Console.WriteLine("Trim string result is " + greetingWithBlanks.Trim());
+            Console.WriteLine("TrimStart string result is " + greetingWithBlanks.TrimStart());
+            Console.WriteLine("TrimEnd string result is " + greetingWithBlanks.TrimEnd());
+
+            //Starts with
+            if (greetingEnglish.StartsWith(partofUsGreeting)) 
+            {
+                Console.WriteLine(greetingEnglish + "starts with " + partofUsGreeting);
+            }
+
+            //Ends with
+            if (greetingSerbian.StartsWith(partOfSerbianGreeting)) 
+            {
+                Console.WriteLine(greetingSerbian + "starts with " + partOfSerbianGreeting);
+            }
+
+            //string vs string builder
+            string allGreetings4 = greetingEnglish + "," + greetingUs + "," + greetingSerbian;
+            Console.WriteLine(allGreetings4);
+
+            StringBuilder allGreetings5 = new StringBuilder(string.Empty);
+            allGreetings5.AppendLine(greetingEnglish);
+            allGreetings5.AppendLine(greetingUs);
+            allGreetings5.AppendLine(greetingSerbian);
+            Console.WriteLine(allGreetings5);
 
             Console.ReadKey();
         }
