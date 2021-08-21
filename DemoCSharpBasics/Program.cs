@@ -41,32 +41,17 @@ namespace DemoCSharpBasics
         public static void Main(string[] args)
         {
 
-            //Nullable types
-            int? sideOfCude = null;
-            //int a = null;(compiler error)
-            int defaultSideOfCube = 2;
-            Cube cube = null;
+            //Array with value types example
+            string[] namesOfChessPieces = new string[6];
+            namesOfChessPieces[0] = "king";
+            namesOfChessPieces[1] = "queen";
+            namesOfChessPieces[2] = "rook";
+            namesOfChessPieces[3] = "knight";
+            namesOfChessPieces[4] = "bishop";
+            namesOfChessPieces[5] = "pawn";
 
-            if (sideOfCude.HasValue)
-            {
-                cube = new Cube(sideOfCude.Value);
-            }
-            else 
-            {
-                cube = new Cube(defaultSideOfCube);
-            }
-            Console.WriteLine("Cube volume is " + cube.Calculate());
-
-            cube = null;
-            cube = sideOfCude.HasValue ? new Cube(sideOfCude.Value) : 
-                                         new Cube(defaultSideOfCube);
-            Console.WriteLine("Cube volume again is " + cube.Calculate());
-
-            cube = null;
-            sideOfCude = sideOfCude ?? defaultSideOfCube;
-            cube = new Cube(sideOfCude.Value);
-      
-            Console.WriteLine("Cube volume again is " + cube.Calculate());
+            //namesOfChessPieces[5] = 10;(compile error)
+            //namesOfChessPieces[8] = "king";(runtime error)
 
 
             Console.ReadKey();
