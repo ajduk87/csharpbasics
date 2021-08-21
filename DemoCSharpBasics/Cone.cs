@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DemoCSharpBasics
 {
-    public class Cylinder : Shape, IVolumeCalculator
+    public class Cone : IVolumeCalculator
     {
         private double PI;
         private double r;
         private double H;
 
-        public Cylinder(string name, double r, double H) : base(name)
+        public Cone(string name, double r, double H)
         {
             this.r = r;
             this.H = H;
@@ -21,7 +21,7 @@ namespace DemoCSharpBasics
 
         public double Calculate()
         {
-            return Math.Pow(r, 2) * PI * H;
+            return Math.Pow(r, 2) * PI * H / 3;
         }
     }
 }

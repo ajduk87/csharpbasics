@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DemoCSharpBasics
 {
-    public class Sphere : IVolumeCalculator
+    public class Sphere : Shape, IVolumeCalculator
     {
         private double PI;
         private double r;
 
-        public Sphere(double r) 
+        public Sphere(string name, double r) : base(name)
         {
             this.r = r;
             PI = 3.14;

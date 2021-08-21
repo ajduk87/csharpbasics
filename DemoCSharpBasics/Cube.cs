@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DemoCSharpBasics
 {
-    public class Cube : IVolumeCalculator
+    public class Cube : Shape, IVolumeCalculator
     {
         private double a;
 
-        public Cube(double a) 
+        public Cube(string name, double a) : base(name)
         {
             this.a = a;
         }

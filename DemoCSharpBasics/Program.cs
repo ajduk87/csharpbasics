@@ -41,17 +41,14 @@ namespace DemoCSharpBasics
         public static void Main(string[] args)
         {
 
-            //Array with value types example
-            string[] namesOfChessPieces = new string[6];
-            namesOfChessPieces[0] = "king";
-            namesOfChessPieces[1] = "queen";
-            namesOfChessPieces[2] = "rook";
-            namesOfChessPieces[3] = "knight";
-            namesOfChessPieces[4] = "bishop";
-            namesOfChessPieces[5] = "pawn";
+            //Array with reference types example
+            Shape[] shapes = new Shape[4];
+            shapes[0] = new Cube(name: "cube", a: 2);
+            shapes[1] = new Cylinder(name: "cylinder", r: 2, H: 10);
+            shapes[2] = new Sphere(name: "sphere", r: 6);
 
-            //namesOfChessPieces[5] = 10;(compile error)
-            //namesOfChessPieces[8] = "king";(runtime error)
+            //shapes[3] = new Cone(name: "cone", r: 2, H:10);(compile error)
+            //shapes[8] = new Sphere(name: "sphere", r: 6);//(runtime error)
 
 
             Console.ReadKey();
