@@ -14,5 +14,13 @@ namespace DemoCSharpBasics
         {
             Shapes = shapes;
         }
+
+        public Shape this[string nameOfShape] 
+        {
+            get 
+            {
+                return Shapes.FirstOrDefault(shape => shape.Name.Equals(nameOfShape));
+            }
+        }
     }
 }

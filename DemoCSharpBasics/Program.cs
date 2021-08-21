@@ -79,13 +79,13 @@ namespace DemoCSharpBasics
 
             //we want to find sphere from shapeFinder.
             //How?
-            Shape sphere = shapeFinder.Shapes[2];
+            //we will use indexers in c#.
+            Shape sphere = shapeFinder["sphere"];
 
-            //How we know that number 2 represents sphere ?
-            //Array Shapes contains cubes, cylinders, spheres.
-            //So we dont know.
-            //In this example number 2 is MAGIC NUMBER.
-            //AVOIDING MAGIC NUMBERS !!!!!!!!!!!!!!!!!!!!!!!
+            //Much better ?
+            //i think yes.
+            //No magic number , we wanted sphere from shapeFinder and only wrote sphere
+            //AND AGAIN => AVOIDING MAGIC NUMBERS !!!!!!!!!!!!!!!!!!!!!!!
 
             Console.ReadKey();
         }
