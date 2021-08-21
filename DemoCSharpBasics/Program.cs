@@ -40,104 +40,66 @@ namespace DemoCSharpBasics
 
         public static void Main(string[] args)
         {
+            //Assignment operator
+            int firstIntegernumber = 10;
+            int secondIntegernumber = 6;
+            long firstLongNumber = 10;
+            long secondLongNumber = 6;
+            double firstRealNumber = 10.0;
+            double secondRealNumber = 6.0;
 
-            string greetingEnglish = "Hello";
-            string greetingUs = "Hello";
-            string greetingSerbian = "Zdravo";
+            //Comparison operators
+            bool result = firstIntegernumber == firstLongNumber;
+            Console.WriteLine("Does firstIntegernumber equal to firstLongNumber? " + result);
 
-            Console.WriteLine("Second letter in string greeting is " + greetingEnglish[1]);
+            result = firstIntegernumber == firstRealNumber;
+            Console.WriteLine("Does firstIntegernumber equal to firstRealNumber? " + result);
 
-            //Comparing two strings
-            // 1. way
-            if (String.Compare(greetingEnglish, greetingUs) == 0)
-            {
-                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are equal.");
-            }
-            else 
-            {
-                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are not equal.");
-            }
+            result = firstIntegernumber != firstLongNumber;
+            Console.WriteLine("Does NOT firstIntegernumber equal to firstLongNumber? " + result);
 
-            if (String.Compare(greetingEnglish, greetingSerbian) == 0)
-            {
-                Console.WriteLine(greetingEnglish + " and " + greetingSerbian + " are equal.");
-            }
-            else
-            {
-                Console.WriteLine(greetingEnglish + " and " + greetingSerbian + " are not equal.");
-            }
+            result = firstIntegernumber != firstRealNumber;
+            Console.WriteLine("Does NOT firstIntegernumber equal to firstRealNumber? " + result);
 
-            //2.way
-            if (greetingEnglish.Equals(greetingUs))
-            {
-                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are equal.");
-            }
-            else
-            {
-                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are not equal.");
-            }
+            result = secondIntegernumber < firstIntegernumber;
+            Console.WriteLine("Does secondIntegernumber less than firstIntegernumber? " + result);
 
-            if (greetingEnglish.Equals(greetingSerbian))
+            result = secondIntegernumber <= firstIntegernumber;
+            Console.WriteLine("Does secondIntegernumber less or equal than firstIntegernumber? " + result);
+
+            result = firstIntegernumber > secondIntegernumber;
+            Console.WriteLine("Does firstIntegernumber greater than secondIntegernumber? " + result);
+
+            result = firstIntegernumber >= secondIntegernumber;
+            Console.WriteLine("Does firstIntegernumber greater or equal than secondIntegernumber? " + result);
+
+            //Conditional operators
+            if (firstIntegernumber == firstLongNumber && firstIntegernumber == firstRealNumber) 
             {
-                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are equal.");
-            }
-            else
-            {
-                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are not equal.");
+                Console.WriteLine("Does firstIntegernumber equal to firstLongNumber AND firstIntegernumber equal to firstRealNumber? " + result);
             }
 
-            //Contains string
-            string partofUsGreeting = "Hell";
-            if (greetingEnglish.Contains(partofUsGreeting))
+            if (firstIntegernumber != firstLongNumber || firstIntegernumber == firstRealNumber)
             {
-                Console.WriteLine("The sequence "+ partofUsGreeting + " was found "+ greetingEnglish + ".");
+                Console.WriteLine("Does NOT firstIntegernumber equal to firstLongNumber OR firstIntegernumber equal to firstRealNumber? " + result);
             }
 
-            //Getting substring
-            string partOfSerbianGreeting = greetingSerbian.Substring(1,5);
-            Console.WriteLine("The part of serbian greeting is " + partOfSerbianGreeting);
+            //Ternary operator
+            //firstIntegernumber == firstRealNumber ? Console.WriteLine("FirstIntegernumber equals to firstRealNumber."):
+            //                                        Console.WriteLine("FirstIntegernumber does not equal to firstRealNumber.");
+            string resultMessage = firstIntegernumber == firstRealNumber ? "FirstIntegernumber equals to firstRealNumber." :
+                                                                           "FirstIntegernumber does not equal to firstRealNumber.";
+            Console.WriteLine(resultMessage);
 
-            //Joining strings
-            //1. way
-            string[] greetings = new string[] { greetingEnglish, greetingUs, greetingSerbian };
-            string allGreetings = String.Join(",", greetings);
-            Console.WriteLine(allGreetings);
+            //Null Coalesing operators
+            Cube defaultCube = new Cube(2);
+            Cube cube = null;
+            cube = cube ?? defaultCube;
+            Console.WriteLine("Cube volume is " + cube.Calculate());
 
-            //2. way
-            string allGreetings2 = greetingEnglish + "," + greetingUs + "," + greetingSerbian;
-            Console.WriteLine(allGreetings2);
-
-            //3. way
-            string allGreetings3 = $"{greetingEnglish},{greetingUs},{greetingSerbian}";
-            Console.WriteLine(allGreetings3);
-
-            //Trim string
-            string greetingWithBlanks = "  Hello   ";
-            Console.WriteLine("Trim string result is " + greetingWithBlanks.Trim());
-            Console.WriteLine("TrimStart string result is " + greetingWithBlanks.TrimStart());
-            Console.WriteLine("TrimEnd string result is " + greetingWithBlanks.TrimEnd());
-
-            //Starts with
-            if (greetingEnglish.StartsWith(partofUsGreeting)) 
-            {
-                Console.WriteLine(greetingEnglish + "starts with " + partofUsGreeting);
-            }
-
-            //Ends with
-            if (greetingSerbian.StartsWith(partOfSerbianGreeting)) 
-            {
-                Console.WriteLine(greetingSerbian + "starts with " + partOfSerbianGreeting);
-            }
-
-            //string vs string builder
-            string allGreetings4 = greetingEnglish + "," + greetingUs + "," + greetingSerbian;
-            Console.WriteLine(allGreetings4);
-
-            StringBuilder allGreetings5 = new StringBuilder(string.Empty);
-            allGreetings5.AppendLine(greetingEnglish);
-            allGreetings5.AppendLine(greetingUs);
-            allGreetings5.AppendLine(greetingSerbian);
-            Console.WriteLine(allGreetings5);
+            cube = null;
+            cube ??= defaultCube;
+            Console.WriteLine("Cube volume again is " + cube.Calculate());
 
             Console.ReadKey();
         }
