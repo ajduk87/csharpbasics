@@ -41,65 +41,123 @@ namespace DemoCSharpBasics
         public static void Main(string[] args)
         {
             //Assignment operator
-            int firstIntegernumber = 10;
-            int secondIntegernumber = 6;
+            int firstIntegerNumber = 10;
+            int secondIntegerNumber = 6;
             long firstLongNumber = 10;
             long secondLongNumber = 6;
             double firstRealNumber = 10.0;
             double secondRealNumber = 6.0;
 
             //Comparison operators
-            bool result = firstIntegernumber == firstLongNumber;
+            bool result = firstIntegerNumber == firstLongNumber;
             Console.WriteLine("Does firstIntegernumber equal to firstLongNumber? " + result);
 
-            result = firstIntegernumber == firstRealNumber;
+            result = firstIntegerNumber == firstRealNumber;
             Console.WriteLine("Does firstIntegernumber equal to firstRealNumber? " + result);
 
-            result = firstIntegernumber != firstLongNumber;
+            result = firstIntegerNumber != firstLongNumber;
             Console.WriteLine("Does NOT firstIntegernumber equal to firstLongNumber? " + result);
 
-            result = firstIntegernumber != firstRealNumber;
+            result = firstIntegerNumber != firstRealNumber;
             Console.WriteLine("Does NOT firstIntegernumber equal to firstRealNumber? " + result);
 
-            result = secondIntegernumber < firstIntegernumber;
+            result = secondIntegerNumber < firstIntegerNumber;
             Console.WriteLine("Does secondIntegernumber less than firstIntegernumber? " + result);
 
-            result = secondIntegernumber <= firstIntegernumber;
+            result = secondIntegerNumber <= firstIntegerNumber;
             Console.WriteLine("Does secondIntegernumber less or equal than firstIntegernumber? " + result);
 
-            result = firstIntegernumber > secondIntegernumber;
+            result = firstIntegerNumber > secondIntegerNumber;
             Console.WriteLine("Does firstIntegernumber greater than secondIntegernumber? " + result);
 
-            result = firstIntegernumber >= secondIntegernumber;
+            result = firstIntegerNumber >= secondIntegerNumber;
             Console.WriteLine("Does firstIntegernumber greater or equal than secondIntegernumber? " + result);
 
             //Conditional operators
-            if (firstIntegernumber == firstLongNumber && firstIntegernumber == firstRealNumber) 
+            if (firstIntegerNumber == firstLongNumber && firstIntegerNumber == firstRealNumber) 
             {
                 Console.WriteLine("Does firstIntegernumber equal to firstLongNumber AND firstIntegernumber equal to firstRealNumber? " + result);
             }
 
-            if (firstIntegernumber != firstLongNumber || firstIntegernumber == firstRealNumber)
+            if (firstIntegerNumber != firstLongNumber || firstIntegerNumber == firstRealNumber)
             {
                 Console.WriteLine("Does NOT firstIntegernumber equal to firstLongNumber OR firstIntegernumber equal to firstRealNumber? " + result);
             }
 
             //Ternary operator
+           
+            //if (firstIntegernumber == firstRealNumber)
+            //{
+            //    string resultMessage = "FirstIntegernumber equals to firstRealNumber.";
+            //}
+            //else 
+            //{
+            //    string resultMessage = "FirstIntegernumber does not equal to firstRealNumber.";
+            //}
+            
+            string resultMessage = firstIntegerNumber == firstRealNumber ? "FirstIntegernumber equals to firstRealNumber." :
+                                                                           "FirstIntegernumber does not equal to firstRealNumber.";
+
             //firstIntegernumber == firstRealNumber ? Console.WriteLine("FirstIntegernumber equals to firstRealNumber."):
             //                                        Console.WriteLine("FirstIntegernumber does not equal to firstRealNumber.");
-            string resultMessage = firstIntegernumber == firstRealNumber ? "FirstIntegernumber equals to firstRealNumber." :
-                                                                           "FirstIntegernumber does not equal to firstRealNumber.";
+
             Console.WriteLine(resultMessage);
 
             //Null Coalesing operators
             Cube defaultCube = new Cube(2);
             Cube cube = null;
+
+            //if (cube == null)
+            //{
+            //    cube = defaultCube;
+            //}
             cube = cube ?? defaultCube;
             Console.WriteLine("Cube volume is " + cube.Calculate());
 
             cube = null;
             cube ??= defaultCube;
             Console.WriteLine("Cube volume again is " + cube.Calculate());
+
+            //Arithmetic operators
+            //[+]
+            int arithmeticIntegerResult = firstIntegerNumber + secondIntegerNumber;
+            Console.WriteLine("firstIntegernumber + secondIntegernumber = " + arithmeticIntegerResult);
+            long arithmeticLongResult = firstLongNumber + secondLongNumber;
+            Console.WriteLine("firstLongNumber + secondLongNumber = " + arithmeticLongResult);
+            double arithmeticRealResult = firstRealNumber + secondRealNumber;
+            Console.WriteLine("firstRealNumber + secondRealNumber = " + arithmeticRealResult);
+
+            //[-]
+            arithmeticIntegerResult = firstIntegerNumber - secondIntegerNumber;
+            Console.WriteLine("firstIntegernumber - secondIntegernumber = " + arithmeticIntegerResult);
+            arithmeticLongResult = firstLongNumber - secondLongNumber;
+            Console.WriteLine("firstLongNumber - secondLongNumber = " + arithmeticLongResult);
+            arithmeticRealResult = firstRealNumber - secondRealNumber;
+            Console.WriteLine("firstRealNumber - secondRealNumber = " + arithmeticRealResult);
+
+            //[*]
+            arithmeticIntegerResult = firstIntegerNumber * secondIntegerNumber;
+            Console.WriteLine("firstIntegernumber * secondIntegernumber = " + arithmeticIntegerResult);
+            arithmeticLongResult = firstLongNumber * secondLongNumber;
+            Console.WriteLine("firstLongNumber * secondLongNumber = " + arithmeticLongResult);
+            arithmeticRealResult = firstRealNumber * secondRealNumber;
+            Console.WriteLine("firstRealNumber * secondRealNumber = " + arithmeticRealResult);
+
+            //[/]
+            arithmeticIntegerResult = firstIntegerNumber / secondIntegerNumber;
+            Console.WriteLine("firstIntegernumber / secondIntegernumber = " + arithmeticIntegerResult);
+            arithmeticLongResult = firstLongNumber / secondLongNumber;
+            Console.WriteLine("firstLongNumber / secondLongNumber = " + arithmeticLongResult);
+            arithmeticRealResult = firstRealNumber / secondRealNumber;
+            Console.WriteLine("firstRealNumber / secondRealNumber = " + arithmeticRealResult);
+
+            //[%]
+            arithmeticIntegerResult = firstIntegerNumber % secondIntegerNumber;
+            Console.WriteLine("firstIntegernumber % secondIntegernumber = " + arithmeticIntegerResult);
+            arithmeticLongResult = firstLongNumber % secondLongNumber;
+            Console.WriteLine("firstLongNumber % secondLongNumber = " + arithmeticLongResult);
+            arithmeticRealResult = firstRealNumber % secondRealNumber;
+            Console.WriteLine("firstRealNumber % secondRealNumber = " + arithmeticRealResult);
 
             Console.ReadKey();
         }
