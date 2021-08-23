@@ -83,7 +83,7 @@ namespace DemoCSharpBasics
             }
             else
             {
-                Console.WriteLine(greetingEnglish + " and " + greetingUs + " are not equal.");
+                Console.WriteLine(greetingEnglish + " and " + greetingSerbian + " are not equal.");
             }
 
             //Contains string
@@ -124,7 +124,7 @@ namespace DemoCSharpBasics
             }
 
             //Ends with
-            if (greetingSerbian.StartsWith(partOfSerbianGreeting)) 
+            if (greetingSerbian.EndsWith(partOfSerbianGreeting)) 
             {
                 Console.WriteLine(greetingSerbian + "starts with " + partOfSerbianGreeting);
             }
