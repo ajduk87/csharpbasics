@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace DemoCSharpBasics
 {
-    public class Shape
+    public class ShapeStore
     {
-        public string Name { get; set; }
-        public Shape(string name) 
+        public List<Shape> SoldShapes { get; set; }
+
+        public ShapeStore(List<Shape> soldShapes) 
         {
-            Name = name;
+            SoldShapes = soldShapes;
         }
     }
 }

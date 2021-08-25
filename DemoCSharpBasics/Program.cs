@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace DemoCSharpBasics
@@ -40,52 +41,10 @@ namespace DemoCSharpBasics
         public static void Main(string[] args)
         {
 
-            //Array with reference types example
-            Shape[] shapes = new Shape[4];
-            shapes[0] = new Cube(name: "cube", a: 2);
-            shapes[1] = new Cylinder(name: "cylinder", r: 2, H: 10);
-            shapes[2] = new Sphere(name: "sphere", r: 6);
-            ShapeFinder shapeFinder = new ShapeFinder(shapes);
+            List<Shape> soldShapes = new List<Shape>();
 
-
-            //shapes[3] = new Cone(name: "cone", r: 2, H:10);(compile error)
-            //shapes[8] = new Sphere(name: "sphere", r: 6);//(runtime error)
-
-            /********************************************/
-            // a lot of code lines
-
-
-
-
-            // a lot of code lines
-
-
-            // a lot of code lines
-
-            // a lot of code lines
-
-
-
-
-
-
-
-            // a lot of code lines
-
-
-
-            // a lot of code lines
-            /********************************************/
-
-            //we want to find sphere from shapeFinder.
-            //How?
-            //we will use indexers in c#.
-            Shape sphere = shapeFinder["sphere"];
-
-            //Much better ?
-            //i think yes.
-            //No magic number , we wanted sphere from shapeFinder and only wrote sphere
-            //AND AGAIN => AVOIDING MAGIC NUMBERS !!!!!!!!!!!!!!!!!!!!!!!
+           //Add()
+            
 
             Console.ReadKey();
         }
