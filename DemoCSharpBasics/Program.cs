@@ -42,14 +42,14 @@ namespace DemoCSharpBasics
         {
 
             //Nullable types
-            int? sideOfCude = null;
+            int? sideOfCube = null;
             //int a = null;(compiler error)
             int defaultSideOfCube = 2;
             Cube cube = null;
 
-            if (sideOfCude.HasValue)
+            if (sideOfCube.HasValue)
             {
-                cube = new Cube(sideOfCude.Value);
+                cube = new Cube(sideOfCube.Value);
             }
             else 
             {
@@ -58,13 +58,13 @@ namespace DemoCSharpBasics
             Console.WriteLine("Cube volume is " + cube.Calculate());
 
             cube = null;
-            cube = sideOfCude.HasValue ? new Cube(sideOfCude.Value) : 
+            cube = sideOfCube.HasValue ? new Cube(sideOfCube.Value) : 
                                          new Cube(defaultSideOfCube);
             Console.WriteLine("Cube volume again is " + cube.Calculate());
 
             cube = null;
-            sideOfCude = sideOfCude ?? defaultSideOfCube;
-            cube = new Cube(sideOfCude.Value);
+            sideOfCube = sideOfCube ?? defaultSideOfCube;
+            cube = new Cube(sideOfCube.Value);
       
             Console.WriteLine("Cube volume again is " + cube.Calculate());
 
