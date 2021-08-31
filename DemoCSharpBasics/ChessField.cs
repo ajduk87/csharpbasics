@@ -223,6 +223,33 @@ namespace DemoCSharpBasics
             chessFields[38] = new ChessField('E', 7);
             chessFields[39] = new ChessField('E', 8);
 
+            chessFields[40] = new ChessField('F', 1);
+            chessFields[41] = new ChessField('F', 2);
+            chessFields[42] = new ChessField('F', 3);
+            chessFields[43] = new ChessField('F', 4);
+            chessFields[44] = new ChessField('F', 5);
+            chessFields[45] = new ChessField('F', 6);
+            chessFields[46] = new ChessField('F', 7);
+            chessFields[47] = new ChessField('F', 8);
+
+            chessFields[48] = new ChessField('G', 1);
+            chessFields[49] = new ChessField('G', 2);
+            chessFields[50] = new ChessField('G', 3);
+            chessFields[51] = new ChessField('G', 4);
+            chessFields[52] = new ChessField('G', 5);
+            chessFields[53] = new ChessField('G', 6);
+            chessFields[54] = new ChessField('G', 7);
+            chessFields[55] = new ChessField('G', 8);
+
+            chessFields[56] = new ChessField('H', 1);
+            chessFields[57] = new ChessField('H', 2);
+            chessFields[58] = new ChessField('H', 3);
+            chessFields[59] = new ChessField('H', 4);
+            chessFields[60] = new ChessField('H', 5);
+            chessFields[61] = new ChessField('H', 6);
+            chessFields[62] = new ChessField('H', 7);
+            chessFields[63] = new ChessField('H', 8);
+
             return chessFields;
         }
     }
