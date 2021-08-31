@@ -1,4 +1,5 @@
 using DemoCSharpBasics;
+using DemoCSharpBasics.Shapes;
 using NUnit.Framework;
 using System;
 
@@ -13,11 +14,11 @@ namespace DemoCSharpBasicsTests
         {
             //Arange
             double a = 2;
-            VolumeCalculator volumeCalculator = new VolumeCalculator();
+            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
             double expectedvolume = 8;
 
             //Act
-            double volume = volumeCalculator.CalculateCubeVolume(a);
+            double volume = plasticCube.Calculate();
 
             //Assert
             Assert.AreEqual(expectedvolume, Math.Round(volume));
@@ -29,11 +30,11 @@ namespace DemoCSharpBasicsTests
             //Arange
             double r = 2;
             double H = 2;
-            VolumeCalculator volumeCalculator = new VolumeCalculator();
-            double expectedvolume = 25.12;
+            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
+            double expectedvolume = 37.68;
 
             //Act
-            double volume = volumeCalculator.CalculateCylinderVolume(r, H);
+            double volume = plasticCylinder.Calculate();
 
             //Assert
             Assert.AreEqual(Math.Round(expectedvolume, 2), Math.Round(volume, 2));
@@ -44,11 +45,11 @@ namespace DemoCSharpBasicsTests
         {
             //Arange
             double r = 2;
-            VolumeCalculator volumeCalculator = new VolumeCalculator();
+            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
             double expectedvolume = 33.49;
 
             //Act
-            double volume = volumeCalculator.CalculateSphereVolume(r);
+            double volume = plastricSphere.Calculate();
 
             //Assert
             Assert.AreEqual(Math.Round(expectedvolume, 2), Math.Round(volume, 2));

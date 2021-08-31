@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace DemoCSharpBasics
 {
-    public class Shape
+    public abstract class Shape : IVolumeCalculator
     {
         public string Name { get; set; }
         public Material Material { get; set; }
         public double Price { get; set; }
-        public Shape(string name) 
+        public Shape(string name, Material material, double price) 
         {
             Name = name;
+            Material = material;
+            Price = price;
         }
+
+        public abstract double Calculate();
     }
 }
