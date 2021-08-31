@@ -12,7 +12,7 @@ namespace DemoCSharpBasics
         private double r;
         private double H;
 
-        public Cylinder(string name, double r, double H) : base(name)
+        public Cylinder(string name, double r, double H, string color) : base(name, color)
         {
             this.r = r;
             this.H = H;

@@ -8,10 +8,12 @@ namespace DemoCSharpBasics
 {
     public class Shape
     {
+        public string Color { get; set; }
         public string Name { get; set; }
-        public Shape(string name) 
+        public Shape(string name, string color) 
         {
             Name = name;
+            Color = color;
         }
     }
 }

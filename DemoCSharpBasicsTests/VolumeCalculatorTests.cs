@@ -12,12 +12,11 @@ namespace DemoCSharpBasicsTests
         public void CubeVolumeTest()
         {
             //Arange
-            double a = 2;
-            VolumeCalculator volumeCalculator = new VolumeCalculator();
+            Cube cube = new Cube(name: "cube", a: 2, color: "blue");
             double expectedvolume = 8;
 
             //Act
-            double volume = volumeCalculator.CalculateCubeVolume(a);
+            double volume = cube.Calculate();
 
             //Assert
             Assert.AreEqual(expectedvolume, Math.Round(volume));
@@ -27,13 +26,11 @@ namespace DemoCSharpBasicsTests
         public void CylinderVolumeTest()
         {
             //Arange
-            double r = 2;
-            double H = 2;
-            VolumeCalculator volumeCalculator = new VolumeCalculator();
+            Cylinder cylinder = new Cylinder(name: "cylinder", r: 2, H: 10, color: "blue");
             double expectedvolume = 25.12;
 
             //Act
-            double volume = volumeCalculator.CalculateCylinderVolume(r, H);
+            double volume = cylinder.Calculate();
 
             //Assert
             Assert.AreEqual(Math.Round(expectedvolume, 2), Math.Round(volume, 2));
@@ -43,12 +40,11 @@ namespace DemoCSharpBasicsTests
         public void SphereVolumeTest()
         {
             //Arange
-            double r = 2;
-            VolumeCalculator volumeCalculator = new VolumeCalculator();
+            Sphere sphere = new Sphere(name: "sphere", r: 6, color: "blue");
             double expectedvolume = 33.49;
 
             //Act
-            double volume = volumeCalculator.CalculateSphereVolume(r);
+            double volume = sphere.Calculate();
 
             //Assert
             Assert.AreEqual(Math.Round(expectedvolume, 2), Math.Round(volume, 2));

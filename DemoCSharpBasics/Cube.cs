@@ -10,7 +10,7 @@ namespace DemoCSharpBasics
     {
         private double a;
 
-        public Cube(string name, double a) : base(name)
+        public Cube(string name, double a, string color) : base(name, color)
         {
             this.a = a;
         }

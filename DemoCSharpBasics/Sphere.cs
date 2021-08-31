@@ -11,7 +11,7 @@ namespace DemoCSharpBasics
         private double PI;
         private double r;
 
-        public Sphere(string name, double r) : base(name)
+        public Sphere(string name, double r, string color) : base(name, color)
         {
             this.r = r;
             PI = 3.14;
