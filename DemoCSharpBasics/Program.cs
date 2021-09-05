@@ -131,17 +131,13 @@ namespace DemoCSharpBasics
             Console.WriteLine("Is any glass cube is sold? - " + isAnyGlassCubeIsSold + System.Environment.NewLine);
 
             //Exists()
-            if (soldShapes.Exists(soldShape => soldShape.Name.Equals("cube") && soldShape.Material == Material.WOOD) == true) 
-            {
-                Console.WriteLine("[if (soldShapes.Exists(soldShape => soldShape.Name.Equals(\"cube\") && soldShape.Material == Material.WOOD) == true)]");
-                Console.WriteLine("Is any wood cube is sold? - True" + System.Environment.NewLine);
-            }
+            isAnyWoodCubeIsSold = soldShapes.Exists(soldShape => soldShape.Name.Equals("cube") && soldShape.Material == Material.WOOD) == true;
+                Console.WriteLine("[isAnyWoodCubeIsSold = soldShapes.Exists(soldShape => soldShape.Name.Equals(\"cube\") && soldShape.Material == Material.WOOD) == true]");
+                Console.WriteLine("Is any wood cube is sold? - " + isAnyWoodCubeIsSold +  System.Environment.NewLine);
 
-            if (soldShapes.Exists(soldShape => soldShape.Name.Equals("glass") && soldShape.Material == Material.GLASS) == false)
-            {
-                Console.WriteLine("[if (soldShapes.Exists(soldShape => soldShape.Name.Equals(\"glass\") && soldShape.Material == Material.GLASS) == true)]");
-                Console.WriteLine("Is any glass cube is sold? - False" + System.Environment.NewLine);
-            }
+            isAnyGlassCubeIsSold = soldShapes.Exists(soldShape => soldShape.Name.Equals("glass") && soldShape.Material == Material.GLASS) == false;
+                Console.WriteLine("[isAnyGlassCubeIsSold = soldShapes.Exists(soldShape => soldShape.Name.Equals(\"glass\") && soldShape.Material == Material.GLASS) == false;]");
+                Console.WriteLine("Is any glass cube is sold? - " + isAnyGlassCubeIsSold + System.Environment.NewLine);
 
             //Sort()
             List<double> prices = new List<double> { 6, 8, 10, 16, 18, 20, 60, 26, 30, 32};
@@ -165,10 +161,8 @@ namespace DemoCSharpBasics
             //TrueForAll()
             double priceOfPlacticCone = 3.5;
 
-            if (soldShapes.TrueForAll(soldShape => soldShape.Price > priceOfPlacticCone )) 
-            {
-                Console.WriteLine("Are all sold shapes more expensive than plastic cone? - True." + System.Environment.NewLine);
-            }
+            bool isAnysoldShapeCheaperThanPlacticCone = soldShapes.TrueForAll(soldShape => soldShape.Price > priceOfPlacticCone ) ;
+            Console.WriteLine("Are all sold shapes more expensive than plastic cone? - " + isAnysoldShapeCheaperThanPlacticCone + System.Environment.NewLine);
 
             //TrimExcess()
             List<Shape> expectedSoldShapes = new List<Shape>(100);
@@ -179,6 +173,24 @@ namespace DemoCSharpBasics
             expectedSoldShapes.TrimExcess();
 
             Console.WriteLine("Capacity of expectedSoldShapes after TrimExcess is " + expectedSoldShapes.Capacity + System.Environment.NewLine);
+
+            //RemoveAt()
+            soldShapes.RemoveAt(firstSoldWoodShapeIndexInList);
+
+            Console.WriteLine("[soldShapes.RemoveAt(firstSoldWoodShapeIndexInList)]");
+            WriteListItems(soldShapes);
+
+            //RemoveRange()
+            soldShapes.RemoveRange(0,3);
+
+            Console.WriteLine("[soldShapes.RemoveRange(0,3)]");
+            WriteListItems(soldShapes);
+
+            //RemoveAll()
+            soldShapes.RemoveAll(soldShape => soldShape.Material == Material.PLASTIC);
+
+            Console.WriteLine("[soldShapes.RemoveAll(soldShape => soldShape.Material == Material.PLASTIC)]");
+            WriteListItems(soldShapes);
 
             Console.ReadKey();
         }
