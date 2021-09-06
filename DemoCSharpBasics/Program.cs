@@ -192,6 +192,12 @@ namespace DemoCSharpBasics
             Console.WriteLine("[soldShapes.RemoveAll(soldShape => soldShape.Material == Material.PLASTIC)]");
             WriteListItems(soldShapes);
 
+            //Clear()
+            soldShapes.Clear();
+
+            Console.WriteLine("soldShapes content is after calling clear method");
+            WriteListItems(soldShapes);
+
             Console.ReadKey();
         }
     }
