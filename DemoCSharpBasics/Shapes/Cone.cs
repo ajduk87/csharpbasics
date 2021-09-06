@@ -13,7 +13,7 @@ namespace DemoCSharpBasics
         private double r;
         private double H;
 
-        public Cone(string name, double r, double H, Material material, double price):base(name,material, price)
+        public Cone(string name, double r, double H, Material material, double price, int soldAmount) :base(name,material, price, soldAmount)
         {
             this.r = r;
             this.H = H;

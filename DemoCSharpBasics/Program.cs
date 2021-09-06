@@ -28,115 +28,54 @@ namespace DemoCSharpBasics
         public static void Main(string[] args)
         {
 
-            Dictionary<string, Shape> shapesInStore = new Dictionary<string, Shape>();
+            Dictionary<string, Shape> historyOfSoldShapesInStore = new Dictionary<string, Shape>();
+            List<Shape> soldShapesToday = new List<Shape>();
 
-            Sphere sphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
-            Cube cube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
-            Cylinder cylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
+            //For date 1 September 2021
+            Sphere sphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, soldAmount: 25);
+            soldShapesToday.Add(sphere);
+            Cube cube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, soldAmount: 14);
+            soldShapesToday.Add(cube);
+            Cylinder cylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, soldAmount: 3);
+            soldShapesToday.Add(cylinder);
 
-            //Add()
-            shapesInStore.Add("sphere", sphere);
-            shapesInStore.Add("cube", cube);
-            shapesInStore.Add("cylinder", cylinder);
-
-            Console.WriteLine("Add()" + System.Environment.NewLine);
-            WriteDictionaryItems(shapesInStore);
-
-            //write all shape names in store
-            List<string> allShapeNames = shapesInStore.Keys.ToList();
-            Console.WriteLine("All shape names in store are :");
-            foreach (string name in allShapeNames)
+            foreach (Shape soldShape in soldShapesToday)
             {
-                Console.WriteLine(name);
+                historyOfSoldShapesInStore.Add($"20210901{soldShape.Name}", soldShape);
             }
-            Console.WriteLine("========================================");
-            Console.WriteLine();
+            soldShapesToday.Clear();
 
-            //write all shapes in store
-            List<Shape> allShapes = shapesInStore.Values.ToList();
-            Console.WriteLine("All shapes in store are :");
-            foreach (Shape shapeItem in allShapes)
+            //For date 2 September 2021
+            sphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, soldAmount: 38);
+            soldShapesToday.Add(sphere);
+            cube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, soldAmount: 12);
+            soldShapesToday.Add(cube);
+            cylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, soldAmount: 9);
+            soldShapesToday.Add(cylinder);
+
+            foreach (Shape soldShape in soldShapesToday)
             {
-                WriteItem(shapeItem);
+                historyOfSoldShapesInStore.Add($"20210902{soldShape.Name}", soldShape);
             }
+            soldShapesToday.Clear();
 
-            Console.WriteLine("========================================");
-            Console.WriteLine();
+            //For date 3 September 2021
+            sphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, soldAmount: 12);
+            soldShapesToday.Add(sphere);
+            cube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, soldAmount: 22);
+            soldShapesToday.Add(cube);
+            cylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, soldAmount: 13);
+            soldShapesToday.Add(cylinder);
 
-            //get shape
-            Shape shape = shapesInStore["sphere"];
-            Console.WriteLine("Selected shape is :");
-
-            WriteItem(shape);
-
-            Console.WriteLine("========================================");
-            Console.WriteLine();
-
-            //try to get shape which is not exist in dictionary
-            //shape = shapesInStore["cone"];
-
-            //WriteItem(shape);
-
-            //Console.WriteLine("========================================");
-            //Console.WriteLine();
-
-            //ContainsKey()
-            bool isCubeInShapesInStore = shapesInStore.ContainsKey("cube");
-            shape = isCubeInShapesInStore ? shapesInStore["cube"] : new Cube(name: "cube", a: 0, Material.PLASTIC, price: 0);
-
-            Console.WriteLine("Selected shape is :");
-            WriteItem(shape);
-
-            Console.WriteLine("========================================");
-            Console.WriteLine();
-
-            bool isConeInShapesInStore = shapesInStore.ContainsKey("cone");
-            shape = isConeInShapesInStore ? shapesInStore["cone"] : new Cone(name: "cone", r: 0, H: 0, Material.PLASTIC, price: 0);
-
-            Console.WriteLine("Selected shape is :");
-            WriteItem(shape);
-
-            Console.WriteLine("========================================");
-            Console.WriteLine();
-
-            //TryGetValue()
-            isCubeInShapesInStore = shapesInStore.TryGetValue("sphere", out shape);
-            if (isCubeInShapesInStore) 
+            foreach (Shape soldShape in soldShapesToday)
             {
-                Console.WriteLine("Selected shape is :");
-                WriteItem(shape);
-
-                Console.WriteLine("========================================");
-                Console.WriteLine();
+                historyOfSoldShapesInStore.Add($"20210903{soldShape.Name}", soldShape);
             }
+            soldShapesToday.Clear();
 
-            //Count()
-            int count = shapesInStore.Count();
-
-            Console.WriteLine("Count of shapes in store is :" + count);
-            Console.WriteLine();
-
-            count = shapesInStore.Count(shape => shape.Value.Price > 7.0);
-
-            Console.WriteLine("Count of shapes in store more expensive than 7.0 is :" + count);
-            Console.WriteLine();
-
-            //Remove()
-
-            Console.WriteLine("Dictionary content before removing cube is :");
-            WriteDictionaryItems(shapesInStore);
-
-            shapesInStore.Remove("cube");
-
-            Console.WriteLine("Dictionary content after removing cube is :");
-            WriteDictionaryItems(shapesInStore);
-
-            //Clear()
-            shapesInStore.Clear();
-
-            Console.WriteLine("Dictionary content after using clear method is :");
-            WriteDictionaryItems(shapesInStore);
-
+            //how many did cubes sell at the 2. September 2021
+            Shape soldShapes = historyOfSoldShapesInStore["20210902sphere"];
+            Console.WriteLine($"At the 2. september 2021 the sphere was sold - {soldShapes.SoldAmount}.");
 
             Console.ReadKey();
         }
