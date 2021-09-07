@@ -28,55 +28,118 @@ namespace DemoCSharpBasics
         public static void Main(string[] args)
         {
 
-            Dictionary<string, Shape> historyOfSoldShapesInStore = new Dictionary<string, Shape>();
-            List<Shape> soldShapesToday = new List<Shape>();
+            List<Shape> shapesInStore = new List<Shape>();
 
             //For date 1 September 2021
-            Sphere sphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, soldAmount: 25);
-            soldShapesToday.Add(sphere);
-            Cube cube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, soldAmount: 14);
-            soldShapesToday.Add(cube);
-            Cylinder cylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, soldAmount: 3);
-            soldShapesToday.Add(cylinder);
+            Sphere plasticSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
+            Cube plusticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
+            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
 
-            foreach (Shape soldShape in soldShapesToday)
+            Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 18.5);
+            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 22);
+            Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 27);
+
+            Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 29.5);
+            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 34);
+            Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 38);
+
+            Sphere glassSphere = new Sphere(name: "sphere", r: 2, Material.GLASS, price: 29.5);
+            Cube glassCube = new Cube(name: "cube", a: 2, Material.GLASS, price: 34);
+            Cylinder glassCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.GLASS, price: 38);
+
+            shapesInStore.Add(plasticSphere);
+            shapesInStore.Add(plusticCube);
+            shapesInStore.Add(plasticCylinder);
+
+            shapesInStore.Add(woodSphere);
+            shapesInStore.Add(woodCube);
+            shapesInStore.Add(woodCylinder);
+
+            shapesInStore.Add(metalSphere);
+            shapesInStore.Add(metalCube);
+            shapesInStore.Add(metalCylinder);
+
+            shapesInStore.Add(glassSphere);
+            shapesInStore.Add(glassCube);
+            shapesInStore.Add(glassCylinder);
+
+            Console.WriteLine("Welcome to the application of our store");
+            Console.WriteLine("How much money you want to spend on our products ?" + System.Environment.NewLine);
+            double money = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Our products are sphere, cube and cylinder" + System.Environment.NewLine);
+            Console.WriteLine("What do you want to buy from our products ?");
+            string wantedShape = Console.ReadLine();
+            Console.WriteLine("How many copies of our product do you want to buy ?");
+            int desiredAmount = Convert.ToInt32(Console.ReadLine());
+            
+
+            Console.WriteLine("Does it matter to you what material the desired product is made of (y/n)?");
+            string isSpecificMaterialWantedInput = Console.ReadLine();
+            isSpecificMaterialWantedInput.ToLower();
+
+            bool isSpecificMaterialWanted = false;
+            if (isSpecificMaterialWantedInput.Equals("y")) 
             {
-                historyOfSoldShapesInStore.Add($"20210901{soldShape.Name}", soldShape);
+                isSpecificMaterialWanted = true;
             }
-            soldShapesToday.Clear();
 
-            //For date 2 September 2021
-            sphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, soldAmount: 38);
-            soldShapesToday.Add(sphere);
-            cube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, soldAmount: 12);
-            soldShapesToday.Add(cube);
-            cylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, soldAmount: 9);
-            soldShapesToday.Add(cylinder);
-
-            foreach (Shape soldShape in soldShapesToday)
+            if (isSpecificMaterialWantedInput.Equals("n"))
             {
-                historyOfSoldShapesInStore.Add($"20210902{soldShape.Name}", soldShape);
+                isSpecificMaterialWanted = false;
             }
-            soldShapesToday.Clear();
 
-            //For date 3 September 2021
-            sphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, soldAmount: 12);
-            soldShapesToday.Add(sphere);
-            cube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, soldAmount: 22);
-            soldShapesToday.Add(cube);
-            cylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, soldAmount: 13);
-            soldShapesToday.Add(cylinder);
-
-            foreach (Shape soldShape in soldShapesToday)
+            if (isSpecificMaterialWanted == true)
             {
-                historyOfSoldShapesInStore.Add($"20210903{soldShape.Name}", soldShape);
+                Console.WriteLine("What material do you want the desired product to be made of?");
+                Console.WriteLine("Plastic, wood, metal and glass products are available in our store.");
+                string wantedMaterial = Console.ReadLine();
+                Shape shape = shapesInStore.Find(shape => shape.Name.Equals(wantedShape) &&
+                                                          shape.Material.Equals(wantedMaterial));
+                if (money >= shape.Price * desiredAmount)
+                {
+                    Console.WriteLine("You can buy the wanted shape.");
+                }
+                else 
+                {
+                    Console.WriteLine("You can not buy the wanted shape.");
+                }
             }
-            soldShapesToday.Clear();
+            else 
+            {
+                Shape glassShape = shapesInStore.Find(shape => shape.Name.Equals(wantedShape) &&
+                                                          shape.Material.Equals(Material.GLASS));
+                Shape metalShape = shapesInStore.Find(shape => shape.Name.Equals(wantedShape) &&
+                                                          shape.Material.Equals(Material.METAL));
+                Shape woodShape = shapesInStore.Find(shape => shape.Name.Equals(wantedShape) &&
+                                                          shape.Material.Equals(Material.WOOD));
+                Shape plasticShape = shapesInStore.Find(shape => shape.Name.Equals(wantedShape) &&
+                                                          shape.Material.Equals(Material.PLASTIC));
 
-            //how many did cubes sell at the 2. September 2021
-            Shape soldShapes = historyOfSoldShapesInStore["20210902sphere"];
-            Console.WriteLine($"At the 2. september 2021 the sphere was sold - {soldShapes.SoldAmount}.");
 
+                if (money >= glassShape.Price * desiredAmount)
+                {
+                    Console.WriteLine("You can buy the wanted shape made of glass.");
+                }
+                else if (money >= metalShape.Price * desiredAmount)
+                {
+                    Console.WriteLine("You can buy the wanted shape made of metal.");
+                }
+                else if (money >= woodShape.Price * desiredAmount)
+                {
+                    Console.WriteLine("You can buy the wanted shape made of wood.");
+                }
+                else if (money >= plasticShape.Price * desiredAmount)
+                {
+                    Console.WriteLine("You can buy the wanted shape made of plastic.");
+                }
+                else 
+                {
+                    Console.WriteLine("You can not buy the wanted shape.");
+                }
+            }
+
+
+            Console.WriteLine("Thanks for using our application.");
             Console.ReadKey();
         }
     }
