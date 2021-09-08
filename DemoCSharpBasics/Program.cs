@@ -158,13 +158,13 @@ namespace DemoCSharpBasics
             switch (bestMaterialYouCanBuy)
             {
                 case Material.GLASS: Console.WriteLine($"You can buy the wanted shape made of {bestMaterialYouCanBuy.ToString().ToLower()}.");
-                                        break;
+                                     break;
                 case Material.METAL: Console.WriteLine($"You can buy the wanted shape made of {bestMaterialYouCanBuy.ToString().ToLower()}."); 
-                                        break;
+                                     break;
                 case Material.WOOD: Console.WriteLine($"You can buy the wanted shape made of {bestMaterialYouCanBuy.ToString().ToLower()}."); 
-                                    break;
+                                     break;
                 case Material.PLASTIC: Console.WriteLine($"You can buy the wanted shape made of {bestMaterialYouCanBuy.ToString().ToLower()}."); 
-                                        break;
+                                     break;
                 default: Console.WriteLine("You can not buy the wanted shape."); break;
             }
             }
