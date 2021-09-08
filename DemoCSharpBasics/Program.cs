@@ -100,27 +100,16 @@ namespace DemoCSharpBasics
                 ShapeFinder shapeFinder = new ShapeFinder(shapes.ToArray());
                 Shape shape;
 
+                switch (wantedMaterial) 
+                {
+                    case Material.GLASS: shape = shapeFinder["GLASS"]; break;
+                    case Material.METAL: shape = shapeFinder["METAL"]; break;
+                    case Material.WOOD: shape = shapeFinder["WOOD"]; break;
+                    case Material.PLASTIC: shape = shapeFinder["PLASTIC"]; break;
+                    default: shape = null; break;
+                }
 
-                if (wantedMaterial == Material.GLASS)
-                {
-                    shape = shapeFinder["GLASS"];
-                }
-                else if (wantedMaterial == Material.METAL)
-                {
-                    shape = shapeFinder["METAL"];
-                }
-                else if (wantedMaterial == Material.WOOD)
-                {
-                    shape = shapeFinder["WOOD"];
-                }
-                else if (wantedMaterial == Material.PLASTIC)
-                {
-                    shape = shapeFinder["PLASTIC"];
-                }
-                else 
-                {
-                    shape = null;
-                }
+             
 
 
                 if (money >= shape.Price * desiredAmount)
@@ -143,26 +132,36 @@ namespace DemoCSharpBasics
                 Shape plasticShape = shapesInStore.Find(shape => shape.Name.Equals(wantedShape) &&
                                                           shape.Material.Equals(Material.PLASTIC));
 
+                Material bestMaterialYouCanBuy;
 
                 if (money >= glassShape.Price * desiredAmount)
                 {
-                    Console.WriteLine("You can buy the wanted shape made of glass.");
+                    bestMaterialYouCanBuy = Material.GLASS;                    
                 }
                 else if (money >= metalShape.Price * desiredAmount)
                 {
-                    Console.WriteLine("You can buy the wanted shape made of metal.");
+                    bestMaterialYouCanBuy = Material.METAL;                    
                 }
                 else if (money >= woodShape.Price * desiredAmount)
                 {
-                    Console.WriteLine("You can buy the wanted shape made of wood.");
+                    bestMaterialYouCanBuy = Material.WOOD;                    
                 }
                 else if (money >= plasticShape.Price * desiredAmount)
                 {
-                    Console.WriteLine("You can buy the wanted shape made of plastic.");
+                    bestMaterialYouCanBuy = Material.PLASTIC;                    
                 }
                 else 
                 {
-                    Console.WriteLine("You can not buy the wanted shape.");
+                    bestMaterialYouCanBuy = Material.NOTEXISTING;
+                }
+
+                switch (bestMaterialYouCanBuy)
+                {
+                    case Material.GLASS: Console.WriteLine($"You can buy the wanted shape made of {bestMaterialYouCanBuy.ToString().ToLower()}."); ; break;
+                    case Material.METAL: Console.WriteLine($"You can buy the wanted shape made of {bestMaterialYouCanBuy.ToString().ToLower()}."); break;
+                    case Material.WOOD: Console.WriteLine($"You can buy the wanted shape made of {bestMaterialYouCanBuy.ToString().ToLower()}."); break;
+                    case Material.PLASTIC: Console.WriteLine($"You can buy the wanted shape made of {bestMaterialYouCanBuy.ToString().ToLower()}."); break;
+                    default: Console.WriteLine("You can not buy the wanted shape."); break;
                 }
             }
 

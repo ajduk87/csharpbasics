@@ -8,6 +8,7 @@ namespace DemoCSharpBasics.Shapes
 {
     public enum Material
     {
+        NOTEXISTING,
         WOOD,
         PLASTIC,
         METAL,
