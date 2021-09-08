@@ -15,11 +15,11 @@ namespace DemoCSharpBasics
             Shapes = shapes;
         }
 
-        public Shape this[string nameOfShape] 
+        public Shape this[string materialOfShape] 
         {
             get 
             {
-                return Shapes.FirstOrDefault(shape => shape.Name.Equals(nameOfShape));
+                return Shapes.FirstOrDefault(shape => shape.Material.Equals(materialOfShape));
             }
         }
     }

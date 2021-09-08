@@ -92,12 +92,40 @@ namespace DemoCSharpBasics
             {
                 Console.WriteLine("What material do you want the desired product to be made of?");
                 Console.WriteLine("Plastic, wood, metal and glass products are available in our store.");
-                string wantedMaterial = Console.ReadLine();
-                Shape shape = shapesInStore.Find(shape => shape.Name.Equals(wantedShape) &&
-                                                          shape.Material.Equals(wantedMaterial));
+                string wantedMaterialInput = Console.ReadLine();
+                wantedMaterialInput.ToUpper();
+                Enum.TryParse(wantedMaterialInput, out Material wantedMaterial);
+
+                List<Shape> shapes = shapesInStore.FindAll(shape => shape.Name.Equals(wantedShape));
+                ShapeFinder shapeFinder = new ShapeFinder(shapes.ToArray());
+                Shape shape;
+
+
+                if (wantedMaterial == Material.GLASS)
+                {
+                    shape = shapeFinder["GLASS"];
+                }
+                else if (wantedMaterial == Material.METAL)
+                {
+                    shape = shapeFinder["METAL"];
+                }
+                else if (wantedMaterial == Material.WOOD)
+                {
+                    shape = shapeFinder["WOOD"];
+                }
+                else if (wantedMaterial == Material.PLASTIC)
+                {
+                    shape = shapeFinder["PLASTIC"];
+                }
+                else 
+                {
+                    shape = null;
+                }
+
+
                 if (money >= shape.Price * desiredAmount)
                 {
-                    Console.WriteLine("You can buy the wanted shape.");
+                    Console.WriteLine($"You can buy the wanted shape made of {wantedMaterial}.");
                 }
                 else 
                 {
