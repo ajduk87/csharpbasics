@@ -133,6 +133,7 @@ namespace DemoCSharpBasics
                                                           shape.Material.Equals(Material.PLASTIC));
 
                 Material bestMaterialYouCanBuy;
+                SpecificMaterial specificMaterial = SpecificMaterial.ACIDGLASS;
 
                 if (money >= glassShape.Price * desiredAmount)
                 {
@@ -156,43 +157,170 @@ namespace DemoCSharpBasics
                 }
 
                 //Business rules
-                //1. If more than 30 shapes of glass are ordered, the discount is 5 percent.
-                //2. If more than 40 shapes of metal are ordered, the discount is 10 percent.
-                //3. If more than 50 shapes of wood are ordered, the discount is 15 percent.
-                //4. If more than 60 shapes of plastic are ordered, the discount is 20 percent.
+                //1. If more than 30 shapes of laminated glass are ordered, the discount is 5 percent.
+                //2. If more than 30 shapes of insulated glass are ordered, the discount is 6 percent.
+                //3. If more than 30 shapes of coated glass are ordered, the discount is 7 percent.
+                //4. If more than 30 shapes of acid glass are ordered, the discount is 8 percent.
+                //5. If more than 40 shapes of iron metal are ordered, the discount is 10 percent.
+                //6. If more than 40 shapes of copper metal are ordered, the discount is 11 percent.
+                //7. If more than 40 shapes of aluminium metal are ordered, the discount is 12 percent.
+                //8. If more than 40 shapes of bronze metal are ordered, the discount is 13 percent.
+                //9. If more than 40 shapes of zinc metal are ordered, the discount is 14 percent.
+                //10. If more than 50 shapes of pine wood are ordered, the discount is 15 percent.
+                //11. If more than 50 shapes of ash wood are ordered, the discount is 16 percent.
+                //12. If more than 50 shapes of birch wood are ordered, the discount is 17 percent.
+                //13. If more than 50 shapes of cherry wood are ordered, the discount is 18 percent.
+                //14. If more than 50 shapes of mahogany wood are ordered, the discount is 19 percent.
+                //15. If more than 60 shapes of pet plastic are ordered, the discount is 20 percent.
+                //16. If more than 60 shapes of hdpe plastic are ordered, the discount is 21 percent.
+                //17. If more than 60 shapes of pp plastic are ordered, the discount is 22 percent.
+                //18. If more than 60 shapes of pst plastic are ordered, the discount is 23 percent.
                 double yourBill = 0.0;
+                
 
-                switch (bestMaterialYouCanBuy)
+                switch (specificMaterial)
                 {
-                    case Material.GLASS: 
+                    case SpecificMaterial.LAMINATEDGLASS: 
                         {
                             yourBill = desiredAmount > 30 ? 0.95 * glassShape.Price * desiredAmount : 
                                                             glassShape.Price * desiredAmount;
-                            Console.WriteLine("You can buy the wanted shape made of glass.");
+                            Console.WriteLine("You can buy the wanted shape made of laminated glass.");
                             Console.WriteLine($"You bill is {yourBill} dollars.");
                             break;
                         }
-                    case Material.METAL:
+                    case SpecificMaterial.INSULATEDGLASS:
+                        {
+                            yourBill = desiredAmount > 30 ? 0.94 * glassShape.Price * desiredAmount :
+                                                            glassShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of insulated glass.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.COATEDGLASS:
+                        {
+                            yourBill = desiredAmount > 30 ? 0.93 * glassShape.Price * desiredAmount :
+                                                            glassShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of coated glass.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.ACIDGLASS:
+                        {
+                            yourBill = desiredAmount > 30 ? 0.92 * glassShape.Price * desiredAmount :
+                                                            glassShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of acid glass.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.IRONMETAL:
                         {
                             yourBill = desiredAmount > 40 ? 0.90 * metalShape.Price * desiredAmount :
                                                             metalShape.Price * desiredAmount;
-                            Console.WriteLine("You can buy the wanted shape made of metal.");
+                            Console.WriteLine("You can buy the wanted shape made of iron metal.");
                             Console.WriteLine($"You bill is {yourBill} dollars.");
                             break;
                         }
-                    case Material.WOOD:
+                    case SpecificMaterial.COPPERMETAL:
+                        {
+                            yourBill = desiredAmount > 40 ? 0.89 * metalShape.Price * desiredAmount :
+                                                            metalShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of copper metal.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.ALUMINIUMMETAL:
+                        {
+                            yourBill = desiredAmount > 40 ? 0.88 * metalShape.Price * desiredAmount :
+                                                            metalShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of aluminium metal.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.BRONZEMETAL:
+                        {
+                            yourBill = desiredAmount > 40 ? 0.87 * metalShape.Price * desiredAmount :
+                                                            metalShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of bronze metal.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.ZINCMETAL:
+                        {
+                            yourBill = desiredAmount > 40 ? 0.86 * metalShape.Price * desiredAmount :
+                                                            metalShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of zinc metal.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.PINEWOOD:
                         {
                             yourBill = desiredAmount > 50 ? 0.85 * woodShape.Price * desiredAmount :
                                                             woodShape.Price * desiredAmount;
-                            Console.WriteLine("You can buy the wanted shape made of wood.");
+                            Console.WriteLine("You can buy the wanted shape made of pine wood.");
                             Console.WriteLine($"You bill is {yourBill} dollars.");
                             break;
                         }
-                    case Material.PLASTIC:
+                    case SpecificMaterial.ASHWOOD:
+                        {
+                            yourBill = desiredAmount > 50 ? 0.84 * woodShape.Price * desiredAmount :
+                                                            woodShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of ash wood.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.BIRCHWOOD:
+                        {
+                            yourBill = desiredAmount > 50 ? 0.83 * woodShape.Price * desiredAmount :
+                                                            woodShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of birch wood.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.CHERRYWOOD:
+                        {
+                            yourBill = desiredAmount > 50 ? 0.82 * woodShape.Price * desiredAmount :
+                                                            woodShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of cherry wood.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.MAHOGANYWOOD:
+                        {
+                            yourBill = desiredAmount > 50 ? 0.81 * woodShape.Price * desiredAmount :
+                                                            woodShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of mahogany wood.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.PETPLASTIC:
                         {
                             yourBill = desiredAmount > 60 ? 0.80 * plasticShape.Price * desiredAmount :
                                                             plasticShape.Price * desiredAmount;
-                            Console.WriteLine("You can buy the wanted shape made of plastic.");
+                            Console.WriteLine("You can buy the wanted shape made of pet plastic.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.HDPEPLASTIC:
+                        {
+                            yourBill = desiredAmount > 60 ? 0.79 * plasticShape.Price * desiredAmount :
+                                                            plasticShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of hdpe plastic.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.PPLASTIC:
+                        {
+                            yourBill = desiredAmount > 60 ? 0.78 * plasticShape.Price * desiredAmount :
+                                                            plasticShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of pp plastic.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case SpecificMaterial.PSTPLASTIC:
+                        {
+                            yourBill = desiredAmount > 60 ? 0.77 * plasticShape.Price * desiredAmount :
+                                                            plasticShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of pst plastic.");
                             Console.WriteLine($"You bill is {yourBill} dollars.");
                             break;
                         }
