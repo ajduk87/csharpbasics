@@ -12,6 +12,7 @@ namespace DemoCSharpBasics
         public string Name { get; set; }
         public Material Material { get; set; }
         public double Price { get; set; }
+        public SpecificMaterial SpecificMaterial { get; set; }
 
         public Shape(string name, Material material, double price) 
         {
