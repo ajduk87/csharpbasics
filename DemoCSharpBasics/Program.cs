@@ -155,15 +155,49 @@ namespace DemoCSharpBasics
                     bestMaterialYouCanBuy = Material.NOTEXISTING;
                 }
 
-            switch (bestMaterialYouCanBuy)
-            {
-                case Material.GLASS:
-                case Material.METAL:
-                case Material.WOOD:
-                case Material.PLASTIC: Console.WriteLine($"You can buy the wanted shape made of {bestMaterialYouCanBuy.ToString().ToLower()}."); 
-                                        break;
-                default: Console.WriteLine("You can not buy the wanted shape."); break;
-            }
+                //Business rules
+                //1. If more than 30 shapes of glass are ordered, the discount is 5 percent.
+                //2. If more than 40 shapes of metal are ordered, the discount is 10 percent.
+                //3. If more than 50 shapes of wood are ordered, the discount is 15 percent.
+                //4. If more than 60 shapes of plastic are ordered, the discount is 20 percent.
+                double yourBill = 0.0;
+
+                switch (bestMaterialYouCanBuy)
+                {
+                    case Material.GLASS: 
+                        {
+                            yourBill = desiredAmount > 30 ? 0.95 * glassShape.Price * desiredAmount : 
+                                                            glassShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of glass.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case Material.METAL:
+                        {
+                            yourBill = desiredAmount > 40 ? 0.90 * metalShape.Price * desiredAmount :
+                                                            metalShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of metal.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case Material.WOOD:
+                        {
+                            yourBill = desiredAmount > 50 ? 0.85 * woodShape.Price * desiredAmount :
+                                                            woodShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of wood.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    case Material.PLASTIC:
+                        {
+                            yourBill = desiredAmount > 60 ? 0.80 * plasticShape.Price * desiredAmount :
+                                                            plasticShape.Price * desiredAmount;
+                            Console.WriteLine("You can buy the wanted shape made of plastic.");
+                            Console.WriteLine($"You bill is {yourBill} dollars.");
+                            break;
+                        }
+                    default: Console.WriteLine("You can not buy the wanted shape."); break;
+                }
 
             }
 
