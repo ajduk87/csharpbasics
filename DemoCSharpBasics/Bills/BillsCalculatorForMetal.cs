@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DemoCSharpBasics.Bills
 {
-    public class BillsCalculatorForMetal
+    public class BillsCalculatorForMetal : IBillsCalculator
     {
         public void Calculate(Shape shape, int desiredAmount)
         {

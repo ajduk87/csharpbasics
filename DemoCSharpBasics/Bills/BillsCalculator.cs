@@ -15,6 +15,9 @@ namespace DemoCSharpBasics.Bills
         {
             dictIBillsCalculators = new Dictionary<Material, IBillsCalculator>();
             dictIBillsCalculators.Add(Material.PLASTIC, new BillsCalculatorForPlastic());
+            dictIBillsCalculators.Add(Material.PLASTIC, new BillsCalculatorForWood());
+            dictIBillsCalculators.Add(Material.PLASTIC, new BillsCalculatorForMetal());
+            dictIBillsCalculators.Add(Material.PLASTIC, new BillsCalculatorForGlass());
         }
 
 
