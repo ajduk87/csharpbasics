@@ -6,10 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Bills\Metal\" />
-    <Folder Include="Bills\Glass\" />
-    <Folder Include="Bills\Wood\" />
-    <Folder Include="Bills\Plastic\" />
+    <Compile Remove="Bills\Glass\**" />
+    <Compile Remove="Bills\Metal\**" />
+    <Compile Remove="Bills\Plastic\**" />
+    <Compile Remove="Bills\Wood\**" />
+    <EmbeddedResource Remove="Bills\Glass\**" />
+    <EmbeddedResource Remove="Bills\Metal\**" />
+    <EmbeddedResource Remove="Bills\Plastic\**" />
+    <EmbeddedResource Remove="Bills\Wood\**" />
+    <None Remove="Bills\Glass\**" />
+    <None Remove="Bills\Metal\**" />
+    <None Remove="Bills\Plastic\**" />
+    <None Remove="Bills\Wood\**" />
   </ItemGroup>
 
 </Project>
