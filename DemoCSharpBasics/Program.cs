@@ -63,22 +63,22 @@ namespace DemoCSharpBasics
 
             int indexOfCurrentElement = 0;
 
-            while (soldShapes[indexOfCurrentElement].Material == Material.PLASTIC) 
+            do
             {
                 WriteItem(soldShapes[indexOfCurrentElement]);
                 indexOfCurrentElement++;
-            }
+            } while (soldShapes[indexOfCurrentElement].Material == Material.PLASTIC);
 
             //Initalization
             Console.WriteLine("Sold shapes elements made from glass are : " + System.Environment.NewLine);
 
             indexOfCurrentElement = 0;
 
-            while (soldShapes[indexOfCurrentElement].Material == Material.GLASS)
+            do
             {
                 WriteItem(soldShapes[indexOfCurrentElement]);
                 indexOfCurrentElement++;
-            }
+            } while (soldShapes[indexOfCurrentElement].Material == Material.GLASS);
 
             Console.ReadKey();
         }
