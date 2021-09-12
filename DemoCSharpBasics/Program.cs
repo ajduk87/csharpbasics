@@ -1,6 +1,7 @@
 ﻿using DemoCSharpBasics.Shapes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Collections.ObjectModel;
 using System.Text;
 
@@ -73,12 +74,14 @@ namespace DemoCSharpBasics
             Console.WriteLine("Sold shapes elements made from glass are : " + System.Environment.NewLine);
 
             indexOfCurrentElement = 0;
-
-            do
+            if (soldShapes.Count(soldShape => soldShape.Material == Material.GLASS) > 0)
             {
-                WriteItem(soldShapes[indexOfCurrentElement]);
-                indexOfCurrentElement++;
-            } while (soldShapes[indexOfCurrentElement].Material == Material.GLASS);
+                do
+                {
+                    WriteItem(soldShapes[indexOfCurrentElement]);
+                    indexOfCurrentElement++;
+                } while (soldShapes[indexOfCurrentElement].Material == Material.GLASS);
+            }
 
             Console.ReadKey();
         }
