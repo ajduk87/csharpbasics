@@ -48,63 +48,21 @@ namespace DemoCSharpBasics
             soldShapes.Add(plasticCube);
             soldShapes.Add(plasticCylinder);
 
-            soldShapes.Add(woodSphere);
-            soldShapes.Add(woodCube);
-            soldShapes.Add(woodCylinder);
+            Console.WriteLine("Sold shapes elements are [with old prices] : " + System.Environment.NewLine);
 
-            soldShapes.Add(metalSphere);
-            soldShapes.Add(metalCube);
-            soldShapes.Add(metalCylinder);
+            for (int i = 0; i < soldShapes.Count(); i++)
+            {
+                WriteItem(soldShapes[i]);
+            }
 
-            Console.WriteLine("Sold shapes elements are : " + System.Environment.NewLine);
+            Console.WriteLine("Sold shapes elements are [with new prices] : " + System.Environment.NewLine);
 
             for (int i = 0; i < soldShapes.Count(); i++) 
             {
+                soldShapes[i].Price = 3 * soldShapes[i].Price;
                 WriteItem(soldShapes[i]);
             }
 
-            Console.WriteLine("Sold shapes elements except made from plastic are : " + System.Environment.NewLine);
-            for (int i = 0; i < soldShapes.Count(); i++)
-            {
-                if (soldShapes[i].Material == Material.PLASTIC)
-                    continue;
-                WriteItem(soldShapes[i]);
-            }
-
-            Console.WriteLine("Sold shapes elements made from plastic are  : " + System.Environment.NewLine);
-            for (int i = 0; i < soldShapes.Count(); i++)
-            {
-                if (soldShapes[i].Material != Material.PLASTIC)
-                    break;
-                WriteItem(soldShapes[i]);
-            }
-
-            Console.WriteLine("Sold shapes elements are [foreach] : " + System.Environment.NewLine);
-
-            foreach (Shape soldShape in soldShapes)
-            {
-                WriteItem(soldShape);
-            }
-
-            Console.WriteLine("Sold shapes elements are [reverse order] : " + System.Environment.NewLine);
-            for (int i = soldShapes.Count() - 1; i >= 0; i--)
-            {
-                WriteItem(soldShapes[i]);
-            }
-
-
-            Console.WriteLine("Sold spheres are : " + System.Environment.NewLine);
-            for (int i = 0; i < soldShapes.Count(); i=i+3)
-            {
-                WriteItem(soldShapes[i]);
-            }
-
-
-            //Console.WriteLine("Sold shapes elements are [again with for] : " + System.Environment.NewLine);
-            //for (int i = 0; i <= soldShapes.Count(); i++)
-            //{
-            //    WriteItem(soldShapes[i]);
-            //}
 
             Console.ReadKey();
         }
