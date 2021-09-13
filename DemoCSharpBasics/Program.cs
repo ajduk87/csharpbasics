@@ -50,17 +50,18 @@ namespace DemoCSharpBasics
 
             Console.WriteLine("Sold shapes elements are [with old prices] : " + System.Environment.NewLine);
 
-            for (int i = 0; i < soldShapes.Count(); i++)
+            foreach (Shape soldShape in soldShapes)
             {
-                WriteItem(soldShapes[i]);
+                WriteItem(soldShape);
             }
+
 
             Console.WriteLine("Sold shapes elements are [with new prices] : " + System.Environment.NewLine);
 
-            for (int i = 0; i < soldShapes.Count(); i++) 
+            foreach (Shape soldShape in soldShapes)
             {
-                soldShapes[i].Price = 3 * soldShapes[i].Price;
-                WriteItem(soldShapes[i]);
+                soldShape.Price = 3 * soldShape.Price;
+                WriteItem(soldShape);
             }
 
 
