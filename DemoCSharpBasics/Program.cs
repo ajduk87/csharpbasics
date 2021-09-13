@@ -48,20 +48,28 @@ namespace DemoCSharpBasics
             soldShapes.Add(plasticCube);
             soldShapes.Add(plasticCylinder);
 
-            Console.WriteLine("Sold shapes elements are [with old prices] : " + System.Environment.NewLine);
+            Console.WriteLine("Sold shapes elements are [without cone] : " + System.Environment.NewLine);
 
-            foreach (Shape soldShape in soldShapes)
+            for (int i = 0; i < soldShapes.Count(); i++)
             {
-                WriteItem(soldShape);
+                WriteItem(soldShapes[i]);
             }
 
 
-            Console.WriteLine("Sold shapes elements are [with new prices] : " + System.Environment.NewLine);
 
-            foreach (Shape soldShape in soldShapes)
+            Console.WriteLine("Sold shapes elements are [with cone] : " + System.Environment.NewLine);
+
+            for (int i = 0; i < soldShapes.Count(); i++)
             {
-                soldShape.Price = 3 * soldShape.Price;
-                WriteItem(soldShape);
+                if (soldShapes.Count() - 1 == i)
+                {
+                    WriteItem(soldShapes[i]);
+                    Cone cone = new Cone(name: "cone", Material.PLASTIC, price: 6, r: 2, H: 2);
+                    soldShapes.Add(cone);
+                    WriteItem(soldShapes[i + 1]);
+                    break;
+                }
+                WriteItem(soldShapes[i]);
             }
 
 
