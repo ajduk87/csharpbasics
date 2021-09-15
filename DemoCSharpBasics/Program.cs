@@ -45,66 +45,38 @@ namespace DemoCSharpBasics
             Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32);
 
             soldShapes.Add(plastricSphere);
+            Shape.IncrementNumberOfSoldShapes();
             soldShapes.Add(plasticCube);
+            Shape.IncrementNumberOfSoldShapes();
             soldShapes.Add(plasticCylinder);
+            Shape.IncrementNumberOfSoldShapes();
 
             soldShapes.Add(woodSphere);
+            Shape.IncrementNumberOfSoldShapes();
             soldShapes.Add(woodCube);
+            Shape.IncrementNumberOfSoldShapes();
             soldShapes.Add(woodCylinder);
+            Shape.IncrementNumberOfSoldShapes();
 
             soldShapes.Add(metalSphere);
+            Shape.IncrementNumberOfSoldShapes();
             soldShapes.Add(metalCube);
+            Shape.IncrementNumberOfSoldShapes();
             soldShapes.Add(metalCylinder);
+            Shape.IncrementNumberOfSoldShapes();
 
             Console.WriteLine("Sold shapes elements are : " + System.Environment.NewLine);
 
-            for (int i = 0; i < soldShapes.Count(); i++) 
-            {
-                WriteItem(soldShapes[i]);
-            }
-
-            Console.WriteLine("Sold shapes elements except made from plastic are : " + System.Environment.NewLine);
-            for (int i = 0; i < soldShapes.Count(); i++)
-            {
-                if (soldShapes[i].Material == Material.PLASTIC)
-                    continue;
-                WriteItem(soldShapes[i]);
-            }
-
-            Console.WriteLine("Sold shapes elements made from plastic are  : " + System.Environment.NewLine);
-            for (int i = 0; i < soldShapes.Count(); i++)
-            {
-                if (soldShapes[i].Material != Material.PLASTIC)
-                    break;
-                WriteItem(soldShapes[i]);
-            }
-
-            Console.WriteLine("Sold shapes elements are [foreach] : " + System.Environment.NewLine);
-
             foreach (Shape soldShape in soldShapes)
             {
-                WriteItem(soldShape);
+                string soldMessage = soldShape.ToString();
+                Console.WriteLine(soldMessage + System.Environment.NewLine);
+                double volume = soldShape.Calculate();
+                Console.WriteLine("Volume is : " + volume + System.Environment.NewLine);
             }
 
-            Console.WriteLine("Sold shapes elements are [reverse order] : " + System.Environment.NewLine);
-            for (int i = soldShapes.Count() - 1; i >= 0; i--)
-            {
-                WriteItem(soldShapes[i]);
-            }
+            Console.WriteLine("Number of sold shapes is : " + Shape.NumberOfSoldShapes);
 
-
-            Console.WriteLine("Sold spheres are : " + System.Environment.NewLine);
-            for (int i = 0; i < soldShapes.Count(); i=i+3)
-            {
-                WriteItem(soldShapes[i]);
-            }
-
-
-            //Console.WriteLine("Sold shapes elements are [again with for] : " + System.Environment.NewLine);
-            //for (int i = 0; i <= soldShapes.Count(); i++)
-            //{
-            //    WriteItem(soldShapes[i]);
-            //}
 
             Console.ReadKey();
         }

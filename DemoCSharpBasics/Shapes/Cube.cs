@@ -16,9 +16,15 @@ namespace DemoCSharpBasics
             this.a = a;
         }
 
+        private double CalculateVolume() 
+        {
+            return Math.Pow(a, 3);
+        }
+
         public override double Calculate() 
         {
-            return Math.Round(Math.Pow(a, 3), 2);            
+            double volume = CalculateVolume();
+            return Math.Round(volume, 2);            
         }
     }
 }

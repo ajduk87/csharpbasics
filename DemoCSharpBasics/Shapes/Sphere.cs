@@ -18,9 +18,15 @@ namespace DemoCSharpBasics
             PI = 3.14;
         }
 
+        private double CalculateVolume()
+        {
+            return 4 * Math.Pow(r, 3) * PI / 3;
+        }
+
         public override double Calculate() 
         {
-            return Math.Round(4 * Math.Pow(r, 3) * PI / 3, 2);
+            double volume = CalculateVolume();
+            return Math.Round(volume, 2);
         }
     }
 }
