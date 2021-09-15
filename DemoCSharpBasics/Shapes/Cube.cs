@@ -11,7 +11,7 @@ namespace DemoCSharpBasics
     {
         private double a;
 
-        public Cube(string name, double a, Material material, double price) : base(name, material, price)
+        public Cube(string name, double a, Material material, double price, SpecificMaterial specificMaterial) : base(name, material, price, specificMaterial)
         {
             this.a = a;
         }

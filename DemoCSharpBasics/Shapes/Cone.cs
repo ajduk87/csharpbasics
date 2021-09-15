@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace DemoCSharpBasics
 {
-    public class Cone : Shape, IVolumeCalculator
+    public class Cone : IVolumeCalculator
     {
         private double PI;
         private double r;
         private double H;
 
-        public Cone(string name, double r, double H, Material material, double price) :base(name,material, price)
+        public Cone(string name, double r, double H, Material material, double price)
         {
             this.r = r;
             this.H = H;
             PI = 3.14;
         }
 
-        public override double Calculate()
+        public double Calculate()
         {
             return Math.Round(Math.Pow(r, 2) * PI * H / 3, 2);
         }

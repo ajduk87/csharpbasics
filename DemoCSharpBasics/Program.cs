@@ -32,21 +32,21 @@ namespace DemoCSharpBasics
             List<Shape> shapesInStore = new List<Shape>();
 
             //For date 1 September 2021
-            Sphere plasticSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
-            Cube plusticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
-            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
+            Sphere plasticSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, SpecificMaterial.PETPLASTIC);
+            Cube plusticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, SpecificMaterial.PETPLASTIC);
+            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, SpecificMaterial.PETPLASTIC);
 
-            Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 18.5);
-            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 22);
-            Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 27);
+            Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 18.5, SpecificMaterial.PINEWOOD);
+            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 22, SpecificMaterial.PINEWOOD);
+            Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 27, SpecificMaterial.PINEWOOD);
 
-            Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 29.5);
-            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 34);
-            Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 38);
+            Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 29.5, SpecificMaterial.IRONMETAL);
+            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 34, SpecificMaterial.IRONMETAL);
+            Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 38, SpecificMaterial.IRONMETAL);
 
-            Sphere glassSphere = new Sphere(name: "sphere", r: 2, Material.GLASS, price: 29.5);
-            Cube glassCube = new Cube(name: "cube", a: 2, Material.GLASS, price: 34);
-            Cylinder glassCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.GLASS, price: 38);
+            Sphere glassSphere = new Sphere(name: "sphere", r: 2, Material.GLASS, price: 29.5, SpecificMaterial.ACIDGLASS);
+            Cube glassCube = new Cube(name: "cube", a: 2, Material.GLASS, price: 34, SpecificMaterial.ACIDGLASS);
+            Cylinder glassCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.GLASS, price: 38, SpecificMaterial.ACIDGLASS);
 
             shapesInStore.Add(plasticSphere);
             shapesInStore.Add(plusticCube);
