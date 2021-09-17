@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoCSharpBasics
+namespace SugarStore
 {
-    public interface IVolumeCalculator
+    public abstract class SugarItem
     {
-        double Calculate();
+        public abstract double CalculateItemValue();
     }
 }

@@ -1,11 +1,6 @@
-﻿using DemoCSharpBasics.Shapes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace DemoCSharpBasics
+namespace ShapesStore
 {
     public class Sphere : Shape
     {
@@ -23,7 +18,7 @@ namespace DemoCSharpBasics
             return 4 * Math.Pow(r, 3) * PI / 3;
         }
 
-        public override double Calculate() 
+        public override double Calculate()
         {
             double volume = CalculateVolume();
             return Math.Round(volume, 2);

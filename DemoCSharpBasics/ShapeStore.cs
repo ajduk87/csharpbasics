@@ -1,9 +1,5 @@
-﻿using DemoCSharpBasics.Shapes;
-using System;
+﻿using ShapesStore;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DemoCSharpBasics
 {
@@ -11,7 +7,7 @@ namespace DemoCSharpBasics
     {
         public List<Shape> SoldShapes { get; set; }
 
-        public ShapeStore(List<Shape> soldShapes) 
+        public ShapeStore(List<Shape> soldShapes)
         {
             SoldShapes = soldShapes;
         }

@@ -1,11 +1,4 @@
-﻿using DemoCSharpBasics.Shapes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DemoCSharpBasics.Shapes
+﻿namespace ShapesStore
 {
     public abstract class Shape : IVolumeCalculator
     {
@@ -21,7 +14,7 @@ namespace DemoCSharpBasics.Shapes
         public double Price { get; set; }
         public int Amount { get; set; }
 
-        public Shape(string name, Material material, double price, int amount) 
+        public Shape(string name, Material material, double price, int amount)
         {
             Name = name;
             Material = material;

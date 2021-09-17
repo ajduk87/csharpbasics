@@ -1,9 +1,7 @@
-﻿using DemoCSharpBasics.Shapes;
-using DemoCSharpBasics.Sugar;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using ShapesStore = DemoCSharpBasics.Shapes;
-using SugarStore = DemoCSharpBasics.Sugar;
+using ShapesStore;
+using SugarStore;
 
 namespace DemoCSharpBasics
 {

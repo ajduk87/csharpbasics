@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoCSharpBasics.Sugar
+namespace SugarStore
 {
     public class Cube : SugarItem
     {

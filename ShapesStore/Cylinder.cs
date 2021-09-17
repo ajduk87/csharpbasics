@@ -1,11 +1,6 @@
-﻿using DemoCSharpBasics.Shapes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace DemoCSharpBasics.Shapes
+namespace ShapesStore
 {
     public class Cylinder : Shape
     {
@@ -19,6 +14,7 @@ namespace DemoCSharpBasics.Shapes
             this.H = H;
             PI = 3.14;
         }
+
         private double CalculateVolume()
         {
             return Math.Pow(r, 2) * PI * H;

@@ -5,4 +5,15 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ShapesStore\ShapesStore.csproj" />
+    <ProjectReference Include="..\SugarStore\SugarStore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ShapesStore">
+      <HintPath>..\ShapesStore\bin\Debug\net5.0\ShapesStore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

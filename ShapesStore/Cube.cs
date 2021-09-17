@@ -1,11 +1,6 @@
-﻿using DemoCSharpBasics.Shapes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace DemoCSharpBasics.Shapes
+namespace ShapesStore
 {
     public class Cube : Shape
     {
@@ -16,15 +11,15 @@ namespace DemoCSharpBasics.Shapes
             this.a = a;
         }
 
-        private double CalculateVolume() 
+        private double CalculateVolume()
         {
             return Math.Pow(a, 3);
         }
 
-        public override double Calculate() 
+        public override double Calculate()
         {
             double volume = CalculateVolume();
-            return Math.Round(volume, 2);            
+            return Math.Round(volume, 2);
         }
     }
 }

@@ -1,14 +1,11 @@
-using DemoCSharpBasics;
-using DemoCSharpBasics.Shapes;
 using NUnit.Framework;
+using ShapesStore;
 using System;
 
 namespace DemoCSharpBasicsTests
 {
     public class VolumeCalculatorTests
     {
-      
-
         [Test]
         public void CubeVolumeTest()
         {
