@@ -31,15 +31,15 @@ namespace DemoCSharpBasics
             List<Shape> soldShapes = new List<Shape>();
             ShapeStore shapeStore = new ShapeStore(soldShapes);
             Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, amount: 7);
-            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, amount: 4);
+            DemoCSharpBasics.Shapes.Cube plasticCube = new DemoCSharpBasics.Shapes.Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, amount: 4);
             Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, amount: 6);
 
             Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 16, amount: 9);
-            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 18, amount: 12);
+            DemoCSharpBasics.Shapes.Cube woodCube = new DemoCSharpBasics.Shapes.Cube(name: "cube", a: 2, Material.WOOD, price: 18, amount: 12);
             Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 20, amount: 2);
 
             Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 26, amount: 7);
-            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 30, amount: 8);
+            DemoCSharpBasics.Shapes.Cube metalCube = new DemoCSharpBasics.Shapes.Cube(name: "cube", a: 2, Material.METAL, price: 30, amount: 8);
             Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32, amount: 13);
 
             soldShapes.Add(plastricSphere);
@@ -79,7 +79,7 @@ namespace DemoCSharpBasics
 
             double totalSugarPrice = 0.0;
             List<SugarItem> soldSugar = new List<SugarItem>();
-            Cube sugarCube = new Cube(name: "white sugar", price: 23.0, amount: 3);
+            DemoCSharpBasics.Sugar.Cube sugarCube = new DemoCSharpBasics.Sugar.Cube(name: "white sugar", price: 23.0, amount: 3);
             Bag sugarBag = new Bag(name: "yellow sugar", price: 12.0, amount: 8);
 
             soldSugar.Add(sugarCube);
