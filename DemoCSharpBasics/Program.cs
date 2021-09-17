@@ -1,7 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using DemoCSharpBasics.Shapes;
+﻿using DemoCSharpBasics.Shapes;
 using DemoCSharpBasics.Sugar;
+using System;
+using System.Collections.Generic;
+using ShapesStore = DemoCSharpBasics.Shapes;
+using SugarStore = DemoCSharpBasics.Sugar;
 
 namespace DemoCSharpBasics
 {
@@ -31,15 +33,15 @@ namespace DemoCSharpBasics
             List<Shape> soldShapes = new List<Shape>();
             ShapeStore shapeStore = new ShapeStore(soldShapes);
             Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, amount: 7);
-            DemoCSharpBasics.Shapes.Cube plasticCube = new DemoCSharpBasics.Shapes.Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, amount: 4);
+            ShapesStore.Cube plasticCube = new ShapesStore.Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, amount: 4);
             Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, amount: 6);
 
             Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 16, amount: 9);
-            DemoCSharpBasics.Shapes.Cube woodCube = new DemoCSharpBasics.Shapes.Cube(name: "cube", a: 2, Material.WOOD, price: 18, amount: 12);
+            ShapesStore.Cube woodCube = new ShapesStore.Cube(name: "cube", a: 2, Material.WOOD, price: 18, amount: 12);
             Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 20, amount: 2);
 
             Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 26, amount: 7);
-            DemoCSharpBasics.Shapes.Cube metalCube = new DemoCSharpBasics.Shapes.Cube(name: "cube", a: 2, Material.METAL, price: 30, amount: 8);
+            ShapesStore.Cube metalCube = new ShapesStore.Cube(name: "cube", a: 2, Material.METAL, price: 30, amount: 8);
             Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32, amount: 13);
 
             soldShapes.Add(plastricSphere);
@@ -79,7 +81,7 @@ namespace DemoCSharpBasics
 
             double totalSugarPrice = 0.0;
             List<SugarItem> soldSugar = new List<SugarItem>();
-            DemoCSharpBasics.Sugar.Cube sugarCube = new DemoCSharpBasics.Sugar.Cube(name: "white sugar", price: 23.0, amount: 3);
+            SugarStore.Cube sugarCube = new SugarStore.Cube(name: "white sugar", price: 23.0, amount: 3);
             Bag sugarBag = new Bag(name: "yellow sugar", price: 12.0, amount: 8);
 
             soldSugar.Add(sugarCube);
