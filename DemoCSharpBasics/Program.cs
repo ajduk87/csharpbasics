@@ -1,9 +1,7 @@
-﻿using DemoCSharpBasics.Shapes;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Collections.ObjectModel;
-using System.Text;
+using DemoCSharpBasics.Shapes;
+using DemoCSharpBasics.Sugar;
 
 namespace DemoCSharpBasics
 {
@@ -29,20 +27,20 @@ namespace DemoCSharpBasics
 
         public static void Main(string[] args)
         {
-
+            double totalShapePrice = 0.0;
             List<Shape> soldShapes = new List<Shape>();
             ShapeStore shapeStore = new ShapeStore(soldShapes);
-            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
-            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
-            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
+            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, amount: 7);
+            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, amount: 4);
+            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, amount: 6);
 
-            Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 16);
-            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 18);
-            Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 20);
+            Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 16, amount: 9);
+            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 18, amount: 12);
+            Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 20, amount: 2);
 
-            Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 26);
-            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 30);
-            Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32);
+            Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 26, amount: 7);
+            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 30, amount: 8);
+            Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32, amount: 13);
 
             soldShapes.Add(plastricSphere);
             Shape.IncrementNumberOfSoldShapes();
@@ -73,10 +71,26 @@ namespace DemoCSharpBasics
                 Console.WriteLine(soldMessage + System.Environment.NewLine);
                 double volume = soldShape.Calculate();
                 Console.WriteLine("Volume is : " + volume + System.Environment.NewLine);
+                totalShapePrice += soldShape.Price * soldShape.Amount;
             }
 
             Console.WriteLine("Number of sold shapes is : " + Shape.NumberOfSoldShapes);
+            Console.WriteLine("Total value of sold shapes is : " + totalShapePrice + Shape.NumberOfSoldShapes);
 
+            double totalSugarPrice = 0.0;
+            List<SugarItem> soldSugar = new List<SugarItem>();
+            Cube sugarCube = new Cube(name: "white sugar", price: 23.0, amount: 3);
+            Bag sugarBag = new Bag(name: "yellow sugar", price: 12.0, amount: 8);
+
+            soldSugar.Add(sugarCube);
+            soldSugar.Add(sugarBag);
+
+            foreach (SugarItem sugarItem in soldSugar) 
+            {
+                totalSugarPrice += sugarItem.CalculateItemValue();
+            }
+
+            Console.WriteLine("Total value of sold sugar is : " + totalSugarPrice + Shape.NumberOfSoldShapes);
 
             Console.ReadKey();
         }

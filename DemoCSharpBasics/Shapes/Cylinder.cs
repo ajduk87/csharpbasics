@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoCSharpBasics
+namespace DemoCSharpBasics.Shapes
 {
     public class Cylinder : Shape
     {
@@ -13,7 +13,7 @@ namespace DemoCSharpBasics
         private double r;
         private double H;
 
-        public Cylinder(string name, double r, double H, Material material, double price) : base(name, material, price)
+        public Cylinder(string name, double r, double H, Material material, double price, int amount) : base(name, material, price, amount)
         {
             this.r = r;
             this.H = H;

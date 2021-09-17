@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoCSharpBasics
+namespace DemoCSharpBasics.Shapes
 {
     public class Cube : Shape
     {
         private double a;
 
-        public Cube(string name, double a, Material material, double price) : base(name, material, price)
+        public Cube(string name, double a, Material material, double price, int amount) : base(name, material, price, amount)
         {
             this.a = a;
         }
