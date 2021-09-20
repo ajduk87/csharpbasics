@@ -6,23 +6,9 @@ using System;
 namespace DemoCSharpBasicsTests
 {
     public class VolumeCalculatorTests
-    {
-      
+    {     
 
-        [Test]
-        public void CubeVolumeTest()
-        {
-            //Arange
-            double a = 2;
-            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
-            double expectedvolume = 8;
-
-            //Act
-            double volume = plasticCube.Calculate();
-
-            //Assert
-            Assert.AreEqual(expectedvolume, Math.Round(volume));
-        }
+       
 
         [Test]
         public void CylinderVolumeTest()
@@ -30,7 +16,7 @@ namespace DemoCSharpBasicsTests
             //Arange
             double r = 2;
             double H = 2;
-            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
+            Cylinder plasticCylinder = new Cylinder();
             double expectedvolume = 37.68;
 
             //Act
@@ -45,7 +31,7 @@ namespace DemoCSharpBasicsTests
         {
             //Arange
             double r = 2;
-            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
+            Sphere plastricSphere = new Sphere();
             double expectedvolume = 33.49;
 
             //Act

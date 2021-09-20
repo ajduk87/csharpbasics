@@ -28,14 +28,14 @@ namespace DemoCSharpBasics
 
             List<Sphere> soldSpheres = new List<Sphere>();
             List<Cylinder> soldCylinders = new List<Cylinder>();
-            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
-            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
+            Sphere plastricSphere = new Sphere();
+            Cylinder plasticCylinder = new Cylinder();
 
-            Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 16);
-            Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 20);
+            Sphere woodSphere = new Sphere();
+            Cylinder woodCylinder = new Cylinder();
 
-            Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 26);
-            Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32);
+            Sphere metalSphere = new Sphere();
+            Cylinder metalCylinder = new Cylinder();
 
             soldSpheres.Add(plastricSphere);
             Sphere.IncrementNumberOfSoldSpheres();
