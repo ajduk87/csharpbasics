@@ -25,6 +25,16 @@ namespace DemoCSharpBasics
         public double Price { get; set; }
 
 
+        public Sphere(string name, double r, Material material, double price)
+        {
+            this.r = r;
+            PI = 3.14;
+
+            Name = name;
+            Material = material;
+            Price = price;
+        }
+
         private double CalculateVolume()
         {
             return 4 * Math.Pow(r, 3) * PI / 3;
