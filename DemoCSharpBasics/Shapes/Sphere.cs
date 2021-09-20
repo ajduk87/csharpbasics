@@ -35,6 +35,8 @@ namespace DemoCSharpBasics
             Name = "sphere";
             Material = Material.PLASTIC;
             Price = 0.0;
+            SpecificMaterial = SpecificMaterial.PETPLASTIC;
+            Color = Color.WHITE;
         }
 
         public Sphere(string name, double r, Material material, double price)
