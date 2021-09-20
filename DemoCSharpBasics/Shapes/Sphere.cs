@@ -7,15 +7,31 @@ using System.Threading.Tasks;
 
 namespace DemoCSharpBasics
 {
-    public class Sphere : Shape
+    public class Sphere
     {
         private double PI;
         private double r;
 
-        public Sphere(string name, double r, Material material, double price) : base(name, material, price)
+
+        public static int NumberOfSoldSpheres = 0;
+
+        public static void IncrementNumberOfSoldSpheres()
+        {
+            NumberOfSoldSpheres++;
+        }
+
+        public string Name { get; set; }
+        public Material Material { get; set; }
+        public double Price { get; set; }
+
+        public Sphere(string name, double r, Material material, double price)
         {
             this.r = r;
             PI = 3.14;
+
+            Name = name;
+            Material = material;
+            Price = price;
         }
 
         private double CalculateVolume()
@@ -23,10 +39,10 @@ namespace DemoCSharpBasics
             return 4 * Math.Pow(r, 3) * PI / 3;
         }
 
-        public override double Calculate() 
+        public  double Calculate() 
         {
             double volume = CalculateVolume();
             return Math.Round(volume, 2);
-        }
+        }       
     }
 }

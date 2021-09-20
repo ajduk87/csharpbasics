@@ -8,21 +8,17 @@ using System.Text;
 namespace DemoCSharpBasics
 {
     public static class Program
-    {       
-
-        private static void WriteListItems(List<Shape> soldShapes) 
+    {     
+        private static void WriteSphere(Sphere soldSphere)
         {
-            foreach (Shape soldShape in soldShapes)
-            {
-                Console.WriteLine($"name: {soldShape.Name}  kind: {soldShape.Material}  volume: {soldShape.Calculate()}  price:{soldShape.Price}");
-            }
+            Console.WriteLine($"name: {soldSphere.Name}  kind: {soldSphere.Material}  volume: {soldSphere.Calculate()}  price:{soldSphere.Price}");
             Console.WriteLine("========================================");
             Console.WriteLine();
         }
 
-        private static void WriteItem(Shape soldShape)
+        private static void WriteCylinder(Cylinder soldCylinder)
         {
-            Console.WriteLine($"name: {soldShape.Name}  kind: {soldShape.Material}  volume: {soldShape.Calculate()}  price:{soldShape.Price}");
+            Console.WriteLine($"name: {soldCylinder.Name}  kind: {soldCylinder.Material}  volume: {soldCylinder.Calculate()}  price:{soldCylinder.Price}");
             Console.WriteLine("========================================");
             Console.WriteLine();
         }
@@ -30,52 +26,50 @@ namespace DemoCSharpBasics
         public static void Main(string[] args)
         {
 
-            List<Shape> soldShapes = new List<Shape>();
-            ShapeStore shapeStore = new ShapeStore(soldShapes);
+            List<Sphere> soldSpheres = new List<Sphere>();
+            List<Cylinder> soldCylinders = new List<Cylinder>();
             Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
-            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
             Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
 
             Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 16);
-            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 18);
             Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 20);
 
             Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 26);
-            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 30);
             Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32);
 
-            soldShapes.Add(plastricSphere);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(plasticCube);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(plasticCylinder);
-            Shape.IncrementNumberOfSoldShapes();
+            soldSpheres.Add(plastricSphere);
+            Sphere.IncrementNumberOfSoldSpheres();
+            soldSpheres.Add(woodSphere);
+            Sphere.IncrementNumberOfSoldSpheres();
+            soldSpheres.Add(metalSphere);
+            Sphere.IncrementNumberOfSoldSpheres();
 
-            soldShapes.Add(woodSphere);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(woodCube);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(woodCylinder);
-            Shape.IncrementNumberOfSoldShapes();
 
-            soldShapes.Add(metalSphere);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(metalCube);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(metalCylinder);
-            Shape.IncrementNumberOfSoldShapes();
+            soldCylinders.Add(plasticCylinder);
+            Cylinder.IncrementNumberOfSoldCylinders();
+            soldCylinders.Add(woodCylinder);
+            Cylinder.IncrementNumberOfSoldCylinders();
+            soldCylinders.Add(metalCylinder);
+            Cylinder.IncrementNumberOfSoldCylinders();
 
-            Console.WriteLine("Sold shapes elements are : " + System.Environment.NewLine);
+            Console.WriteLine("Sold spheres are : " + System.Environment.NewLine);
 
-            foreach (Shape soldShape in soldShapes)
+            foreach (Sphere soldSphere in soldSpheres)
             {
-                string soldMessage = soldShape.ToString();
-                Console.WriteLine(soldMessage + System.Environment.NewLine);
-                double volume = soldShape.Calculate();
-                Console.WriteLine("Volume is : " + volume + System.Environment.NewLine);
+                WriteSphere(soldSphere);
             }
 
-            Console.WriteLine("Number of sold shapes is : " + Shape.NumberOfSoldShapes);
+            Console.WriteLine("Number of sold spheres is : " + Sphere.NumberOfSoldSpheres);
+
+
+            Console.WriteLine("Sold cylinders are : " + System.Environment.NewLine);
+
+            foreach (Cylinder soldCylinder in soldCylinders)
+            {
+                WriteCylinder(soldCylinder);
+            }
+
+            Console.WriteLine("Number of sold cylinders is : " + Cylinder.NumberOfSoldCylinders);
 
 
             Console.ReadKey();
