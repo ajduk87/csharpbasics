@@ -20,7 +20,7 @@ namespace DemoCSharpBasicsTests
             double expectedvolume = 37.68;
 
             //Act
-            double volume = plasticCylinder.Calculate();
+            double volume = plasticCylinder.CalculateVolume();
 
             //Assert
             Assert.AreEqual(Math.Round(expectedvolume, 2), Math.Round(volume, 2));
@@ -35,7 +35,7 @@ namespace DemoCSharpBasicsTests
             double expectedvolume = 33.49;
 
             //Act
-            double volume = plastricSphere.Calculate();
+            double volume = plastricSphere.CalculateVolume();
 
             //Assert
             Assert.AreEqual(Math.Round(expectedvolume, 2), Math.Round(volume, 2));

@@ -11,14 +11,22 @@ namespace DemoCSharpBasics
     {     
         private static void WriteSphere(Sphere soldSphere)
         {
-            Console.WriteLine($"name: {soldSphere.Name}  kind: {soldSphere.Material}  volume: {soldSphere.Calculate()}  price:{soldSphere.Price}");
+            Console.WriteLine($"name: {soldSphere.Name}  " +
+                              $"kind: {soldSphere.Material}  " +
+                              $"volume: {soldSphere.CalculateVolume()} " +
+                              $"area: {soldSphere.CalculateArea()}  " +
+                              $"price:{soldSphere.Price}");
             Console.WriteLine("========================================");
             Console.WriteLine();
         }
 
         private static void WriteCylinder(Cylinder soldCylinder)
         {
-            Console.WriteLine($"name: {soldCylinder.Name}  kind: {soldCylinder.Material}  volume: {soldCylinder.Calculate()}  price:{soldCylinder.Price}");
+            Console.WriteLine($"name: {soldCylinder.Name}  " +
+                              $"kind: {soldCylinder.Material}  " +
+                              $"volume: {soldCylinder.CalculateVolume()} " +
+                              $"area: {soldCylinder.CalculateArea()}  " +
+                              $"price:{soldCylinder.Price}");
             Console.WriteLine("========================================");
             Console.WriteLine();
         }

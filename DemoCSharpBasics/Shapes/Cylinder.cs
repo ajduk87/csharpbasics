@@ -76,15 +76,14 @@ namespace DemoCSharpBasics
             Color = color;
         }
 
-        private double CalculateVolume()
+        public double CalculateVolume()
         {
-            return Math.Pow(r, 2) * PI * H;
+            return Math.Round(Math.Pow(r, 2) * PI * H, 2);
         }
 
-        public double Calculate()
+        public double CalculateArea()
         {
-            double volume = CalculateVolume();
-            return Math.Round(volume, 2);
+            return Math.Round(Math.Pow(r, 2) * PI * H, 2);
         }
     }
 }

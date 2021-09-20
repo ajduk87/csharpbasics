@@ -73,16 +73,14 @@ namespace DemoCSharpBasics
             this.SpecificMaterial = SpecificMaterial;
             this.Color = Color;
         }
-
-        private double CalculateVolume()
+        public  double CalculateVolume() 
         {
-            return 4 * Math.Pow(r, 3) * PI / 3;
+            return Math.Round(4 * Math.Pow(r, 3) * PI / 3, 2);
         }
 
-        public  double Calculate() 
+        public double CalculateArea()
         {
-            double volume = CalculateVolume();
-            return Math.Round(volume, 2);
-        }       
+            return Math.Round(4 * Math.Pow(r, 3) * PI / 3, 2);
+        }
     }
 }
