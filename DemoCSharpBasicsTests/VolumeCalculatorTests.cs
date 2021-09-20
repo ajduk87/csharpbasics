@@ -8,22 +8,7 @@ namespace DemoCSharpBasicsTests
     public class VolumeCalculatorTests
     {
       
-
-        [Test]
-        public void CubeVolumeTest()
-        {
-            //Arange
-            double a = 2;
-            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
-            double expectedvolume = 8;
-
-            //Act
-            double volume = plasticCube.Calculate();
-
-            //Assert
-            Assert.AreEqual(expectedvolume, Math.Round(volume));
-        }
-
+       
         [Test]
         public void CylinderVolumeTest()
         {
