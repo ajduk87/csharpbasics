@@ -24,6 +24,17 @@ namespace DemoCSharpBasics
         public Material Material { get; set; }
         public double Price { get; set; }
 
+        public Cylinder() 
+        {
+            this.r = 0.0;
+            this.H = 0.0;
+            PI = 3.14;
+
+            Name = "cylinder";
+            Material = Material.PLASTIC;
+            Price = 0.0;
+        }
+
         public Cylinder(string name, double r, double H, Material material, double price)
         {
             this.r = r;

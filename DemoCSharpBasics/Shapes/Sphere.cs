@@ -25,6 +25,16 @@ namespace DemoCSharpBasics
         public double Price { get; set; }
 
 
+        public Sphere() 
+        {
+            this.r = 0.0;
+            PI = 3.14;
+
+            Name = "sphere";
+            Material = Material.PLASTIC;
+            Price = 0.0;
+        }
+
         public Sphere(string name, double r, Material material, double price)
         {
             this.r = r;
