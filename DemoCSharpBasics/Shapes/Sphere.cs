@@ -32,46 +32,46 @@ namespace DemoCSharpBasics
             this.r = 0.0;
             PI = 3.14;
 
-            Name = "sphere";
-            Material = Material.PLASTIC;
-            Price = 0.0;
+            this.Name = "sphere";
+            this.Material = Material.PLASTIC;
+            this.Price = 0.0;
+            this.SpecificMaterial = SpecificMaterial.PETPLASTIC;
+            this.Color = Color.WHITE;
+        }
+
+        public Sphere(string Name, double r, Material Material, double Price)
+        {
+            this.r = r;
+            PI = 3.14;
+
+            this.Name = Name;
+            this.Material = Material;
+            this.Price = Price;
             SpecificMaterial = SpecificMaterial.PETPLASTIC;
             Color = Color.WHITE;
         }
 
-        public Sphere(string name, double r, Material material, double price)
+        public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial)
         {
             this.r = r;
             PI = 3.14;
 
-            Name = name;
-            Material = material;
-            Price = price;
-            SpecificMaterial = SpecificMaterial.PETPLASTIC;
-            Color = Color.WHITE;
+            this.Name = Name;
+            this.Material = Material;
+            this.Price = Price;
+            this.SpecificMaterial = SpecificMaterial;
         }
 
-        public Sphere(string name, double r, Material material, double price, SpecificMaterial specificMaterial)
+        public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial, Color Color)
         {
             this.r = r;
             PI = 3.14;
 
-            Name = name;
-            Material = material;
-            Price = price;
-            SpecificMaterial = specificMaterial;
-        }
-
-        public Sphere(string name, double r, Material material, double price, SpecificMaterial specificMaterial, Color color)
-        {
-            this.r = r;
-            PI = 3.14;
-
-            Name = name;
-            Material = material;
-            Price = price;
-            SpecificMaterial = specificMaterial;
-            Color = color;
+            this.Name = Name;
+            this.Material = Material;
+            this.Price = Price;
+            this.SpecificMaterial = SpecificMaterial;
+            this.Color = Color;
         }
 
         private double CalculateVolume()
