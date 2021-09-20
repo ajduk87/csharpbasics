@@ -27,7 +27,12 @@ namespace DemoCSharpBasics
         public Color Color { get; set; }
 
 
-        public Sphere() 
+        public Sphere() : this("sphere",
+                               0.0,
+                               Material.PLASTIC,
+                               0.0,
+                               SpecificMaterial.PETPLASTIC,
+                               Color.WHITE)
         {
             this.r = 0.0;
             PI = 3.14;
@@ -39,27 +44,31 @@ namespace DemoCSharpBasics
             this.Color = Color.WHITE;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price)
+        public Sphere(string Name, 
+                      double r, 
+                      Material Material, 
+                      double Price) : this(Name,
+                                           r,
+                                           Material,
+                                           Price,
+                                           SpecificMaterial.PETPLASTIC,
+                                           Color.WHITE)
         {
-            this.r = r;
             PI = 3.14;
-
-            this.Name = Name;
-            this.Material = Material;
-            this.Price = Price;
-            SpecificMaterial = SpecificMaterial.PETPLASTIC;
-            Color = Color.WHITE;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial)
+        public Sphere(string Name, 
+                      double r, 
+                      Material Material, 
+                      double Price, 
+                      SpecificMaterial SpecificMaterial) : this(Name,
+                                                                r,
+                                                                Material,
+                                                                Price,
+                                                                SpecificMaterial,
+                                                                Color.WHITE)
         {
-            this.r = r;
             PI = 3.14;
-
-            this.Name = Name;
-            this.Material = Material;
-            this.Price = Price;
-            this.SpecificMaterial = SpecificMaterial;
         }
 
         public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial, Color Color)
