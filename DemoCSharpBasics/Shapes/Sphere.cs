@@ -24,6 +24,7 @@ namespace DemoCSharpBasics
         public Material Material { get; set; }
         public double Price { get; set; }
         public SpecificMaterial SpecificMaterial { get; set; }
+        public Color Color { get; set; }
 
 
         public Sphere() 
@@ -44,6 +45,8 @@ namespace DemoCSharpBasics
             Name = name;
             Material = material;
             Price = price;
+            SpecificMaterial = SpecificMaterial.PETPLASTIC;
+            Color = Color.WHITE;
         }
 
         public Sphere(string name, double r, Material material, double price, SpecificMaterial specificMaterial)
@@ -55,6 +58,18 @@ namespace DemoCSharpBasics
             Material = material;
             Price = price;
             SpecificMaterial = specificMaterial;
+        }
+
+        public Sphere(string name, double r, Material material, double price, SpecificMaterial specificMaterial, Color color)
+        {
+            this.r = r;
+            PI = 3.14;
+
+            Name = name;
+            Material = material;
+            Price = price;
+            SpecificMaterial = specificMaterial;
+            Color = color;
         }
 
         private double CalculateVolume()

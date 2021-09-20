@@ -24,6 +24,9 @@ namespace DemoCSharpBasics
         public Material Material { get; set; }
         public double Price { get; set; }
 
+        public SpecificMaterial SpecificMaterial { get; set; }
+        public Color Color { get; set; }
+
         public Cylinder() 
         {
             this.r = 0.0;
@@ -33,6 +36,8 @@ namespace DemoCSharpBasics
             Name = "cylinder";
             Material = Material.PLASTIC;
             Price = 0.0;
+            SpecificMaterial = SpecificMaterial.PETPLASTIC;
+            Color = Color.WHITE;
         }
 
         public Cylinder(string name, double r, double H, Material material, double price)
@@ -44,6 +49,31 @@ namespace DemoCSharpBasics
             Name = name;
             Material = material;
             Price = price;
+        }
+
+        public Cylinder(string name, double r, double H, Material material, double price, SpecificMaterial specificMaterial)
+        {
+            this.r = r;
+            this.H = H;
+            PI = 3.14;
+
+            Name = name;
+            Material = material;
+            Price = price;
+            SpecificMaterial = specificMaterial;
+        }
+
+        public Cylinder(string name, double r, double H, Material material, double price, SpecificMaterial specificMaterial, Color color)
+        {
+            this.r = r;
+            this.H = H;
+            PI = 3.14;
+
+            Name = name;
+            Material = material;
+            Price = price;
+            SpecificMaterial = specificMaterial;
+            Color = color;
         }
 
         private double CalculateVolume()
