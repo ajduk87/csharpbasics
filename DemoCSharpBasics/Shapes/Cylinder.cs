@@ -24,6 +24,8 @@ namespace DemoCSharpBasics
         public Material Material { get; set; }
         public double Price { get; set; }
 
+        public SpecificMaterial SpecificMaterial { get; set; }
+
         public Cylinder() 
         {
             this.r = 0.0;
@@ -44,6 +46,18 @@ namespace DemoCSharpBasics
             Name = name;
             Material = material;
             Price = price;
+        }
+
+        public Cylinder(string name, double r, double H, Material material, double price, SpecificMaterial specificMaterial)
+        {
+            this.r = r;
+            this.H = H;
+            PI = 3.14;
+
+            Name = name;
+            Material = material;
+            Price = price;
+            SpecificMaterial = specificMaterial;
         }
 
         private double CalculateVolume()
