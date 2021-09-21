@@ -29,7 +29,7 @@ namespace DemoCSharpBasics
 
         static Sphere() 
         {
-            Console.WriteLine("static sphere constructor is called.");
+            Console.WriteLine("Static sphere constructor is called.");
 
             NumberOfSoldSpheres = 0;
             PI = 3.14;
