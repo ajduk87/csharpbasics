@@ -40,15 +40,15 @@ namespace DemoCSharpBasics
             Color = Color.WHITE;
         }
 
-        public Cylinder(string name, double r, double H, Material material, double price)
+        public Cylinder(string Name, double r, double H, Material material, double Price)
         {
             this.r = r;
             this.H = H;
             PI = 3.14;
 
-            Name = name;
+            this.Name = Name;
             Material = material;
-            Price = price;
+            this.Price = Price;
         }
 
         public Cylinder(string name, double r, double H, Material material, double price, SpecificMaterial specificMaterial)

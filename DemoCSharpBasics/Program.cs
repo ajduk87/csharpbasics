@@ -8,7 +8,7 @@ using System.Text;
 namespace DemoCSharpBasics
 {
     public static class Program
-    {     
+    {
         private static void WriteSphere(Sphere soldSphere)
         {
             Console.WriteLine($"name: {soldSphere.Name}  " +
@@ -35,20 +35,23 @@ namespace DemoCSharpBasics
         {
 
             List<Sphere> soldSpheres = new List<Sphere>();
-            List<Cylinder> soldCylinders = new List<Cylinder>();
-            Sphere plastricSphere = new Sphere();
-            Cylinder plasticCylinder = new Cylinder();
+            List<Cylinder> soldCylinders = new List<Cylinder>();         
 
-            Sphere woodSphere = new Sphere();
-            Cylinder woodCylinder = new Cylinder();
+            Sphere plastricSphere = new Sphere(Name: "sphere", r: 2, Material.PLASTIC, Price: 6);
+            Cylinder plasticCylinder = new Cylinder(Name: "cylinder", r: 2, H: 3, Material.PLASTIC, Price: 10);
 
-            Sphere metalSphere = new Sphere();
-            Cylinder metalCylinder = new Cylinder();
+            Sphere woodSphere = new Sphere(Name: "sphere", r: 2, Material.WOOD, Price: 16);
+            Cylinder woodCylinder = new Cylinder(Name: "cylinder", r: 2, H: 3, Material.WOOD, Price: 20);
+
+            Sphere metalSphere = new Sphere(Name: "sphere", r: 2, Material.METAL, Price: 26);
+            Cylinder metalCylinder = new Cylinder(Name: "cylinder", r: 2, H: 3, Material.METAL, Price: 32);
 
             soldSpheres.Add(plastricSphere);
             Sphere.IncrementNumberOfSoldSpheres();
+
             soldSpheres.Add(woodSphere);
             Sphere.IncrementNumberOfSoldSpheres();
+
             soldSpheres.Add(metalSphere);
             Sphere.IncrementNumberOfSoldSpheres();
 
@@ -67,7 +70,9 @@ namespace DemoCSharpBasics
                 WriteSphere(soldSphere);
             }
 
-            Console.WriteLine("Number of sold spheres is : " + Sphere.NumberOfSoldSpheres);
+
+            Console.WriteLine($"Number of sold spheres is : " +
+                              $"{Sphere.NumberOfSoldSpheres} ");
 
 
             Console.WriteLine("Sold cylinders are : " + System.Environment.NewLine);
