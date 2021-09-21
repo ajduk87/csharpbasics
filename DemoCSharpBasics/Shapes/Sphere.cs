@@ -13,8 +13,8 @@ namespace DemoCSharpBasics
         private double r;
 
 
-        public static int NumberOfSoldSpheres = 0;
-        private static double PI = 3.14;
+        public static int NumberOfSoldSpheres;
+        private static double PI;
 
         public static void IncrementNumberOfSoldSpheres()
         {
@@ -27,6 +27,13 @@ namespace DemoCSharpBasics
         public SpecificMaterial SpecificMaterial { get; set; }
         public Color Color { get; set; }
 
+        static Sphere() 
+        {
+            Console.WriteLine("static sphere constructor is called.");
+
+            NumberOfSoldSpheres = 0;
+            PI = 3.14;
+        }
 
         public Sphere() 
         {
@@ -41,6 +48,8 @@ namespace DemoCSharpBasics
 
         public Sphere(string Name, double r, Material Material, double Price)
         {
+            Console.WriteLine("Instance sphere constructor is called.");
+
             this.r = r;
 
             this.Name = Name;

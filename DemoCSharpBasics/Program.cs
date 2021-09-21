@@ -34,55 +34,9 @@ namespace DemoCSharpBasics
         public static void Main(string[] args)
         {
 
-            List<Sphere> soldSpheres = new List<Sphere>();
-            List<Cylinder> soldCylinders = new List<Cylinder>();         
+          
 
-            Sphere plastricSphere = new Sphere(Name: "sphere", r: 2, Material.PLASTIC, Price: 6);
-            Cylinder plasticCylinder = new Cylinder(Name: "cylinder", r: 2, H: 3, Material.PLASTIC, Price: 10);
-
-            Sphere woodSphere = new Sphere(Name: "sphere", r: 2, Material.WOOD, Price: 16);
-            Cylinder woodCylinder = new Cylinder(Name: "cylinder", r: 2, H: 3, Material.WOOD, Price: 20);
-
-            Sphere metalSphere = new Sphere(Name: "sphere", r: 2, Material.METAL, Price: 26);
-            Cylinder metalCylinder = new Cylinder(Name: "cylinder", r: 2, H: 3, Material.METAL, Price: 32);
-
-            soldSpheres.Add(plastricSphere);
-            Sphere.IncrementNumberOfSoldSpheres();
-
-            soldSpheres.Add(woodSphere);
-            Sphere.IncrementNumberOfSoldSpheres();
-
-            soldSpheres.Add(metalSphere);
-            Sphere.IncrementNumberOfSoldSpheres();
-
-
-            soldCylinders.Add(plasticCylinder);
-            Cylinder.IncrementNumberOfSoldCylinders();
-            soldCylinders.Add(woodCylinder);
-            Cylinder.IncrementNumberOfSoldCylinders();
-            soldCylinders.Add(metalCylinder);
-            Cylinder.IncrementNumberOfSoldCylinders();
-
-            Console.WriteLine("Sold spheres are : " + System.Environment.NewLine);
-
-            foreach (Sphere soldSphere in soldSpheres)
-            {
-                WriteSphere(soldSphere);
-            }
-
-
-            Console.WriteLine($"Number of sold spheres is : " +
-                              $"{Sphere.NumberOfSoldSpheres} ");
-
-
-            Console.WriteLine("Sold cylinders are : " + System.Environment.NewLine);
-
-            foreach (Cylinder soldCylinder in soldCylinders)
-            {
-                WriteCylinder(soldCylinder);
-            }
-
-            Console.WriteLine("Number of sold cylinders is : " + Cylinder.NumberOfSoldCylinders);
+            Sphere plastricSphere = new Sphere(Name: "sphere", r: 2, Material.PLASTIC, Price: 6);          
 
 
             Console.ReadKey();
