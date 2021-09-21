@@ -9,11 +9,12 @@ namespace DemoCSharpBasics
 {
     public class Sphere
     {
-        private double PI;
+       
         private double r;
 
 
         public static int NumberOfSoldSpheres = 0;
+        private static double PI = 3.14;
 
         public static void IncrementNumberOfSoldSpheres()
         {
@@ -30,7 +31,6 @@ namespace DemoCSharpBasics
         public Sphere() 
         {
             this.r = 0.0;
-            PI = 3.14;
 
             this.Name = "sphere";
             this.Material = Material.PLASTIC;
@@ -42,7 +42,6 @@ namespace DemoCSharpBasics
         public Sphere(string Name, double r, Material Material, double Price)
         {
             this.r = r;
-            PI = 3.14;
 
             this.Name = Name;
             this.Material = Material;
@@ -54,7 +53,6 @@ namespace DemoCSharpBasics
         public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial)
         {
             this.r = r;
-            PI = 3.14;
 
             this.Name = Name;
             this.Material = Material;
@@ -65,7 +63,6 @@ namespace DemoCSharpBasics
         public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial, Color Color)
         {
             this.r = r;
-            PI = 3.14;
 
             this.Name = Name;
             this.Material = Material;
