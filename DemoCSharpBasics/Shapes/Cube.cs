@@ -20,6 +20,8 @@ namespace DemoCSharpBasics.Shapes
 
 
         public static int NumberOfSoldCubes = 0;
+
+
         public static void IncrementNumberOfSoldCubes()
         {
             NumberOfSoldCubes++;
