@@ -7,18 +7,10 @@ using System.Threading.Tasks;
 
 namespace DemoCSharpBasics
 {
-    public class Sphere
+    public class Sphere : Shape
     {
        
-        private double r;
-
-        public string Name { get; set; }
-        public Material Material { get; set; }
-        public double Price { get; set; }
-        public SpecificMaterial SpecificMaterial { get; set; }
-        public Color Color { get; set; }
-        public int OrderAmount { get; set; }
-
+        private double r;  
         
 
         public static int NumberOfSoldSpheres;
@@ -40,18 +32,12 @@ namespace DemoCSharpBasics
             PI = 3.14;
         }
 
-        public Sphere() 
+        public Sphere() : base("sphere", Material.PLASTIC, 0.0, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
         {
-            this.r = 0.0;
-
-            this.Name = "sphere";
-            this.Material = Material.PLASTIC;
-            this.Price = 0.0;
-            this.SpecificMaterial = SpecificMaterial.PETPLASTIC;
-            this.Color = Color.WHITE;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price)
+        public Sphere(string Name, double r, Material Material, double Price) :
+                     base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
         {
             Console.WriteLine("Instance sphere constructor is called.");
 
@@ -104,16 +90,6 @@ namespace DemoCSharpBasics
         public double CalculateArea()
         {
             return Math.Round(4 * Math.Pow(r, 3) * PI / 3, 2);
-        }
-
-        //business rule:
-        //if it is purchased over 20 pieces you will receive a five percent discount
-        public double CalculateOrderItemValue() 
-        {
-            double orderItemValue = this.OrderAmount > 20 ? 0.95 * this.Price * this.OrderAmount :
-                                                            this.Price * this.OrderAmount;
-
-            return orderItemValue;
-        }
+        }     
     }
 }
