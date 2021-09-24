@@ -23,9 +23,9 @@ namespace DemoCSharpBasics
         public string Name { get; set; }
         public Material Material { get; set; }
         public double Price { get; set; }
-
         public SpecificMaterial SpecificMaterial { get; set; }
         public Color Color { get; set; }
+        public int OrderAmount { get; set; }
 
         public Cylinder() 
         {
@@ -49,6 +49,18 @@ namespace DemoCSharpBasics
             this.Name = Name;
             Material = material;
             this.Price = Price;
+        }
+
+        public Cylinder(string Name, double r, double H, Material material, double Price, int OrderAmount)
+        {
+            this.r = r;
+            this.H = H;
+            PI = 3.14;
+
+            this.Name = Name;
+            Material = material;
+            this.Price = Price;
+            this.OrderAmount = OrderAmount;
         }
 
         public Cylinder(string name, double r, double H, Material material, double price, SpecificMaterial specificMaterial)
@@ -84,6 +96,16 @@ namespace DemoCSharpBasics
         public double CalculateArea()
         {
             return Math.Round(Math.Pow(r, 2) * PI * H, 2);
+        }
+
+        //business rule:
+        //if over 20 purchased pieces received a five percent discount
+        public double CalculateOrderItemValue()
+        {
+            double orderItemValue = this.OrderAmount > 20 ? 0.95 * this.Price * this.OrderAmount :
+                                                            this.Price * this.OrderAmount;
+
+            return orderItemValue;
         }
     }
 }

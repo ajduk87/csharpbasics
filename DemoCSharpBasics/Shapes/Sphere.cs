@@ -26,6 +26,7 @@ namespace DemoCSharpBasics
         public double Price { get; set; }
         public SpecificMaterial SpecificMaterial { get; set; }
         public Color Color { get; set; }
+        public int OrderAmount { get; set; }
 
         static Sphere() 
         {
@@ -59,6 +60,18 @@ namespace DemoCSharpBasics
             Color = Color.WHITE;
         }
 
+        public Sphere(string Name, double r, Material Material, double Price, int OrderAmount)
+        {
+            Console.WriteLine("Instance sphere constructor is called.");
+
+            this.r = r;
+
+            this.Name = Name;
+            this.Material = Material;
+            this.Price = Price;
+            this.OrderAmount = OrderAmount;
+        }
+
         public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial)
         {
             this.r = r;
@@ -87,6 +100,16 @@ namespace DemoCSharpBasics
         public double CalculateArea()
         {
             return Math.Round(4 * Math.Pow(r, 3) * PI / 3, 2);
+        }
+
+        //business rule:
+        //if over 20 purchased pieces received a five percent discount
+        public double CalculateOrderItemValue() 
+        {
+            double orderItemValue = this.OrderAmount > 20 ? 0.95 * this.Price * this.OrderAmount :
+                                                            this.Price * this.OrderAmount;
+
+            return orderItemValue;
         }
     }
 }
