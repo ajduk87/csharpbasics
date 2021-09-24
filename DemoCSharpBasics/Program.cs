@@ -38,11 +38,16 @@ namespace DemoCSharpBasics
             //12 wood spheres
             //25 plastric cylinder
             //8  wood cylinder
+            //11 plactic cubes
+            //29 wood cubes
             Sphere plastricSphere = new Sphere(Name: "sphere", r: 2, Material.PLASTIC, Price: 6,OrderAmount: 23);
             Sphere woodSphere = new Sphere(Name: "sphere", r: 2, Material.WOOD, Price: 18, OrderAmount: 12);
 
             Cylinder plastricCylinder = new Cylinder(Name: "cylinder", r: 2, H:3, Material.PLASTIC, Price: 10, OrderAmount: 25);
             Cylinder woodCylinder = new Cylinder(Name: "cylinder", r: 2, H:4, Material.WOOD, Price: 20, OrderAmount: 8);
+
+            Cube plastricCube = new Cube(Name: "cube", a: 3, Material.PLASTIC, Price: 10, OrderAmount: 25);
+            Cube woodCube = new Cube(Name: "cube", a: 2, Material.WOOD, Price: 20, OrderAmount: 8);
 
             List<Sphere> sphereOrderItems = new List<Sphere>();
             sphereOrderItems.Add(plastricSphere);
@@ -51,6 +56,10 @@ namespace DemoCSharpBasics
             List<Cylinder> cylinderOrderItems = new List<Cylinder>();
             cylinderOrderItems.Add(plastricCylinder);
             cylinderOrderItems.Add(woodCylinder);
+
+            List<Cube> cubeOrderItems = new List<Cube>();
+            cubeOrderItems.Add(plastricCube);
+            cubeOrderItems.Add(woodCube);
 
             double yourbill = 0.0;
 
@@ -62,6 +71,11 @@ namespace DemoCSharpBasics
             foreach (Cylinder cylinderOrderItem in cylinderOrderItems)
             {
                 yourbill = yourbill + cylinderOrderItem.CalculateOrderItemValue();
+            }
+
+            foreach (Cube cubeOrderItem in cubeOrderItems)
+            {
+                yourbill = yourbill + cubeOrderItem.CalculateOrderItemValue();
             }
 
             Console.WriteLine("Your bill is: " + yourbill);

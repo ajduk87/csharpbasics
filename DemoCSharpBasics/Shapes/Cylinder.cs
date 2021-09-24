@@ -9,16 +9,8 @@ namespace DemoCSharpBasics
 {
     public class Cylinder
     {
-        private double PI;
         private double r;
         private double H;
-
-        public static int NumberOfSoldCylinders = 0;
-
-        public static void IncrementNumberOfSoldCylinders()
-        {
-            NumberOfSoldCylinders++;
-        }
 
         public string Name { get; set; }
         public Material Material { get; set; }
@@ -26,6 +18,19 @@ namespace DemoCSharpBasics
         public SpecificMaterial SpecificMaterial { get; set; }
         public Color Color { get; set; }
         public int OrderAmount { get; set; }
+
+
+        public static int NumberOfSoldCylinders = 0;
+        private static double PI = 3.14;
+
+
+        public static void IncrementNumberOfSoldCylinders()
+        {
+            NumberOfSoldCylinders++;
+            PI = 3.14;
+        }
+
+      
 
         public Cylinder() 
         {

@@ -1,16 +1,14 @@
-﻿using DemoCSharpBasics.Shapes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoCSharpBasics
+namespace DemoCSharpBasics.Shapes
 {
-    public class Sphere
+    public class Cube
     {
-       
-        private double r;
+        private double a;
 
         public string Name { get; set; }
         public Material Material { get; set; }
@@ -19,43 +17,37 @@ namespace DemoCSharpBasics
         public Color Color { get; set; }
         public int OrderAmount { get; set; }
 
-        
-
-        public static int NumberOfSoldSpheres;
-        private static double PI = 3.14;
 
 
-        public static void IncrementNumberOfSoldSpheres()
+        public static int NumberOfSoldCubes = 0;
+        public static void IncrementNumberOfSoldCubes()
         {
-            NumberOfSoldSpheres++;
+            NumberOfSoldCubes++;
         }
 
-       
-
-        static Sphere() 
+        static Cube()
         {
             Console.WriteLine("Static sphere constructor is called.");
 
-            NumberOfSoldSpheres = 0;
-            PI = 3.14;
+            NumberOfSoldCubes = 0;
         }
 
-        public Sphere() 
+        public Cube()
         {
-            this.r = 0.0;
+            this.a = 0.0;
 
-            this.Name = "sphere";
+            this.Name = "cube";
             this.Material = Material.PLASTIC;
             this.Price = 0.0;
             this.SpecificMaterial = SpecificMaterial.PETPLASTIC;
             this.Color = Color.WHITE;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price)
+        public Cube(string Name, double a, Material Material, double Price)
         {
-            Console.WriteLine("Instance sphere constructor is called.");
+            Console.WriteLine("Instance cube constructor is called.");
 
-            this.r = r;
+            this.a = a;
 
             this.Name = Name;
             this.Material = Material;
@@ -64,11 +56,11 @@ namespace DemoCSharpBasics
             Color = Color.WHITE;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price, int OrderAmount)
+        public Cube(string Name, double a, Material Material, double Price, int OrderAmount)
         {
-            Console.WriteLine("Instance sphere constructor is called.");
+            Console.WriteLine("Instance cube constructor is called.");
 
-            this.r = r;
+            this.a = a;
 
             this.Name = Name;
             this.Material = Material;
@@ -76,9 +68,9 @@ namespace DemoCSharpBasics
             this.OrderAmount = OrderAmount;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial)
+        public Cube(string Name, double a, Material Material, double Price, SpecificMaterial SpecificMaterial)
         {
-            this.r = r;
+            this.a = a;
 
             this.Name = Name;
             this.Material = Material;
@@ -86,9 +78,9 @@ namespace DemoCSharpBasics
             this.SpecificMaterial = SpecificMaterial;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial, Color Color)
+        public Cube(string Name, double a, Material Material, double Price, SpecificMaterial SpecificMaterial, Color Color)
         {
-            this.r = r;
+            this.a = a;
 
             this.Name = Name;
             this.Material = Material;
@@ -96,19 +88,19 @@ namespace DemoCSharpBasics
             this.SpecificMaterial = SpecificMaterial;
             this.Color = Color;
         }
-        public  double CalculateVolume() 
+        public double CalculateVolume()
         {
-            return Math.Round(4 * Math.Pow(r, 3) * PI / 3, 2);
+            return Math.Round(Math.Pow(a, 3), 2);
         }
 
         public double CalculateArea()
         {
-            return Math.Round(4 * Math.Pow(r, 3) * PI / 3, 2);
+            return Math.Round(6 * Math.Pow(a, 2), 2);
         }
 
         //business rule:
         //if over 20 purchased pieces received a five percent discount
-        public double CalculateOrderItemValue() 
+        public double CalculateOrderItemValue()
         {
             double orderItemValue = this.OrderAmount > 20 ? 0.95 * this.Price * this.OrderAmount :
                                                             this.Price * this.OrderAmount;
