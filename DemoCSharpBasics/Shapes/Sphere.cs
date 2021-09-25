@@ -42,45 +42,38 @@ namespace DemoCSharpBasics
             Console.WriteLine("Instance sphere constructor is called.");
 
             this.r = r;
-
-            this.Name = Name;
-            this.Material = Material;
-            this.Price = Price;
-            SpecificMaterial = SpecificMaterial.PETPLASTIC;
-            Color = Color.WHITE;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price, int OrderAmount)
+        public Sphere(string Name, double r, Material Material, double Price, int OrderAmount) :
+            base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, OrderAmount)
         {
-            Console.WriteLine("Instance sphere constructor is called.");
+            Console.WriteLine("Instance sphere (derived) constructor is called.");
 
             this.r = r;
-
-            this.Name = Name;
-            this.Material = Material;
-            this.Price = Price;
-            this.OrderAmount = OrderAmount;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial)
+        public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial) :
+            base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
         {
             this.r = r;
-
-            this.Name = Name;
-            this.Material = Material;
-            this.Price = Price;
-            this.SpecificMaterial = SpecificMaterial;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial, Color Color)
+        public Sphere(string Name, 
+                      double r, 
+                      Material Material, 
+                      double Price, 
+                      SpecificMaterial SpecificMaterial, 
+                      Color Color, 
+                      int OrderAmount) :
+
+                      base(Name, 
+                           Material, 
+                           Price, 
+                           SpecificMaterial, 
+                           Color, 
+                           OrderAmount)
         {
             this.r = r;
-
-            this.Name = Name;
-            this.Material = Material;
-            this.Price = Price;
-            this.SpecificMaterial = SpecificMaterial;
-            this.Color = Color;
         }
         public  double CalculateVolume() 
         {

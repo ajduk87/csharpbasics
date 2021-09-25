@@ -6,22 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DemoCSharpBasics
-{
-    public class Cylinder
+{  
+
+    public class Cylinder : Shape
     {
         private double r;
         private double H;
 
-        public string Name { get; set; }
-        public Material Material { get; set; }
-        public double Price { get; set; }
-        public SpecificMaterial SpecificMaterial { get; set; }
-        public Color Color { get; set; }
-        public int OrderAmount { get; set; }
-
-
-        public static int NumberOfSoldCylinders = 0;
-        private static double PI = 3.14;
+        public static int NumberOfSoldCylinders;
+        private static double PI;
 
 
         public static void IncrementNumberOfSoldCylinders()
@@ -30,67 +23,53 @@ namespace DemoCSharpBasics
             PI = 3.14;
         }
 
-      
+        static Cylinder()
+        {
+            Console.WriteLine("Static cylinder constructor is called.");
 
-        public Cylinder() 
+            NumberOfSoldCylinders = 0;
+            PI = 3.14;
+        }
+
+        public Cylinder() : base("cylinder", Material.PLASTIC, 0.0, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
         {
             this.r = 0.0;
             this.H = 0.0;
-            PI = 3.14;
-
-            Name = "cylinder";
-            Material = Material.PLASTIC;
-            Price = 0.0;
-            SpecificMaterial = SpecificMaterial.PETPLASTIC;
-            Color = Color.WHITE;
         }
 
-        public Cylinder(string Name, double r, double H, Material material, double Price)
+        public Cylinder(string Name, double r, double H, Material Material, double Price) :
+                        base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
         {
             this.r = r;
             this.H = H;
-            PI = 3.14;
-
-            this.Name = Name;
-            Material = material;
-            this.Price = Price;
         }
 
-        public Cylinder(string Name, double r, double H, Material material, double Price, int OrderAmount)
+        public Cylinder(string Name, double r, double H, Material Material, double Price, int OrderAmount) :
+                        base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, OrderAmount)
+        {
+            Console.WriteLine("Instance cylinder (derived) constructor is called.");
+
+            this.r = r;
+            this.H = H;
+        }
+
+        public Cylinder(string Name, 
+                        double r, 
+                        double H, 
+                        Material Material, 
+                        double Price, 
+                        SpecificMaterial SpecificMaterial,
+                        Color Color,
+                        int OrderAmount) :
+                        base(Name, 
+                            Material, 
+                            Price,
+                            SpecificMaterial,
+                            Color,
+                            OrderAmount)
         {
             this.r = r;
             this.H = H;
-            PI = 3.14;
-
-            this.Name = Name;
-            Material = material;
-            this.Price = Price;
-            this.OrderAmount = OrderAmount;
-        }
-
-        public Cylinder(string name, double r, double H, Material material, double price, SpecificMaterial specificMaterial)
-        {
-            this.r = r;
-            this.H = H;
-            PI = 3.14;
-
-            Name = name;
-            Material = material;
-            Price = price;
-            SpecificMaterial = specificMaterial;
-        }
-
-        public Cylinder(string name, double r, double H, Material material, double price, SpecificMaterial specificMaterial, Color color)
-        {
-            this.r = r;
-            this.H = H;
-            PI = 3.14;
-
-            Name = name;
-            Material = material;
-            Price = price;
-            SpecificMaterial = specificMaterial;
-            Color = color;
         }
 
         public double CalculateVolume()

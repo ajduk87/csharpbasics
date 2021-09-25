@@ -49,33 +49,19 @@ namespace DemoCSharpBasics
             Cube plastricCube = new Cube(Name: "cube", a: 3, Material.PLASTIC, Price: 10, OrderAmount: 25);
             Cube woodCube = new Cube(Name: "cube", a: 2, Material.WOOD, Price: 20, OrderAmount: 8);
 
-            List<Sphere> sphereOrderItems = new List<Sphere>();
-            sphereOrderItems.Add(plastricSphere);
-            sphereOrderItems.Add(woodSphere);
-
-            List<Cylinder> cylinderOrderItems = new List<Cylinder>();
-            cylinderOrderItems.Add(plastricCylinder);
-            cylinderOrderItems.Add(woodCylinder);
-
-            List<Cube> cubeOrderItems = new List<Cube>();
-            cubeOrderItems.Add(plastricCube);
-            cubeOrderItems.Add(woodCube);
+            List<Shape> shapeOrderItems = new List<Shape>();
+            shapeOrderItems.Add(plastricSphere);
+            shapeOrderItems.Add(woodSphere);
+            shapeOrderItems.Add(plastricCylinder);
+            shapeOrderItems.Add(woodCylinder);
+            shapeOrderItems.Add(plastricCube);
+            shapeOrderItems.Add(woodCube);
 
             double yourbill = 0.0;
 
-            foreach (Sphere sphereOrderItem in sphereOrderItems)
+            foreach (Shape shapeOrderItem in shapeOrderItems)
             {
-                yourbill = yourbill + sphereOrderItem.CalculateOrderItemValue();
-            }
-
-            foreach (Cylinder cylinderOrderItem in cylinderOrderItems)
-            {
-                yourbill = yourbill + cylinderOrderItem.CalculateOrderItemValue();
-            }
-
-            foreach (Cube cubeOrderItem in cubeOrderItems)
-            {
-                yourbill = yourbill + cubeOrderItem.CalculateOrderItemValue();
+                yourbill = yourbill + shapeOrderItem.CalculateOrderItemValue();
             }
 
             Console.WriteLine("Your bill is: " + yourbill);
