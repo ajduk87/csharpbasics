@@ -13,7 +13,7 @@ namespace DemoCSharpBasics
         private double r;
         private double H;
 
-        public Cylinder(string name, double r, double H, Material material, double price) : base(name, material, price)
+        public Cylinder(string name, double r, double H, Material material, double price, int orderAmount) : base(name, material, price, orderAmount)
         {
             this.r = r;
             this.H = H;

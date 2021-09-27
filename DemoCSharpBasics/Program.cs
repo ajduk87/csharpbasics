@@ -32,17 +32,17 @@ namespace DemoCSharpBasics
 
             List<Shape> soldShapes = new List<Shape>();
             ShapeStore shapeStore = new ShapeStore(soldShapes);
-            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
-            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
-            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
+            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, orderAmount: 35);
+            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, orderAmount: 23);
+            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, orderAmount: 45);
 
-            Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 16);
-            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 18);
-            Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 20);
+            Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 16, orderAmount: 10);
+            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 18, orderAmount: 16);
+            Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 20, orderAmount: 18);
 
-            Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 26);
-            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 30);
-            Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32);
+            Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 26, orderAmount: 25);
+            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 30, orderAmount: 19);
+            Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32, orderAmount: 14);
 
             soldShapes.Add(plastricSphere);
             Shape.IncrementNumberOfSoldShapes();

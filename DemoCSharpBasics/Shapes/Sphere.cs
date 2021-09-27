@@ -12,7 +12,7 @@ namespace DemoCSharpBasics
         private double PI;
         private double r;
 
-        public Sphere(string name, double r, Material material, double price) : base(name, material, price)
+        public Sphere(string name, double r, Material material, double price, int orderAmount) : base(name, material, price, orderAmount)
         {
             this.r = r;
             PI = 3.14;
@@ -27,6 +27,16 @@ namespace DemoCSharpBasics
         {
             double volume = CalculateVolume();
             return Math.Round(volume, 2);
+        }
+
+        //business rule:
+        //if it is purchased over 20 pieces you will receive a five percent discount
+        public double CalculateOrderItemValue()
+        {
+            double orderItemValue = this.OrderAmount > 20 ? 0.95 * this.Price * this.OrderAmount :
+                                                            this.Price * this.OrderAmount;
+
+            return orderItemValue;
         }
     }
 }
