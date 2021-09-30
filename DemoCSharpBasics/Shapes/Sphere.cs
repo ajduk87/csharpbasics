@@ -83,6 +83,16 @@ namespace DemoCSharpBasics
         public double CalculateArea()
         {
             return Math.Round(4 * Math.Pow(r, 3) * PI / 3, 2);
-        }     
+        }
+
+        //business rule:
+        //if it is purchased over 20 pieces you are not charged for 4 pieces
+        public override double CalculateOrderItemValue()
+        {
+            double orderItemValue = this.OrderAmount > 20 ? this.Price * (this.OrderAmount - 4) :
+                                                            this.Price * this.OrderAmount;
+
+            return orderItemValue;
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace DemoCSharpBasics.Shapes
 
         //business rule:
         //if it is purchased over 20 pieces you will receive a five percent discount
-        public double CalculateOrderItemValue()
+        public virtual double CalculateOrderItemValue()
         {
             double orderItemValue = this.OrderAmount > 20 ? 0.95 * this.Price * this.OrderAmount :
                                                             this.Price * this.OrderAmount;
