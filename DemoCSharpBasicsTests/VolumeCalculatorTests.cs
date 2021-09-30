@@ -14,7 +14,7 @@ namespace DemoCSharpBasicsTests
         {
             //Arange
             double a = 2;
-            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, orderAmount: 19);
+            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
             double expectedvolume = 8;
 
             //Act
@@ -30,7 +30,7 @@ namespace DemoCSharpBasicsTests
             //Arange
             double r = 2;
             double H = 2;
-            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, orderAmount: 24);
+            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
             double expectedvolume = 37.68;
 
             //Act
@@ -45,7 +45,7 @@ namespace DemoCSharpBasicsTests
         {
             //Arange
             double r = 2;
-            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, orderAmount: 11);
+            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
             double expectedvolume = 33.49;
 
             //Act

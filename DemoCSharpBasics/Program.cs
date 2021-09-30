@@ -32,50 +32,30 @@ namespace DemoCSharpBasics
 
             List<Shape> soldShapes = new List<Shape>();
             ShapeStore shapeStore = new ShapeStore(soldShapes);
-            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6, orderAmount: 35);
-            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8, orderAmount: 23);
-            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10, orderAmount: 45);
+            Sphere plastricSphere = new Sphere(name: "sphere", r: 2, Material.PLASTIC, price: 6);
+            Cube plasticCube = new Cube(name: "cube", a: 2, Material.PLASTIC, price: 8);
+            Cylinder plasticCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.PLASTIC, price: 10);
 
-            Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 16, orderAmount: 10);
-            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 18, orderAmount: 16);
-            Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 20, orderAmount: 18);
+            Sphere woodSphere = new Sphere(name: "sphere", r: 2, Material.WOOD, price: 20);
+            Cube woodCube = new Cube(name: "cube", a: 2, Material.WOOD, price: 18);
+            Cylinder woodCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.WOOD, price: 22);
 
-            Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 26, orderAmount: 25);
-            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 30, orderAmount: 19);
-            Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32, orderAmount: 14);
+            Sphere metalSphere = new Sphere(name: "sphere", r: 2, Material.METAL, price: 26);
+            Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 30);
+            Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32);
 
-            soldShapes.Add(plastricSphere);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(plasticCube);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(plasticCylinder);
-            Shape.IncrementNumberOfSoldShapes();
+            int orderAmount = 20;
 
-            soldShapes.Add(woodSphere);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(woodCube);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(woodCylinder);
-            Shape.IncrementNumberOfSoldShapes();
+            Console.WriteLine("business rules: ");
+            Console.WriteLine("1. if it is purchased over 20 pieces you will receive a five percent discount");
+            Console.WriteLine("2. if it is purchased between 15 and 20 pieces you are not charged 2 pieces");
 
-            soldShapes.Add(metalSphere);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(metalCube);
-            Shape.IncrementNumberOfSoldShapes();
-            soldShapes.Add(metalCylinder);
-            Shape.IncrementNumberOfSoldShapes();
+            Console.WriteLine($"It is ordered {orderAmount} pieces.");
 
-            Console.WriteLine("Sold shapes elements are : " + System.Environment.NewLine);
+            double yourBill = woodSphere.CalculateOrderItemValue(orderAmount);
 
-            foreach (Shape soldShape in soldShapes)
-            {
-                string soldMessage = soldShape.ToString();
-                Console.WriteLine(soldMessage + System.Environment.NewLine);
-                double volume = soldShape.Calculate();
-                Console.WriteLine("Volume is : " + volume + System.Environment.NewLine);
-            }
-
-            Console.WriteLine("Number of sold shapes is : " + Shape.NumberOfSoldShapes);
+            Console.WriteLine($"It is payed {orderAmount} pieces for unit price {woodSphere.Price} dollars.");
+            Console.WriteLine($"You have to pay {yourBill} dollars.");
 
 
             Console.ReadKey();
