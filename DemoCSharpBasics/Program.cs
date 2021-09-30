@@ -52,7 +52,7 @@ namespace DemoCSharpBasics
 
             Console.WriteLine($"It is ordered {orderAmountPerRate.Sum()} pieces.");
 
-            double yourBill = woodSphere.CalculateOrderItemValue(orderAmountPerRate);
+            double yourBill = woodSphere.CalculateOrderItemValue();
 
             Console.WriteLine($"It is payed {woodSphere.OrderAmount} pieces for unit price {woodSphere.Price} dollars.");
             Console.WriteLine($"You have to pay {yourBill} dollars.");
