@@ -32,7 +32,7 @@ namespace DemoCSharpBasics
         //business rules:
         //1. if it is purchased over 20 pieces you will receive a five percent discount
         //2. if it is purchased between 15 and 20 pieces you are not charged 2 pieces
-        public double CalculateOrderItemValue(int orderAmount)
+        public double CalculateOrderItemValue(ref int orderAmount)
         {
             double orderItemValue = orderAmount > 20 ? 0.95 * this.Price * orderAmount :
               (orderAmount>=15 && orderAmount <= 20) ? this.Price * (orderAmount - 2)  :
