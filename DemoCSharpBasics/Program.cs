@@ -50,7 +50,7 @@ namespace DemoCSharpBasics
             Console.WriteLine("1. if it is purchased over 20 pieces you will receive a five percent discount");
             Console.WriteLine("2. if it is purchased between 15 and 20 pieces you are not charged 2 pieces");
 
-            Console.WriteLine($"It is ordered {orderAmount} pieces.");
+            //Console.WriteLine($"It is ordered {orderAmount} pieces.");
 
             double yourBill = woodSphere.CalculateOrderItemValue();
 

@@ -34,6 +34,9 @@ namespace DemoCSharpBasics
         //2. if it is purchased between 15 and 20 pieces you are not charged 2 pieces
         public double CalculateOrderItemValue(int orderAmount = 10)
         {
+
+            Console.WriteLine($"It is ordered {orderAmount} pieces.");
+
             double orderItemValue = orderAmount > 20 ? 0.95 * this.Price * orderAmount :
               (orderAmount >= 15 && orderAmount <= 20) ? this.Price * (orderAmount - 2)  :
                                                        this.Price * orderAmount;
