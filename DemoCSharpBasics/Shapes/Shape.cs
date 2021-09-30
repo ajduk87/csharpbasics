@@ -19,12 +19,14 @@ namespace DemoCSharpBasics
         public string Name { get; set; }
         public Material Material { get; set; }
         public double Price { get; set; }
+        public int OrderAmount { get; set; }
 
-        public Shape(string name, Material material, double price) 
+        public Shape(string name, Material material, double price, int orderAmount) 
         {
             Name = name;
             Material = material;
             Price = price;
+            OrderAmount = orderAmount;
         }
 
         public abstract double Calculate();
