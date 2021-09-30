@@ -45,6 +45,7 @@ namespace DemoCSharpBasics
             Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32);
 
             int orderAmount = 20;
+            int payedAmount = 0;
 
             Console.WriteLine("business rules: ");
             Console.WriteLine("1. if it is purchased over 20 pieces you will receive a five percent discount");
@@ -52,7 +53,7 @@ namespace DemoCSharpBasics
 
             Console.WriteLine($"It is ordered {orderAmount} pieces.");
 
-            double yourBill = woodSphere.CalculateOrderItemValue(orderAmount, out int payedAmount);
+            double yourBill = woodSphere.CalculateOrderItemValue(orderAmount, out payedAmount);
 
             Console.WriteLine($"It is payed {payedAmount} pieces for unit price {woodSphere.Price} dollars.");
             Console.WriteLine($"You have to pay {yourBill} dollars.");
