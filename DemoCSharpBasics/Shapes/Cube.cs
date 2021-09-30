@@ -20,34 +20,24 @@ namespace DemoCSharpBasics.Shapes
 
         static Cube()
         {
-            Console.WriteLine("Static cube constructor is called.");
 
             NumberOfSoldCubes = 0;
         }
 
-        public Cube() : base("cube", Material.PLASTIC, 0.0, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
+        public Cube() : base("cube", Material.PLASTIC, 0.0, SpecificMaterial.PETPLASTIC, Color.WHITE)
         {
             this.a = 0.0;
         }
 
         public Cube(string Name, double a, Material Material, double Price) :
-                    base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
+                    base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE)
         {
-            Console.WriteLine("Instance cube constructor is called.");
-
-            this.a = a;
-        }
-
-        public Cube(string Name, double a, Material Material, double Price, int OrderAmount) :
-                    base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, OrderAmount)
-        {
-            Console.WriteLine("Instance cube (derived) constructor is called.");
 
             this.a = a;
         }
 
         public Cube(string Name, double a, Material Material, double Price, SpecificMaterial SpecificMaterial) :
-                    base(Name, Material, Price, SpecificMaterial, Color.WHITE, 0)
+                    base(Name, Material, Price, SpecificMaterial, Color.WHITE)
         {
             this.a = a;
         }
@@ -57,14 +47,12 @@ namespace DemoCSharpBasics.Shapes
                     Material Material,
                     double Price,
                     SpecificMaterial SpecificMaterial,
-                    Color Color,
-                    int OrderAmount) :
+                    Color Color) :
                     base(Name, 
                          Material, 
                          Price, 
                          SpecificMaterial,
-                         Color,
-                         OrderAmount)
+                         Color)
         {
             this.a = a;
         }

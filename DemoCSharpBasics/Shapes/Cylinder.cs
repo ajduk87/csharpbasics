@@ -31,27 +31,19 @@ namespace DemoCSharpBasics
             PI = 3.14;
         }
 
-        public Cylinder() : base("cylinder", Material.PLASTIC, 0.0, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
+        public Cylinder() : base("cylinder", Material.PLASTIC, 0.0, SpecificMaterial.PETPLASTIC, Color.WHITE)
         {
             this.r = 0.0;
             this.H = 0.0;
         }
 
         public Cylinder(string Name, double r, double H, Material Material, double Price) :
-                        base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
+                        base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE)
         {
             this.r = r;
             this.H = H;
         }
 
-        public Cylinder(string Name, double r, double H, Material Material, double Price, int OrderAmount) :
-                        base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, OrderAmount)
-        {
-            Console.WriteLine("Instance cylinder (derived) constructor is called.");
-
-            this.r = r;
-            this.H = H;
-        }
 
         public Cylinder(string Name, 
                         double r, 
@@ -59,14 +51,12 @@ namespace DemoCSharpBasics
                         Material Material, 
                         double Price, 
                         SpecificMaterial SpecificMaterial,
-                        Color Color,
-                        int OrderAmount) :
+                        Color Color) :
                         base(Name, 
                             Material, 
                             Price,
                             SpecificMaterial,
-                            Color,
-                            OrderAmount)
+                            Color)
         {
             this.r = r;
             this.H = H;
@@ -80,16 +70,6 @@ namespace DemoCSharpBasics
         public double CalculateArea()
         {
             return Math.Round(Math.Pow(r, 2) * PI * H, 2);
-        }
-
-        //business rule:
-        //if it is purchased over 20 pieces you will receive a five percent discount
-        public double CalculateOrderItemValue()
-        {
-            double orderItemValue = this.OrderAmount > 20 ? 0.95 * this.Price * this.OrderAmount :
-                                                            this.Price * this.OrderAmount;
-
-            return orderItemValue;
-        }
+        }    
     }
 }

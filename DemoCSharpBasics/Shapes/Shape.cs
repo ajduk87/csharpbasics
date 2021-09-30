@@ -19,8 +19,7 @@ namespace DemoCSharpBasics.Shapes
                      Material Material, 
                      double Price, 
                      SpecificMaterial SpecificMaterial,
-                     Color Color,
-                     int OrderAmount)
+                     Color Color)
         {
             Console.WriteLine("Instance shape (base) constructor is called.");
 

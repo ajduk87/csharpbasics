@@ -33,28 +33,19 @@ namespace DemoCSharpBasics
             PI = 3.14;
         }
 
-        public Sphere() : base("sphere", Material.PLASTIC, 0.0, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
+        public Sphere() : base("sphere", Material.PLASTIC, 0.0, SpecificMaterial.PETPLASTIC, Color.WHITE)
         {
         }
 
         public Sphere(string Name, double r, Material Material, double Price) :
-                     base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
+                     base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE)
         {
-            Console.WriteLine("Instance sphere constructor is called.");
-
             this.r = r;
         }
 
-        public Sphere(string Name, double r, Material Material, double Price, int OrderAmount) :
-            base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, OrderAmount)
-        {
-            Console.WriteLine("Instance sphere (derived) constructor is called.");
-
-            this.r = r;
-        }
 
         public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial) :
-            base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE, 0)
+            base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE)
         {
             this.r = r;
         }
@@ -64,15 +55,13 @@ namespace DemoCSharpBasics
                       Material Material, 
                       double Price, 
                       SpecificMaterial SpecificMaterial, 
-                      Color Color, 
-                      int OrderAmount) :
+                      Color Color) :
 
                       base(Name, 
                            Material, 
                            Price, 
                            SpecificMaterial, 
-                           Color, 
-                           OrderAmount)
+                           Color)
         {
             this.r = r;
         }

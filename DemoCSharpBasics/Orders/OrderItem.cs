@@ -22,5 +22,15 @@ namespace DemoCSharpBasics.Orders
             this.Material = Material;
             this.OrderAmount = OrderAmount;
         }
+
+        public string Print() 
+        {
+            return $"Product name: {this.ProductName} | " +
+                   $"Material: {this.Material} | " +
+                   $"Order amount: {this.OrderAmount} | " + 
+                   $"Payed amount: {this.PayedAmount} | " +
+                   $"Discount (in percent): {this.Discount} | " +
+                   $"Value (in dollars): {this.Value}";
+        }
     }
 }
