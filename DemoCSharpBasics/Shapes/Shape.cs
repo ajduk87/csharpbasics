@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoCSharpBasics.Orders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,6 @@ namespace DemoCSharpBasics.Shapes
         public double Price { get; set; }
         public SpecificMaterial SpecificMaterial { get; set; }
         public Color Color { get; set; }
-        public int OrderAmount { get; set; }
 
         public Shape(string Name, 
                      Material Material, 
@@ -29,17 +29,26 @@ namespace DemoCSharpBasics.Shapes
             this.Price = Price;
             this.SpecificMaterial = SpecificMaterial;
             this.Color = this.Color;
-            this.OrderAmount = OrderAmount;
         }
 
         //business rule:
-        //if it is purchased over 20 pieces you will receive a five percent discount
-        public virtual double CalculateOrderItemValue()
+        //if it is purchased over 20 shapes you will receive a five percent discount
+        public virtual OrderItem ProcessOrderItem(OrderItem orderItem)
         {
-            double orderItemValue = this.OrderAmount > 20 ? 0.95 * this.Price * this.OrderAmount :
-                                                            this.Price * this.OrderAmount;
+            if (orderItem.OrderAmount > 20)
+            {
+                orderItem.Value = 0.95 * this.Price * orderItem.OrderAmount;
+                orderItem.Discount = 5;                
+            }
+            else 
+            {
+                orderItem.Value = this.Price * orderItem.OrderAmount;
+                orderItem.Discount = 0;
+            }
 
-            return orderItemValue;
+            orderItem.PayedAmount = orderItem.OrderAmount;
+
+            return orderItem;
         }
     }
 }

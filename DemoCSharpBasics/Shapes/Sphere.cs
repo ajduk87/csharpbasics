@@ -1,4 +1,5 @@
-﻿using DemoCSharpBasics.Shapes;
+﻿using DemoCSharpBasics.Orders;
+using DemoCSharpBasics.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,13 +87,23 @@ namespace DemoCSharpBasics
         }
 
         //business rule:
-        //if it is purchased over 20 pieces you are not charged for 4 pieces
-        public override double CalculateOrderItemValue()
+        //if it is purchased over 20 spheres, 4 spheres are free
+        public override OrderItem ProcessOrderItem(OrderItem orderItem)
         {
-            double orderItemValue = this.OrderAmount > 20 ? this.Price * (this.OrderAmount - 4) :
-                                                            this.Price * this.OrderAmount;
+            if (orderItem.OrderAmount > 20)
+            {
+                orderItem.PayedAmount = orderItem.OrderAmount - 4;
+                orderItem.Value = this.Price * orderItem.PayedAmount;
+            }
+            else
+            {
+                orderItem.PayedAmount = orderItem.OrderAmount;
+                orderItem.Value = this.Price * orderItem.OrderAmount;
+            }
 
-            return orderItemValue;
+            orderItem.Discount = 0;
+
+            return orderItem;
         }
     }
 }
