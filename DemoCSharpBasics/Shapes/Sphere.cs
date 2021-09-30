@@ -1,5 +1,4 @@
-﻿using DemoCSharpBasics.Orders;
-using DemoCSharpBasics.Shapes;
+﻿using DemoCSharpBasics.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,15 +32,15 @@ namespace DemoCSharpBasics
         //business rules:
         //1. if it is purchased over 20 pieces you will receive a five percent discount
         //2. if it is purchased between 15 and 20 pieces you are not charged 2 pieces
-        public double CalculateOrderItemValue(Order order)
+        public double CalculateOrderItemValue(int orderAmount = 10)
         {
-            double orderItemValue = order.Amount > 20 ? 0.95 * this.Price * order.Amount :
-              (order.Amount >= 15 && order.Amount <= 20) ? this.Price * (order.Amount - 2)  :
-                                                       this.Price * order.Amount;
+            double orderItemValue = orderAmount > 20 ? 0.95 * this.Price * orderAmount :
+              (orderAmount >= 15 && orderAmount <= 20) ? this.Price * (orderAmount - 2)  :
+                                                       this.Price * orderAmount;
 
-            if (order.Amount >= 15 && order.Amount <= 20) 
+            if (orderAmount >= 15 && orderAmount <= 20) 
             {
-                order.Amount = order.Amount - 2;
+                orderAmount = orderAmount - 2;
             }
 
             return orderItemValue;

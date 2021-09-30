@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections.ObjectModel;
 using System.Text;
-using DemoCSharpBasics.Orders;
 
 namespace DemoCSharpBasics
 {
@@ -45,17 +44,17 @@ namespace DemoCSharpBasics
             Cube metalCube = new Cube(name: "cube", a: 2, Material.METAL, price: 30);
             Cylinder metalCylinder = new Cylinder(name: "cylinder", r: 2, H: 3, Material.METAL, price: 32);
 
-            Order order = new Order(productName: "sphere", material: Material.WOOD, amount: 20);
+            int orderAmount = 20;
 
             Console.WriteLine("business rules: ");
             Console.WriteLine("1. if it is purchased over 20 pieces you will receive a five percent discount");
             Console.WriteLine("2. if it is purchased between 15 and 20 pieces you are not charged 2 pieces");
 
-            Console.WriteLine($"It is ordered {order.Amount} pieces.");
+            Console.WriteLine($"It is ordered {orderAmount} pieces.");
 
-            double yourBill = woodSphere.CalculateOrderItemValue(order);
+            double yourBill = woodSphere.CalculateOrderItemValue();
 
-            Console.WriteLine($"It is payed {order.Amount} pieces for unit price {woodSphere.Price} dollars.");
+            Console.WriteLine($"It is payed {orderAmount} pieces for unit price {woodSphere.Price} dollars.");
             Console.WriteLine($"You have to pay {yourBill} dollars.");
 
 
