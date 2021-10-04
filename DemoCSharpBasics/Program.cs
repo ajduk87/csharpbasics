@@ -80,6 +80,7 @@ namespace DemoCSharpBasics
             Console.WriteLine("1. if it is purchased over 20 shapes in one order item, you will receive a five percent discount");
             Console.WriteLine("2. if it is purchased over 20 spheres in one order item, 4 spheres are free");
             Console.WriteLine("3. if it is purchased over 20 cylinders, 2 cylinders are free");
+            Console.WriteLine("4. if it is purchased over 20 cubes, 1 cubes are free");
 
 
             Console.WriteLine("Your order items are: ");

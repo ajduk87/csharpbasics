@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoCSharpBasics.Orders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,6 +65,26 @@ namespace DemoCSharpBasics.Shapes
         public double CalculateArea()
         {
             return Math.Round(6 * Math.Pow(a, 2), 2);
+        }
+
+        //business rule:
+        //if it is purchased over 20 cubes, 1 cubes are free
+        public override OrderItem ProcessOrderItem(OrderItem orderItem)
+        {
+            if (orderItem.OrderAmount > 20)
+            {
+                orderItem.PayedAmount = orderItem.OrderAmount - 1;
+                orderItem.Value = this.Price * orderItem.PayedAmount;
+            }
+            else
+            {
+                orderItem.PayedAmount = orderItem.OrderAmount;
+                orderItem.Value = this.Price * orderItem.OrderAmount;
+            }
+
+            orderItem.Discount = 0;
+
+            return orderItem;
         }
     }
 }
