@@ -41,6 +41,8 @@ namespace DemoCSharpBasics
             //8  wood cylinder
             //11 plactic cubes
             //29 wood cubes
+            //30 plastic cones
+            //10 wood cones
             Sphere plastricSphere = new Sphere(Name: "sphere", r: 2, Material.PLASTIC, Price: 10);
             Sphere woodSphere = new Sphere(Name: "sphere", r: 2, Material.WOOD, Price: 10);
 
@@ -49,6 +51,9 @@ namespace DemoCSharpBasics
 
             Cube plastricCube = new Cube(Name: "cube", a: 3, Material.PLASTIC, Price: 10);
             Cube woodCube = new Cube(Name: "cube", a: 2, Material.WOOD, Price: 10);
+
+            Cone plastricCone = new Cone(Name: "cone", r: 3, H: 4, Material.PLASTIC, Price: 10);
+            Cone woodCone = new Cone(Name: "cone", r: 2, H: 3, Material.WOOD, Price: 10);
 
             Order order = new Order();
 
@@ -75,6 +80,14 @@ namespace DemoCSharpBasics
             OrderItem woodCubeOrderItem = new OrderItem(ProductName: "cube", Material: Material.WOOD, OrderAmount: 29);
             woodCubeOrderItem = woodCube.ProcessOrderItem(woodCubeOrderItem);
             order.AddOrderItem(woodCubeOrderItem);
+
+            OrderItem plastricConeOrderItem = new OrderItem(ProductName: "cone", Material: Material.PLASTIC, OrderAmount: 30);
+            plastricConeOrderItem = plastricCone.ProcessOrderItem(plastricConeOrderItem);
+            order.AddOrderItem(plastricConeOrderItem);
+
+            OrderItem woodConeOrderItem = new OrderItem(ProductName: "cone", Material: Material.WOOD, OrderAmount: 10);
+            woodConeOrderItem = woodCone.ProcessOrderItem(woodConeOrderItem);
+            order.AddOrderItem(woodConeOrderItem);
 
             Console.WriteLine("business rules are: ");
             Console.WriteLine("1. if it is purchased over 20 shapes in one order item, you will receive a five percent discount");
