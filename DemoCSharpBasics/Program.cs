@@ -78,7 +78,10 @@ namespace DemoCSharpBasics
 
             Console.WriteLine("business rules are: ");
             Console.WriteLine("1. if it is purchased over 20 shapes in one order item, you will receive a five percent discount");
-            Console.WriteLine("2. if it is purchased over 20 spheres in one order item, 4 spheres are free");
+            Console.WriteLine("2. order item processing first way - delivery at the order amount at once");
+            Console.WriteLine("3. order item processing second way - delivery at the order amount in two parts");
+            Console.WriteLine($"4. order item processing third way - delivery at the order amount in n parts," +
+                              $" where n is number between 3 and 12");
 
 
             Console.WriteLine("Your order items are: ");
@@ -87,7 +90,7 @@ namespace DemoCSharpBasics
                 Console.WriteLine(orderItem.Print());
             }
 
-            Console.WriteLine(System.Environment.NewLine + "Your bill is: " + order.CalculateBill() + "dolars");
+            Console.WriteLine(System.Environment.NewLine + "Your bill is: " + order.CalculateBill() + " dolars");
 
             Console.ReadKey();
         }

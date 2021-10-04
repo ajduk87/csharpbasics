@@ -30,7 +30,7 @@ namespace DemoCSharpBasics.Shapes
 
         //business rule:
         //if it is purchased over 20 shapes you will receive a five percent discount
-        public virtual OrderItem ProcessOrderItem(OrderItem orderItem)
+        public OrderItem ProcessOrderItem(OrderItem orderItem)
         {
             if (orderItem.OrderAmount > 20)
             {

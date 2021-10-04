@@ -73,24 +73,5 @@ namespace DemoCSharpBasics
             return Math.Round(4 * Math.Pow(r, 3) * PI / 3, 2);
         }
 
-        //business rule:
-        //if it is purchased over 20 spheres, 4 spheres are free
-        public override OrderItem ProcessOrderItem(OrderItem orderItem)
-        {
-            if (orderItem.OrderAmount > 20)
-            {
-                orderItem.PayedAmount = orderItem.OrderAmount - 4;
-                orderItem.Value = this.Price * orderItem.PayedAmount;
-            }
-            else
-            {
-                orderItem.PayedAmount = orderItem.OrderAmount;
-                orderItem.Value = this.Price * orderItem.OrderAmount;
-            }
-
-            orderItem.Discount = 0;
-
-            return orderItem;
-        }
     }
 }
