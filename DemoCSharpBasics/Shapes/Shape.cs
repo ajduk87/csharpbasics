@@ -21,8 +21,6 @@ namespace DemoCSharpBasics.Shapes
                      SpecificMaterial SpecificMaterial,
                      Color Color)
         {
-            Console.WriteLine("Instance shape (base) constructor is called.");
-
             this.Name = Name;
             this.Material = Material;
             this.Price = Price;

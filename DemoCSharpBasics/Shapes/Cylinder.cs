@@ -25,8 +25,6 @@ namespace DemoCSharpBasics
 
         static Cylinder()
         {
-            Console.WriteLine("Static cylinder constructor is called.");
-
             NumberOfSoldCylinders = 0;
             PI = 3.14;
         }
