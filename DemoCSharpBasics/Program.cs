@@ -79,6 +79,7 @@ namespace DemoCSharpBasics
             Console.WriteLine("business rules are: ");
             Console.WriteLine("1. if it is purchased over 20 shapes in one order item, you will receive a five percent discount");
             Console.WriteLine("2. if it is purchased over 20 spheres in one order item, 4 spheres are free");
+            Console.WriteLine("3. if it is purchased over 20 cylinders, 2 cylinders are free");
 
 
             Console.WriteLine("Your order items are: ");
@@ -87,7 +88,7 @@ namespace DemoCSharpBasics
                 Console.WriteLine(orderItem.Print());
             }
 
-            Console.WriteLine(System.Environment.NewLine + "Your bill is: " + order.CalculateBill() + "dolars");
+            Console.WriteLine(System.Environment.NewLine + "Your bill is: " + order.CalculateBill() + " dolars");
 
             Console.ReadKey();
         }

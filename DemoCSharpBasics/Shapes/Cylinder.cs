@@ -1,4 +1,5 @@
-﻿using DemoCSharpBasics.Shapes;
+﻿using DemoCSharpBasics.Orders;
+using DemoCSharpBasics.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +69,26 @@ namespace DemoCSharpBasics
         public double CalculateArea()
         {
             return Math.Round(Math.Pow(r, 2) * PI * H, 2);
-        }    
+        }
+
+        //business rule:
+        //if it is purchased over 20 cylinders, 2 cylinders are free
+        public override OrderItem ProcessOrderItem(OrderItem orderItem)
+        {
+            if (orderItem.OrderAmount > 20)
+            {
+                orderItem.PayedAmount = orderItem.OrderAmount - 2;
+                orderItem.Value = this.Price * orderItem.PayedAmount;
+            }
+            else
+            {
+                orderItem.PayedAmount = orderItem.OrderAmount;
+                orderItem.Value = this.Price * orderItem.OrderAmount;
+            }
+
+            orderItem.Discount = 0;
+
+            return orderItem;
+        }
     }
 }
