@@ -29,9 +29,10 @@ namespace DemoCSharpBasics.Shapes
         }
 
         //business rule:
-        //if it is purchased over 20 shapes you will receive a five percent discount
+        //order item processing first way - delivery at the order amount at once
         public OrderItem ProcessOrderItem(OrderItem orderItem, int orderAmount)
         {
+            orderItem.DeliveryWay = "at once";
             orderItem.OrderAmount = orderAmount;
 
             if (orderItem.OrderAmount > 20)
@@ -50,8 +51,11 @@ namespace DemoCSharpBasics.Shapes
             return orderItem;
         }
 
+        //business rule:
+        //order item processing second way - delivery at the order amount in two parts
         public OrderItem ProcessOrderItem(OrderItem orderItem, int firstHalfYearAmount, int secondHalfYearAmount)
         {
+            orderItem.DeliveryWay = "in two parts";
             orderItem.OrderAmount = firstHalfYearAmount + secondHalfYearAmount;
 
             if (orderItem.OrderAmount > 20)
@@ -70,8 +74,11 @@ namespace DemoCSharpBasics.Shapes
             return orderItem;
         }
 
+        //business rule:
+        //order item processing third way - delivery at the order amount in n parts, where n is number between 3 and 12
         public OrderItem ProcessOrderItem(OrderItem orderItem, int[] amounts)
         {
+            orderItem.DeliveryWay = $"in {amounts.Length} parts";
             orderItem.OrderAmount = 0;
             foreach (var amount in amounts)
             {

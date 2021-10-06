@@ -15,6 +15,7 @@ namespace DemoCSharpBasics.Orders
         public int PayedAmount { get; set; }
         public double Discount { get; set; }
         public double Value { get; set; }
+        public string DeliveryWay { get; set; }
 
         public OrderItem(string ProductName, Material Material, int OrderAmount) 
         {
@@ -23,13 +24,12 @@ namespace DemoCSharpBasics.Orders
             this.OrderAmount = OrderAmount;
         }
 
-        public string Print() 
+        public string Print()
         {
             return $"Product name: {this.ProductName} | " +
                    $"Material: {this.Material} | " +
-                   $"Order amount: {this.OrderAmount} | " + 
-                   $"Payed amount: {this.PayedAmount} | " +
-                   $"Discount (in percent): {this.Discount} | " +
+                   $"Order amount: {this.OrderAmount} | " +
+                   $"Delivery way: {this.DeliveryWay} | " +
                    $"Value (in dollars): {this.Value}";
         }
     }
