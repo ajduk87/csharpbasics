@@ -53,27 +53,35 @@ namespace DemoCSharpBasics
             Order order = new Order();
 
             OrderItem plastricSphereOrderItem = new OrderItem(ProductName: "sphere", Material: Material.PLASTIC, OrderAmount: 23);
-            plastricSphereOrderItem = plastricSphere.ProcessOrderItem(plastricSphereOrderItem);
+            int orderAmount = 23;
+            plastricSphereOrderItem = plastricSphere.ProcessOrderItemDeliveryAtOnce(plastricSphereOrderItem, orderAmount);
             order.AddOrderItem(plastricSphereOrderItem);
 
             OrderItem woodSphereOrderItem = new OrderItem(ProductName: "sphere", Material: Material.WOOD, OrderAmount: 12);
-            woodSphereOrderItem = woodSphere.ProcessOrderItem(woodSphereOrderItem);
+            int firstHalfYearAmount = 8;
+            int secondHalfYearAmount = 4;
+            woodSphereOrderItem = woodSphere.ProcessOrderItemDeliveryInTwoParts(woodSphereOrderItem, firstHalfYearAmount, secondHalfYearAmount);
             order.AddOrderItem(woodSphereOrderItem);
 
             OrderItem plastricCylinderOrderItem = new OrderItem(ProductName: "cylinder", Material: Material.PLASTIC, OrderAmount: 25);
-            plastricCylinderOrderItem = plastricCylinder.ProcessOrderItem(plastricCylinderOrderItem);
+            firstHalfYearAmount = 10;
+            secondHalfYearAmount = 15;
+            plastricCylinderOrderItem = plastricCylinder.ProcessOrderItemDeliveryInTwoParts(woodSphereOrderItem, firstHalfYearAmount, secondHalfYearAmount);
             order.AddOrderItem(plastricCylinderOrderItem);
 
             OrderItem woodCylinderOrderItem = new OrderItem(ProductName: "cylinder", Material: Material.WOOD, OrderAmount: 8);
-            woodCylinderOrderItem = woodCylinder.ProcessOrderItem(woodCylinderOrderItem);
+            int[] woodCylinderAmounts = new int[4]{ 2,2,2,2 };
+            woodCylinderOrderItem = woodCylinder.ProcessOrderItemDeliveryInNParts(woodCylinderOrderItem, woodCylinderAmounts);
             order.AddOrderItem(woodCylinderOrderItem);
 
             OrderItem plastricCubeOrderItem = new OrderItem(ProductName: "cube", Material: Material.PLASTIC, OrderAmount: 11);
-            plastricCubeOrderItem = plastricCube.ProcessOrderItem(plastricCubeOrderItem);
+            int[] plastricCubeAmounts = new int[5] { 2, 2, 2, 2, 3 };
+            plastricCubeOrderItem = plastricCube.ProcessOrderItemDeliveryInNParts(plastricCubeOrderItem, plastricCubeAmounts);
             order.AddOrderItem(plastricCubeOrderItem);
 
             OrderItem woodCubeOrderItem = new OrderItem(ProductName: "cube", Material: Material.WOOD, OrderAmount: 29);
-            woodCubeOrderItem = woodCube.ProcessOrderItem(woodCubeOrderItem);
+            int[] woodCubeAmounts = new int[6] { 4, 8, 2, 7, 4, 3 };
+            woodCubeOrderItem = woodCube.ProcessOrderItemDeliveryInNParts(woodCubeOrderItem, woodCubeAmounts);
             order.AddOrderItem(woodCubeOrderItem);
 
             Console.WriteLine("business rules are: ");

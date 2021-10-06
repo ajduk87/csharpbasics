@@ -30,14 +30,60 @@ namespace DemoCSharpBasics.Shapes
 
         //business rule:
         //if it is purchased over 20 shapes you will receive a five percent discount
-        public OrderItem ProcessOrderItem(OrderItem orderItem)
+        public OrderItem ProcessOrderItemDeliveryAtOnce(OrderItem orderItem, int orderAmount)
         {
+            orderItem.OrderAmount = orderAmount;
+
             if (orderItem.OrderAmount > 20)
             {
                 orderItem.Value = 0.95 * this.Price * orderItem.OrderAmount;
                 orderItem.Discount = 5;                
             }
             else 
+            {
+                orderItem.Value = this.Price * orderItem.OrderAmount;
+                orderItem.Discount = 0;
+            }
+
+            orderItem.PayedAmount = orderItem.OrderAmount;
+
+            return orderItem;
+        }
+
+        public OrderItem ProcessOrderItemDeliveryInTwoParts(OrderItem orderItem, int firstHalfYearAmount, int secondHalfYearAmount)
+        {
+            orderItem.OrderAmount = firstHalfYearAmount + secondHalfYearAmount;
+
+            if (orderItem.OrderAmount > 20)
+            {
+                orderItem.Value = 0.95 * this.Price * orderItem.OrderAmount;
+                orderItem.Discount = 5;
+            }
+            else
+            {
+                orderItem.Value = this.Price * orderItem.OrderAmount;
+                orderItem.Discount = 0;
+            }
+
+            orderItem.PayedAmount = orderItem.OrderAmount;
+
+            return orderItem;
+        }
+
+        public OrderItem ProcessOrderItemDeliveryInNParts(OrderItem orderItem, int[] amounts)
+        {
+            orderItem.OrderAmount = 0;
+            foreach (var amount in amounts)
+            {
+                orderItem.OrderAmount = orderItem.OrderAmount + amount;
+            }
+
+            if (orderItem.OrderAmount > 20)
+            {
+                orderItem.Value = 0.95 * this.Price * orderItem.OrderAmount;
+                orderItem.Discount = 5;
+            }
+            else
             {
                 orderItem.Value = this.Price * orderItem.OrderAmount;
                 orderItem.Discount = 0;
