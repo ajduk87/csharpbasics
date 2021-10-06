@@ -30,7 +30,7 @@ namespace DemoCSharpBasics.Shapes
 
         //business rule:
         //if it is purchased over 20 shapes you will receive a five percent discount
-        public OrderItem ProcessOrderItemDeliveryAtOnce(OrderItem orderItem, int orderAmount)
+        public OrderItem ProcessOrderItem(OrderItem orderItem, int orderAmount)
         {
             orderItem.OrderAmount = orderAmount;
 
@@ -50,7 +50,7 @@ namespace DemoCSharpBasics.Shapes
             return orderItem;
         }
 
-        public OrderItem ProcessOrderItemDeliveryInTwoParts(OrderItem orderItem, int firstHalfYearAmount, int secondHalfYearAmount)
+        public OrderItem ProcessOrderItem(OrderItem orderItem, int firstHalfYearAmount, int secondHalfYearAmount)
         {
             orderItem.OrderAmount = firstHalfYearAmount + secondHalfYearAmount;
 
@@ -70,7 +70,7 @@ namespace DemoCSharpBasics.Shapes
             return orderItem;
         }
 
-        public OrderItem ProcessOrderItemDeliveryInNParts(OrderItem orderItem, int[] amounts)
+        public OrderItem ProcessOrderItem(OrderItem orderItem, int[] amounts)
         {
             orderItem.OrderAmount = 0;
             foreach (var amount in amounts)
