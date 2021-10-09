@@ -24,30 +24,30 @@ namespace DemoCSharpBasics.Shapes
             NumberOfSoldCubes = 0;
         }
 
-        public Cube() : base("cube", Material.PLASTIC, 0.0, SpecificMaterial.PETPLASTIC, Color.WHITE)
+        public Cube() : base("cube", "PLASTIC", 0.0, "PETPLASTIC", "WHITE")
         {
             this.a = 0.0;
         }
 
-        public Cube(string Name, double a, Material Material, double Price) :
-                    base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE)
+        public Cube(string Name, double a, string Material, double Price) :
+                    base(Name, Material, Price, "PETPLASTIC", "WHITE")
         {
 
             this.a = a;
         }
 
-        public Cube(string Name, double a, Material Material, double Price, SpecificMaterial SpecificMaterial) :
-                    base(Name, Material, Price, SpecificMaterial, Color.WHITE)
+        public Cube(string Name, double a, string Material, double Price, string SpecificMaterial) :
+                    base(Name, Material, Price, SpecificMaterial, "WHITE")
         {
             this.a = a;
         }
 
         public Cube(string Name,
                     double a,
-                    Material Material,
+                    string Material,
                     double Price,
-                    SpecificMaterial SpecificMaterial,
-                    Color Color) :
+                    string SpecificMaterial,
+                    string Color) :
                     base(Name, 
                          Material, 
                          Price, 

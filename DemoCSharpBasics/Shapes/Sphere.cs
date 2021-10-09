@@ -31,29 +31,29 @@ namespace DemoCSharpBasics
             PI = 3.14;
         }
 
-        public Sphere() : base("sphere", Material.PLASTIC, 0.0, SpecificMaterial.PETPLASTIC, Color.WHITE)
+        public Sphere() : base("sphere", "PLASTIC", 0.0, "PETPLASTIC", "WHITE")
         {
         }
 
-        public Sphere(string Name, double r, Material Material, double Price) :
-                     base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE)
+        public Sphere(string Name, double r, string Material, double Price) :
+                     base(Name, Material, Price, "PETPLASTIC", "WHITE")
         {
             this.r = r;
         }
 
 
-        public Sphere(string Name, double r, Material Material, double Price, SpecificMaterial SpecificMaterial) :
-            base(Name, Material, Price, SpecificMaterial.PETPLASTIC, Color.WHITE)
+        public Sphere(string Name, double r, string Material, double Price, string SpecificMaterial) :
+            base(Name, Material, Price, SpecificMaterial, "WHITE")
         {
             this.r = r;
         }
 
         public Sphere(string Name, 
                       double r, 
-                      Material Material, 
+                      string Material, 
                       double Price, 
-                      SpecificMaterial SpecificMaterial, 
-                      Color Color) :
+                      string SpecificMaterial, 
+                      string Color) :
 
                       base(Name, 
                            Material, 
