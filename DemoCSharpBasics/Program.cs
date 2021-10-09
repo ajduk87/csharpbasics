@@ -12,11 +12,11 @@ namespace DemoCSharpBasics
     {
         private static void WriteCube(Cube cube)
         {
-            Console.WriteLine($"name: {cube.Name}  " +
-                              $"material: {cube.Material}  " +
-                              $"specific material: {cube.SpecificMaterial} " +
-                              $"color: {cube.Color}  " +
-                              $"price:{cube.Price}");
+            Console.WriteLine($"name: {cube.GetName()}  " +
+                              $"material: {cube.GetMaterial()}  " +
+                              $"specific material: {cube.GetSpecificMaterial()} " +
+                              $"color: {cube.GetColor()}  " +
+                              $"price:{cube.GetPrice()}");
             Console.WriteLine("========================================");
             Console.WriteLine();
         }

@@ -43,6 +43,11 @@ namespace DemoCSharpBasics.Shapes
             return this.Name;
         }
 
+        public string GetMaterial()
+        {
+            return this.Material;
+        }
+
         public double GetPrice() 
         {
             return this.Price;
