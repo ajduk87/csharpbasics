@@ -46,6 +46,7 @@ namespace DemoCSharpBasics.Shapes
         {
             //Color should be read only
             get;
+            private set;
         }
 
         public Shape(string Name, 
@@ -72,7 +73,8 @@ namespace DemoCSharpBasics.Shapes
             if (orderItem.OrderAmount > 20)
             {
                 orderItem.Value = 0.95 * this.Price * orderItem.OrderAmount;
-                orderItem.Discount = 5;                
+                orderItem.Discount = 5;
+                this.Color = "RED";
             }
             else 
             {
