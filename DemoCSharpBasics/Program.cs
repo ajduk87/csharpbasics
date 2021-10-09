@@ -14,8 +14,8 @@ namespace DemoCSharpBasics
         {
             Console.WriteLine($"name: {cube.Name}  " +
                               $"material: {cube.Material}  " +
-                              $"specific material: {cube.CalculateVolume()} " +
-                              $"color: {cube.CalculateArea()}  " +
+                              $"specific material: {cube.SpecificMaterial} " +
+                              $"color: {cube.Color}  " +
                               $"price:{cube.Price}");
             Console.WriteLine("========================================");
             Console.WriteLine();
