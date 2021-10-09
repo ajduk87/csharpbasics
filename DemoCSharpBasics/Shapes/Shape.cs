@@ -9,13 +9,76 @@ namespace DemoCSharpBasics.Shapes
 {
     public class Shape
     {
+        private Guid identifier;
+        private string name;
+        private string material;
+        private double price;
+        private string specificMaterial;
+
+
         //A GUID (Global Unique IDentifier) is a 128-bit integer used as a unique identifier.
-        public Guid Identifier;
-        public string Name;
-        public string Material;
-        public double Price;
-        public string SpecificMaterial;
-        public string Color;
+        public Guid Identifier 
+        {
+            get { return identifier; }
+            set { identifier = value; }
+        }
+        public string Name 
+        {
+            get { return name; }
+            set 
+            {
+                //Name of Shape can not be null
+                if (string.IsNullOrEmpty(value) == false)
+                {
+                    name = value;
+                }
+            }
+        }
+        public string Material 
+        {
+            get { return material; }
+            set 
+            {
+                List<string> availableMaterials = new List<string>();
+                availableMaterials.Add("PLASTIC");
+                availableMaterials.Add("WOOD");
+                availableMaterials.Add("METAL");
+                availableMaterials.Add("GLASS");
+
+                //Material have to be one of 4 available materials in shape store (plastic, wood, metal, glass)
+                if (availableMaterials.Contains(value))
+                {
+                    material = value;
+                }
+            }
+        }
+        public double Price 
+        {
+            get { return price; }
+            set 
+            {
+                //Price should always be greater than zero
+                if (value > 0)
+                {
+                    price = value;
+                }
+            }
+        }
+        public string SpecificMaterial 
+        {
+            get { return specificMaterial; }
+            set 
+            {
+                //if SpecificMaterial is missing type SpecificMaterial is not specified
+                specificMaterial = string.IsNullOrEmpty(value) ? "SpecificMaterial is not specified" :
+                                                                             value;
+            }
+        }
+        public string Color 
+        {
+            //Color should be read only
+            get;
+        }
 
         public Shape(string Name, 
                      string Material, 
@@ -29,76 +92,7 @@ namespace DemoCSharpBasics.Shapes
             this.Price = Price;
             this.SpecificMaterial = SpecificMaterial;
             this.Color = Color;
-        }
-
-        #region Getters
-
-        public Guid GetIdentifier() 
-        {
-            return this.Identifier;
-        }
-
-        public string GetName() 
-        {
-            return this.Name;
-        }
-
-        public double GetPrice() 
-        {
-            return this.Price;
-        }
-
-        public string GetSpecificMaterial() 
-        {
-            return this.SpecificMaterial;
-        }
-
-        public string GetColor() 
-        {
-            return this.Color;
-        }
-
-        #endregion
-
-        #region Setters
-
-        public void SetName(string name)
-        {
-            if (string.IsNullOrEmpty(name) == false) 
-            {
-                this.Name = name;
-            }
-        }
-
-        public void SetMaterial(string material) 
-        {
-            List<string> availableMaterials = new List<string>();
-            availableMaterials.Add("PLASTIC");
-            availableMaterials.Add("WOOD");
-            availableMaterials.Add("METAL");
-            availableMaterials.Add("GLASS");
-
-            if (availableMaterials.Contains(material)) 
-            {
-                this.Material = material;
-            }
-        }
-
-        public void SetPrice(double price)
-        {
-            if (price > 0) 
-            {
-                this.Price = price;
-            }
-        }
-
-        public void SetSpecificMaterial(string specificMaterial) 
-        {
-            this.SpecificMaterial = string.IsNullOrEmpty(specificMaterial) ? "SpecificMaterial is not specified" :
-                                                                             specificMaterial;
-        }
-
-        #endregion
+        }     
 
         //business rule:
         //order item processing first way - delivery at the order amount at once
