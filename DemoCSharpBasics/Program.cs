@@ -14,8 +14,8 @@ namespace DemoCSharpBasics
         {
             Console.WriteLine($"name: {cube.Name}  " +
                               $"material: {cube.Material}  " +
-                              $"specific material: {cube.CalculateVolume()} " +
-                              $"color: {cube.CalculateArea()}  " +
+                              $"specific material: {cube.SpecificMaterial} " +
+                              $"color: {cube.Color}  " +
                               $"price:{cube.Price}");
             Console.WriteLine("========================================");
             Console.WriteLine();
@@ -31,15 +31,15 @@ namespace DemoCSharpBasics
                                      Color: "WHITE");
 
             //Name of Shape can not be null
-            woodCube.Name = null;
+            woodCube.SetName(null);
             //Material have to be one of 4 available materials in shape store (plastic, wood, metal, glass)
-            woodCube.Material = "CLAY";
+            woodCube.SetMaterial("CLAY");
             //if SpecificMaterial is missing type SpecificMaterial is not specified. 
-            woodCube.SpecificMaterial = string.Empty;
+            woodCube.SetSpecificMaterial(string.Empty);
             //Color should be read only
-            woodCube.Color = "BLACK";
+            //woodCube.SetColor("BLACK");
             //Price should always be greater than zero
-            woodCube.Price = -15;
+            woodCube.SetPrice(-15);
 
             WriteCube(woodCube);
 

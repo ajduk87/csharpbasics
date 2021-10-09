@@ -23,12 +23,82 @@ namespace DemoCSharpBasics.Shapes
                      string SpecificMaterial,
                      string Color)
         {
+            Identifier = Guid.NewGuid();
             this.Name = Name;
             this.Material = Material;
             this.Price = Price;
             this.SpecificMaterial = SpecificMaterial;
             this.Color = Color;
         }
+
+        #region Getters
+
+        public Guid GetIdentifier() 
+        {
+            return this.Identifier;
+        }
+
+        public string GetName() 
+        {
+            return this.Name;
+        }
+
+        public double GetPrice() 
+        {
+            return this.Price;
+        }
+
+        public string GetSpecificMaterial() 
+        {
+            return this.SpecificMaterial;
+        }
+
+        public string GetColor() 
+        {
+            return this.Color;
+        }
+
+        #endregion
+
+        #region Setters
+
+        public void SetName(string name)
+        {
+            if (string.IsNullOrEmpty(name) == false) 
+            {
+                this.Name = name;
+            }
+        }
+
+        public void SetMaterial(string material) 
+        {
+            List<string> availableMaterials = new List<string>();
+            availableMaterials.Add("PLASTIC");
+            availableMaterials.Add("WOOD");
+            availableMaterials.Add("METAL");
+            availableMaterials.Add("GLASS");
+
+            if (availableMaterials.Contains(material)) 
+            {
+                this.Material = material;
+            }
+        }
+
+        public void SetPrice(double price)
+        {
+            if (price > 0) 
+            {
+                this.Price = price;
+            }
+        }
+
+        public void SetSpecificMaterial(string specificMaterial) 
+        {
+            this.SpecificMaterial = string.IsNullOrEmpty(specificMaterial) ? "SpecificMaterial is not specified" :
+                                                                             specificMaterial;
+        }
+
+        #endregion
 
         //business rule:
         //order item processing first way - delivery at the order amount at once
