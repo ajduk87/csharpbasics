@@ -24,44 +24,18 @@ namespace DemoCSharpBasics.Shapes
         public string Name 
         {
             get { return name; }
-            set 
-            {
-                //Name of Shape can not be null
-                if (string.IsNullOrEmpty(value) == false)
-                {
-                    name = value;
-                }
-            }
+            set { name = value;}
+
         }
         public string Material 
         {
             get { return material; }
-            set 
-            {
-                List<string> availableMaterials = new List<string>();
-                availableMaterials.Add("PLASTIC");
-                availableMaterials.Add("WOOD");
-                availableMaterials.Add("METAL");
-                availableMaterials.Add("GLASS");
-
-                //Material have to be one of 4 available materials in shape store (plastic, wood, metal, glass)
-                if (availableMaterials.Contains(value))
-                {
-                    material = value;
-                }
-            }
+            set { material = value; }
         }
         public double Price 
         {
             get { return price; }
-            set 
-            {
-                //Price should always be greater than zero
-                if (value > 0)
-                {
-                    price = value;
-                }
-            }
+            set { price = value; } 
         }
         public string SpecificMaterial 
         {

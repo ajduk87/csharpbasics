@@ -5,6 +5,7 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Text;
 using DemoCSharpBasics.Orders;
+using DemoCSharpBasics.Shapes.Validators;
 
 namespace DemoCSharpBasics
 {
@@ -29,19 +30,39 @@ namespace DemoCSharpBasics
                                      Price: 10, 
                                      SpecificMaterial: "ASHWOOD",
                                      Color: "WHITE");
-
-            //Name of Shape can not be null
-            woodCube.Name = null;
-            //Material have to be one of 4 available materials in shape store (plastic, wood, metal, glass)
-            woodCube.Material = "CLAY";
-            //if SpecificMaterial is missing type SpecificMaterial is not specified. 
-            woodCube.SpecificMaterial = string.Empty;
-            //Color should be read only
-            //woodCube.Color = "BLACK";
-            //Price should always be greater than zero
-            woodCube.Price = -15;
-
             WriteCube(woodCube);
+
+            Cube newWoodCube = new Cube(Name: null,
+                                     a: 2,
+                                     Material: "CLAY",
+                                     Price: -15,
+                                     SpecificMaterial: "ASHWOOD",
+                                     Color: "WHITE");
+
+            Validator validator = new Validator();
+            List<string> errors = validator.Validate(newWoodCube);
+
+            if (errors.Count() == 0)
+            {
+                woodCube.Name = newWoodCube.Name;
+                woodCube.Material = newWoodCube.Material;
+                woodCube.SpecificMaterial = newWoodCube.SpecificMaterial;
+                woodCube.Price = newWoodCube.Price;
+
+                WriteCube(woodCube);
+            }
+            else 
+            {
+                Console.WriteLine("Errors are:");
+                foreach (string error in errors)
+                {
+                    Console.WriteLine(error);
+                }
+                Console.WriteLine("Shape is not updated !");
+            }
+           
+
+            
 
             Console.ReadKey();
         }
