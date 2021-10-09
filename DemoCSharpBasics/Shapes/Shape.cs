@@ -53,6 +53,7 @@ namespace DemoCSharpBasics.Shapes
             return this.SpecificMaterial;
         }
 
+        //Color should be read only
         public string GetColor() 
         {
             return this.Color;
@@ -64,6 +65,7 @@ namespace DemoCSharpBasics.Shapes
 
         public void SetName(string name)
         {
+            //Name of Shape can not be null
             if (string.IsNullOrEmpty(name) == false) 
             {
                 this.Name = name;
@@ -78,6 +80,7 @@ namespace DemoCSharpBasics.Shapes
             availableMaterials.Add("METAL");
             availableMaterials.Add("GLASS");
 
+            //Material have to be one of 4 available materials in shape store (plastic, wood, metal, glass)
             if (availableMaterials.Contains(material)) 
             {
                 this.Material = material;
@@ -86,6 +89,7 @@ namespace DemoCSharpBasics.Shapes
 
         public void SetPrice(double price)
         {
+            //Price should always be greater than zero
             if (price > 0) 
             {
                 this.Price = price;
@@ -94,6 +98,7 @@ namespace DemoCSharpBasics.Shapes
 
         public void SetSpecificMaterial(string specificMaterial) 
         {
+            //if SpecificMaterial is missing type SpecificMaterial is not specified.
             this.SpecificMaterial = string.IsNullOrEmpty(specificMaterial) ? "SpecificMaterial is not specified" :
                                                                              specificMaterial;
         }
