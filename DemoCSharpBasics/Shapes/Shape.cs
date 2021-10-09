@@ -9,11 +9,7 @@ namespace DemoCSharpBasics.Shapes
 {
     public class Shape
     {
-        private string name;
-        private string material;
-        private double price;
         private string specificMaterial;
-
 
         //A GUID (Global Unique IDentifier) is a 128-bit integer used as a unique identifier.
         public Guid Identifier 
@@ -21,21 +17,20 @@ namespace DemoCSharpBasics.Shapes
             get;
             set;
         }
-        public string Name 
+        public string Name
         {
-            get { return name; }
-            set { name = value;}
-
+            get;
+            set;
         }
-        public string Material 
+        public string Material
         {
-            get { return material; }
-            set { material = value; }
+            get;
+            set;
         }
-        public double Price 
+        public double Price
         {
-            get { return price; }
-            set { price = value; } 
+            get;
+            set;
         }
         public string SpecificMaterial 
         {
