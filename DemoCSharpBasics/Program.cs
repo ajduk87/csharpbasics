@@ -5,64 +5,64 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Text;
 using DemoCSharpBasics.Orders;
-using DemoCSharpBasics.Shapes.Validators;
 
 namespace DemoCSharpBasics
 {
     public static class Program
     {
-        private static void WriteCube(Cube cube)
+        private static void WriteShape(Shape shape)
         {
-            Console.WriteLine($"name: {cube.Name}  " +
-                              $"material: {cube.Material}  " +
-                              $"specific material: {cube.SpecificMaterial} " +
-                              $"color: {cube.Color}  " +
-                              $"price:{cube.Price}");
+            Console.WriteLine($"name: {shape.Name}  " +
+                              $"material: {shape.Material}  " +
+                              $"price:{shape.Price.Print()}");
             Console.WriteLine("========================================");
             Console.WriteLine();
         }
 
         public static void Main(string[] args)
         {
+
+            Price price = new Price(10.679, "dollars", 2);
+
             Cube woodCube = new Cube(Name: "cube", 
                                      a: 2,
                                      Material: "WOOD", 
-                                     Price: 10, 
-                                     SpecificMaterial: "ASHWOOD",
-                                     Color: "WHITE");
-            WriteCube(woodCube);
+                                     Price: price);
 
-            Cube newWoodCube = new Cube(Name: null,
-                                     a: 2,
-                                     Material: "CLAY",
-                                     Price: -15,
-                                     SpecificMaterial: "ASHWOOD",
-                                     Color: "WHITE");
+            price = new Price();
+            price.Value = 15.67;
+            price.Currency = "dollars";
 
-            Validator validator = new Validator();
-            List<string> errors = validator.Validate(newWoodCube);
 
-            if (errors.Count() == 0)
+            Sphere woodSphere = new Sphere(Name: "sphere", 
+                                           r: 2, 
+                                           Material: "WOOD", 
+                                           Price: price);
+
+            price = new Price 
             {
-                woodCube.Name = newWoodCube.Name;
-                woodCube.Material = newWoodCube.Material;
-                woodCube.SpecificMaterial = newWoodCube.SpecificMaterial;
-                woodCube.Price = newWoodCube.Price;
+                Value = 19.3456,
+                Currency = "dollars"
+            };
 
-                WriteCube(woodCube);
-            }
-            else 
+            Cylinder woodCylinder = new Cylinder(Name: "cylinder", 
+                                                 r: 2, 
+                                                 H: 4, 
+                                                 Material: "WOOD", 
+                                                 Price: price);
+
+            List<Shape> shapes = new List<Shape> 
             {
-                Console.WriteLine("Errors are:");
-                foreach (string error in errors)
-                {
-                    Console.WriteLine(error);
-                }
-                Console.WriteLine("Shape is not updated !");
-            }
-           
+                woodCube,
+                woodSphere,
+                woodCylinder
+            };
 
-            
+            foreach (Shape shape in shapes)
+            {
+                WriteShape(shape);
+            }
+
 
             Console.ReadKey();
         }

@@ -27,7 +27,7 @@ namespace DemoCSharpBasics.Shapes
             get;
             set;
         }
-        public double Price
+        public Price Price
         {
             get;
             set;
@@ -50,8 +50,8 @@ namespace DemoCSharpBasics.Shapes
         }
 
         public Shape(string Name, 
-                     string Material, 
-                     double Price, 
+                     string Material,
+                     Price Price, 
                      string SpecificMaterial,
                      string Color)
         {
@@ -72,13 +72,13 @@ namespace DemoCSharpBasics.Shapes
 
             if (orderItem.OrderAmount > 20)
             {
-                orderItem.Value = 0.95 * this.Price * orderItem.OrderAmount;
+                orderItem.Value = 0.95 * this.Price.Value * orderItem.OrderAmount;
                 orderItem.Discount = 5;
                 this.Color = "RED";
             }
             else 
             {
-                orderItem.Value = this.Price * orderItem.OrderAmount;
+                orderItem.Value = this.Price.Value * orderItem.OrderAmount;
                 orderItem.Discount = 0;
             }
 
@@ -96,12 +96,12 @@ namespace DemoCSharpBasics.Shapes
 
             if (orderItem.OrderAmount > 20)
             {
-                orderItem.Value = 0.95 * this.Price * orderItem.OrderAmount;
+                orderItem.Value = 0.95 * this.Price.Value * orderItem.OrderAmount;
                 orderItem.Discount = 5;
             }
             else
             {
-                orderItem.Value = this.Price * orderItem.OrderAmount;
+                orderItem.Value = this.Price.Value * orderItem.OrderAmount;
                 orderItem.Discount = 0;
             }
 
@@ -123,12 +123,12 @@ namespace DemoCSharpBasics.Shapes
 
             if (orderItem.OrderAmount > 20)
             {
-                orderItem.Value = 0.95 * this.Price * orderItem.OrderAmount;
+                orderItem.Value = 0.95 * this.Price.Value * orderItem.OrderAmount;
                 orderItem.Discount = 5;
             }
             else
             {
-                orderItem.Value = this.Price * orderItem.OrderAmount;
+                orderItem.Value = this.Price.Value * orderItem.OrderAmount;
                 orderItem.Discount = 0;
             }
 

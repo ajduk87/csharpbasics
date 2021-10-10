@@ -24,19 +24,19 @@ namespace DemoCSharpBasics.Shapes
             NumberOfSoldCubes = 0;
         }
 
-        public Cube() : base("cube", "PLASTIC", 0.0, "PETPLASTIC", "WHITE")
+        public Cube() : base("cube", "PLASTIC", new Price(0.0, "dollars", 2), "PETPLASTIC", "WHITE")
         {
             this.a = 0.0;
         }
 
-        public Cube(string Name, double a, string Material, double Price) :
+        public Cube(string Name, double a, string Material, Price Price) :
                     base(Name, Material, Price, "PETPLASTIC", "WHITE")
         {
 
             this.a = a;
         }
 
-        public Cube(string Name, double a, string Material, double Price, string SpecificMaterial) :
+        public Cube(string Name, double a, string Material, Price Price, string SpecificMaterial) :
                     base(Name, Material, Price, SpecificMaterial, "WHITE")
         {
             this.a = a;
@@ -45,7 +45,7 @@ namespace DemoCSharpBasics.Shapes
         public Cube(string Name,
                     double a,
                     string Material,
-                    double Price,
+                    Price Price,
                     string SpecificMaterial,
                     string Color) :
                     base(Name, 

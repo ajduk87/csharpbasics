@@ -29,13 +29,13 @@ namespace DemoCSharpBasics
             PI = 3.14;
         }
 
-        public Cylinder() : base("cylinder", "PLASTIC", 0.0, "PETPLASTIC", "WHITE")
+        public Cylinder() : base("cylinder", "PLASTIC", new Price(0.0, "dollars", 2), "PETPLASTIC", "WHITE")
         {
             this.r = 0.0;
             this.H = 0.0;
         }
 
-        public Cylinder(string Name, double r, double H, string Material, double Price) :
+        public Cylinder(string Name, double r, double H, string Material, Price Price) :
                         base(Name, Material, Price, "PETPLASTIC", "WHITE")
         {
             this.r = r;
@@ -47,7 +47,7 @@ namespace DemoCSharpBasics
                         double r, 
                         double H, 
                         string Material, 
-                        double Price, 
+                        Price Price, 
                         string SpecificMaterial,
                         string Color) :
                         base(Name, 

@@ -31,18 +31,18 @@ namespace DemoCSharpBasics
             PI = 3.14;
         }
 
-        public Sphere() : base("sphere", "PLASTIC", 0.0, "PETPLASTIC", "WHITE")
+        public Sphere() : base("sphere", "PLASTIC", new Price(0.0, "dollars", 2), "PETPLASTIC", "WHITE")
         {
         }
 
-        public Sphere(string Name, double r, string Material, double Price) :
+        public Sphere(string Name, double r, string Material, Price Price) :
                      base(Name, Material, Price, "PETPLASTIC", "WHITE")
         {
             this.r = r;
         }
 
 
-        public Sphere(string Name, double r, string Material, double Price, string SpecificMaterial) :
+        public Sphere(string Name, double r, string Material, Price Price, string SpecificMaterial) :
             base(Name, Material, Price, SpecificMaterial, "WHITE")
         {
             this.r = r;
@@ -51,7 +51,7 @@ namespace DemoCSharpBasics
         public Sphere(string Name, 
                       double r, 
                       string Material, 
-                      double Price, 
+                      Price Price, 
                       string SpecificMaterial, 
                       string Color) :
 
